@@ -73,6 +73,9 @@ class Projects extends Model
             $data[$key]['percentage'] = ceil($vaule['status']/9*100);
             $data[$key]['statusValue'] = $this->projectStatus[$vaule['status']-1];
             $data[$key]['levelValue'] = $this->projectLevel[$vaule['level']-1];
+            $data[$key]['dateline_d'] = date('Y-m-d',$vaule['dateline']);
+            $data[$key]['end_time_d'] = date('Y-m-d',$vaule['end_time']);
+            $data[$key]['firstName'] = mbs($vaule['subject'],1);
         }
 
         return $data;
