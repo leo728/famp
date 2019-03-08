@@ -7,7 +7,7 @@
 * jquery
 ### 基于Vue版本
 当前正在开发简化中，期待后期更新...  
-项目预览地址： <a href="https://github.com/top-dante/fam.git">top-dante/fam</a>
+详情请查看 vue-famp分支
 * vue2 ，使用vue-cli 3 构建
 * vuex 状态管理
 * vue-router 路由
