@@ -137,6 +137,9 @@ $(document).on('click', '.am-upload-remove', function () {
     im.sget('/api/handle/unset_file.html?file=' + file + '&token=' + atoken)
 });
 $(document).ready(function () {
+    $(document).on('click','.am-nav-menu>li',function(){
+        $(this).toggleClass('am-active').siblings('.am-nav-menu>li').removeClass('am-active');
+    });
     $("#selectAll").click(function () {
         if (this.checked) {
             $("#articleList :checkbox").prop("checked", true)

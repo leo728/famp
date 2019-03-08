@@ -23,13 +23,12 @@ class Common extends Controller
         $this->assign('localname','fa/'.$controller.'/'.$action);
 
         $auth = new \app\fa\model\Authorize();
-        $menus= $auth->getList(3);
+        $menus= $auth->getList(2);
         $subMenus = $auth->getSubMenus();
         $this->assign('sub_menus',$subMenus[1]);
         $commonMenus = $auth->getCommonMenus();
         $this->assign('common',$commonMenus);
         $this->assign('toplocal',$subMenus[0]);
-
         $this->assign('menus',$menus);
     }
     public function getUserInfo(){

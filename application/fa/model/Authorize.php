@@ -78,7 +78,8 @@ class Authorize extends Model
                 $subMenus[]= $value;
             }
         };
-        return [$topMenu,$subMenus];
+        $breadcrumb = breadcrumb($data,$topMenu['id']);
+        return [$topMenu,$subMenus,$breadcrumb];
     }
 
     /**
