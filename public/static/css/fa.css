@@ -154,16 +154,27 @@ p,*+p{
 }
 .aside>.am-nav>li>a:hover,
 .aside>.am-nav>li>a:focus{
-    background-color:#dadada;
     color: #222;
     transition-duration: 300ms;
 }
 .aside>.am-nav>li.am-active>a{
-    color: #fff !important;
-    background-color: #3d404d;
+    color: #0a9e8a !important;
+    background-color: #f0f0f0;
+    position:relative;
+}
+.aside>.am-nav>li.am-active>a:before{
+    display:block;
+    content:'';
+    border-bottom:1px solid #e3e3e3;
+    border-top:1px solid #e3e3e3;
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0
 }
 .aside>.am-nav>li.am-active>a>.am-icon-fw{
-    color: #fff;
+    color: #0a9e8a;
 }
 .am-nav-sub{
     margin: 0;
