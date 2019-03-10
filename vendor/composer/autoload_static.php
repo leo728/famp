@@ -4,58 +4,78 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit650d1782257cfad0cabd0f8b2c1a4775
+class ComposerStaticInitcec20db7bb5e8f374bfe3e76f31b7373
 {
     public static $files = array (
-        '841780ea2e1d6545ea3a253239d59c05' => __DIR__ . '/..' . '/qiniu/php-sdk/src/Qiniu/functions.php',
-        '1cfd2761b63b0a29ed23657ea394cb2d' => __DIR__ . '/..' . '/topthink/think-captcha/src/helper.php',
+        '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
+        '3c51c36e2870ac9423bd005f23b1c166' => __DIR__ . '/..' . '/topthink/think-view/src/helper.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         't' => 
         array (
-            'think\\composer\\' => 15,
-            'think\\captcha\\' => 14,
             'think\\' => 6,
         ),
         'a' => 
         array (
             'app\\' => 4,
         ),
-        'Q' => 
+        'P' => 
         array (
-            'Qiniu\\' => 6,
+            'Psr\\SimpleCache\\' => 16,
+            'Psr\\Log\\' => 8,
+            'Psr\\Container\\' => 14,
+            'Psr\\Cache\\' => 10,
+        ),
+        'O' => 
+        array (
+            'Opis\\Closure\\' => 13,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'think\\composer\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/topthink/think-installer/src',
-        ),
-        'think\\captcha\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/topthink/think-captcha/src',
-        ),
         'think\\' => 
         array (
-            0 => __DIR__ . '/..' . '/topthink/think-image/src',
+            0 => __DIR__ . '/..' . '/topthink/framework/src/think',
+            1 => __DIR__ . '/..' . '/topthink/think-template/src',
+            2 => __DIR__ . '/..' . '/topthink/think-view/src',
         ),
         'app\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/application',
+            0 => __DIR__ . '/../..' . '/app',
         ),
-        'Qiniu\\' => 
+        'Psr\\SimpleCache\\' => 
         array (
-            0 => __DIR__ . '/..' . '/qiniu/php-sdk/src/Qiniu',
+            0 => __DIR__ . '/..' . '/psr/simple-cache/src',
         ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'Psr\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/cache/src',
+        ),
+        'Opis\\Closure\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/opis/closure/src',
+        ),
+    );
+
+    public static $fallbackDirsPsr0 = array (
+        0 => __DIR__ . '/../..' . '/extend',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit650d1782257cfad0cabd0f8b2c1a4775::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit650d1782257cfad0cabd0f8b2c1a4775::$prefixDirsPsr4;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitcec20db7bb5e8f374bfe3e76f31b7373::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitcec20db7bb5e8f374bfe3e76f31b7373::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr0 = ComposerStaticInitcec20db7bb5e8f374bfe3e76f31b7373::$fallbackDirsPsr0;
 
         }, null, ClassLoader::class);
     }

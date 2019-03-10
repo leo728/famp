@@ -1,35 +1,34 @@
-# FaThink 
+ThinkPHP 5.2
+===============
 
-基于thinkphp5.1 开发的项目、财务、人员管理系统，用于公司内部年度收支和项目统计。  
-相关设计稿和合同留存服务器。  
-* 采用nginx+mariaDB+PHP7.3服务器
-* 传统SPA架构，前端 amazeui 3 修改版（特此声明，不作为第三方版权商业化）
-* jquery
-### 基于Vue版本
-当前正在开发简化中，期待后期更新...  
-详情请查看 vue-famp分支
-* vue2 ，使用vue-cli 3 构建
-* vuex 状态管理
-* vue-router 路由
-* axios 一步请求
-* 后台使用当前系统api请求
+> ThinkPHP5.2的运行环境要求PHP7.1+。
 
-### 项目功能预览 
-* 项目管理
-* 财务管理
-* 部门管理
-* 客户关系
-* 报价管理
-* 文档管理
-* 权限管理
-* 系统设置
 
-### 目录说明
-```
-├─application           应用目录
-│  ├─api                接口模块
-│  ├─fa                 后台管理模块
-│  ├─index              前台模块 目前暂无设置前端
-```
-### 特别鸣谢
-ThinkPHP 、 AmazeUI 、Vue、VueAntDesign
+## 安装
+
+~~~
+composer create-project topthink/think tp5 5.2.*-dev
+~~~
+
+如果需要更新框架使用
+~~~
+composer update topthink/framework
+~~~
+
+## 参与开发
+
+请参阅 [ThinkPHP5 核心框架包](https://github.com/top-think/framework)。
+
+## 版权信息
+
+ThinkPHP遵循Apache2开源协议发布，并提供免费使用。
+
+本项目包含的第三方源码和二进制文件之版权信息另行标注。
+
+版权所有Copyright © 2006-2018 by ThinkPHP (http://thinkphp.cn)
+
+All rights reserved。
+
+ThinkPHP® 商标和著作权所有者为上海顶想信息科技有限公司。
+
+更多细节参阅 [LICENSE.txt](LICENSE.txt)

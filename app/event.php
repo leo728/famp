@@ -9,10 +9,23 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
-// +----------------------------------------------------------------------
-// | Trace设置 开启 app_trace 后 有效
-// +----------------------------------------------------------------------
+// 事件定义文件
 return [
-    // 内置Html Console 支持扩展
-    'type' => 'Console',
+    'bind'      => [
+    ],
+    'listen'    => [
+        'AppInit'      => [
+            'think\listener\LoadLangPack',
+        ],
+        'AppBegin'     => [
+            'think\listener\CheckRequestCache',
+        ],
+        'AppEnd'       => [],
+        'LogLevel'     => [],
+        'LogWrite'     => [],
+        'ResponseSend' => [],
+        'ResponseEnd'  => [],
+    ],
+    'subscribe' => [
+    ],
 ];
