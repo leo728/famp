@@ -5,7 +5,7 @@
         <a href="#">Amaze UI</a>
     </h1>
 
-    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-only" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
 
     <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse">
         <ul class="am-nav am-nav-pills am-topbar-nav">
@@ -53,7 +53,7 @@
         <a href="#">Amaze UI</a>
     </h1>
 
-    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse-2'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-only" data-am-collapse="{target: '#doc-topbar-collapse-2'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
 
     <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse-2">
         <ul class="am-nav am-nav-pills am-topbar-nav">
@@ -170,33 +170,28 @@
                 <fieldset>
                     <legend>H5 原生表单验证</legend>
                     <div class="am-form-group">
-                        <label class="am-form-label am-u-sm-2">用户名：</label>
-                        <div class="am-u-sm-10">
+                        <label class="am-form-label am-u-2">用户名：</label>
+                        <div class="am-u-10">
                         <input type="text" id="doc-vld-name-1" maxlength="3" pattern="^\d+$" placeholder="输入用户名" class="am-form-field" required/>
                         </div>
                         </div>
 
                     <div class="am-form-group">
-                        <label for="doc-vld-email-1">邮箱：</label>
+                        <label class="am-form-label am-u-2">邮箱：</label>
+                        <div class="am-u-10">
                         <input type="email" id="doc-vld-email-1" placeholder="输入邮箱" required/>
+                        </div>
                     </div>
-
                     <div class="am-form-group">
-                        <label for="doc-vld-url-1">网址：</label>
-                        <input type="url" id="doc-vld-url-1" placeholder="输入网址" required/>
-                    </div>
-
-                    <div class="am-form-group">
-                        <label for="doc-vld-age-1">年龄：</label>
-                        <input type="number" class=""  id="doc-vld-age-1" max="100" placeholder="输入年龄" required />
-                    </div>
-
-                    <div class="am-form-group">
-                        <label for="doc-vld-ta-1">评论：</label>
+                        <label class="am-form-label am-u-2">评论：</label>
+                        <div class="am-u-10">
                         <textarea id="doc-vld-ta-1" minlength="10" maxlength="100"></textarea>
+                        </div>
                     </div>
+                        <div class="am-u-offset-2 am-u-10">
+                            <button class="am-btn am-btn-primary" type="submit">提交</button>
+                        </div>
 
-                    <button class="am-btn am-btn-secondary" type="submit">提交</button>
                 </fieldset>
             </form>
 
@@ -538,14 +533,14 @@
 
         </div>
         <div class="am-panel-bd">
-            <div class="am-g doc-am-g">
-                <div class="am-u-sm-4">4</div>
-                <div class="am-u-sm-8">8</div>
+            <div class="am-g am-g-gutter">
+                <div class="am-u-4">4</div>
+                <div class="am-u-8">8</div>
             </div>
 
         </div>
         <div class="am-panel-bd">
-            <ul class="am-avg-sm-4 am-thumbnails">
+            <ul class="am-avg-4 am-thumbnails">
                 <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/2017-1-19-1.png" /></li>
                 <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/2017-1-19-2.png" /></li>
                 <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/2017-1-19-3.png" /></li>
