@@ -207,7 +207,7 @@ kbd,
 pre,
 samp {
   font-family: Monaco, Menlo, Consolas, "Courier New", "FontAwesome", monospace;
-  font-size: 1em;
+  font-size: 14px;
 }
 /* Forms
    ========================================================================== */
@@ -395,7 +395,7 @@ body {
   font-weight: normal;
   line-height: 1.6;
   color: #333333;
-  font-size: 1rem;
+  font-size: 14px;
 }
 /**
  * 1. http://usabilitypost.com/2012/11/15/w-optimizelegibility-on-mobile-devices/
@@ -479,7 +479,7 @@ pre,
 address,
 fieldset,
 figure {
-  margin: 0 0 1rem 0;
+  margin: 0 0 14px 0;
 }
 * + p,
 * + hr,
@@ -491,7 +491,7 @@ figure {
 * + address,
 * + fieldset,
 * + figure {
-  margin-top: 1rem;
+  margin-top: 14px;
 }
 /* Headings
    ========================================================================== */
@@ -501,7 +501,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0 0 1rem 0;
+  margin: 0 0 14px 0;
   font-weight: 600;
   font-size: 100%;
 }
@@ -529,7 +529,7 @@ ul > li > ul,
 ul > li > ol,
 ol > li > ol,
 ol > li > ul {
-  margin: 1em 0;
+  margin: 14px 0;
 }
 /* Description lists */
 dt {
@@ -542,7 +542,7 @@ dd {
   margin-left: 0;
 }
 dd + dt {
-  margin-top: 1em;
+  margin-top: 14px;
 }
 /**
  * Horizontal rule
@@ -1594,12 +1594,12 @@ code {
   color: #c7254e;
   background-color: #f8f8f8;
   white-space: nowrap;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 /* Code block */
 pre {
   display: block;
-  padding: 1rem;
+  padding: 14px;
   margin: 0.625rem  0;
   font-size: 0.8125rem;
   line-height: 1.6;
@@ -1607,7 +1607,7 @@ pre {
   word-wrap: break-word;
   color: #999999;
   background-color: #f8f8f8;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 pre code {
   padding: 0;
@@ -1628,16 +1628,16 @@ pre code {
 .am-btn {
   display: inline-block;
   margin-bottom: 0;
-  padding: 0.5em 1em;
+  padding: 0.5em 14px;
   vertical-align: middle;
-  font-size: 1rem;
+  font-size: 14px;
   font-weight: normal;
   line-height: 1.2;
   text-align: center;
   white-space: nowrap;
   background-image: none;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 2px;
   cursor: pointer;
   outline: none;
   -webkit-appearance: none;
@@ -2358,7 +2358,7 @@ td {
 }
 .am-table {
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 14px;
   border-spacing: 0;
   border-collapse: separate;
 }
@@ -2368,7 +2368,7 @@ td {
 .am-table > thead > tr > td,
 .am-table > tbody > tr > td,
 .am-table > tfoot > tr > td {
-  padding: 0.625em 1em;
+  padding: 0.625em 14px;
   vertical-align: top;
   border-top: 1px solid #ccc;
 }
@@ -2570,7 +2570,7 @@ fieldset {
 legend {
   display: block;
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 14px;
   font-size: 1.25rem;
   line-height: inherit;
   color: #666666;
@@ -2618,8 +2618,8 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 output {
   display: block;
-  padding-top: 1rem;
-  font-size: 1rem;
+  padding-top: 14px;
+  font-size: 14px;
   line-height: 1.6;
   color: #999999;
   vertical-align: middle;
@@ -2645,7 +2645,7 @@ output {
   display: block;
   width: 100%;
   padding: 0.625em;
-  font-size: 1rem;
+  font-size: 14px;
   line-height: 1.2;
   color: #333;
   vertical-align: middle;
@@ -2890,7 +2890,7 @@ fieldset[disabled] .am-form-field {
 }
 @media only screen and (max-width: 640px) {
   .am-form-field {
-    border-radius: 4px;
+    border-radius: 2px;
   }
 }
 .am-form textarea,
@@ -2901,7 +2901,7 @@ fieldset[disabled] .am-form-field {
 .am-form select {
   -webkit-appearance: none !important;
   -moz-appearance: none !important;
-  -webkit-border-radius: 4px;
+  -webkit-border-radius: 2px;
   background: #fff url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMTJweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIzcHgiIHZpZXdCb3g9IjAgMCA2IDMiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDYgMyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBvbHlnb24gcG9pbnRzPSI1Ljk5MiwwIDIuOTkyLDMgLTAuMDA4LDAgIi8+PC9zdmc+') no-repeat 100% center;
 }
 .am-form select[multiple="multiple"] {
@@ -3289,7 +3289,7 @@ fieldset[disabled] .am-checkbox-inline {
   line-height: 1.6;
   background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 2px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
@@ -3308,7 +3308,7 @@ fieldset[disabled] .am-checkbox-inline {
   margin-bottom: 0;
   padding: 0;
   list-style: none;
-  font-size: 1rem;
+  font-size: 14px;
 }
 .am-nav:before,
 .am-nav:after {
@@ -3326,12 +3326,12 @@ fieldset[disabled] .am-checkbox-inline {
   margin-top: 5px;
 }
 .am-nav > li + .am-nav-header {
-  margin-top: 1em;
+  margin-top: 14px;
 }
 .am-nav > li > a {
   position: relative;
   display: block;
-  padding: 0.444em 1em;
+  padding: 0.444em 14px;
   line-height: 1;
   border-radius: 2px;
 }
@@ -3358,14 +3358,14 @@ fieldset[disabled] .am-checkbox-inline {
   cursor: not-allowed;
 }
 .am-nav-header {
-  padding: 0.444em 1em;
+  padding: 0.444em 14px;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 100%;
   color: #999999;
 }
 .am-nav-divider {
-  margin: 15px 1em !important;
+  margin: 15px 14px !important;
   border-top: 1px solid #ddd;
   -webkit-box-shadow: 0 1px 0 #fff;
           box-shadow: 0 1px 0 #fff;
@@ -3451,7 +3451,7 @@ fieldset[disabled] .am-checkbox-inline {
 .am-topbar {
   position: relative;
   min-height: 64px;
-  margin-bottom: 1rem;
+  margin-bottom: 14px;
   background: #f8f8f8;
   border-width: 0 0 1px;
   border-style: solid;
@@ -3521,7 +3521,7 @@ fieldset[disabled] .am-checkbox-inline {
 .am-topbar-brand {
   padding-left: 0.625rem;
   float: left;
-  font-size: 1rem;
+  font-size: 14px;
   height: 64px;
   line-height: 64px;
 }
@@ -3541,7 +3541,7 @@ fieldset[disabled] .am-checkbox-inline {
   }
 }
 .am-topbar-nav .am-dropdown .am-dropdown-content {
-  font-size: 1rem;
+  font-size: 14px;
   margin: 4px 0 0;
 }
 @media only screen and (max-width: 640px) {
@@ -3611,7 +3611,7 @@ fieldset[disabled] .am-checkbox-inline {
 }
 .am-topbar-form .am-form-group .am-topbar-form-search {
   padding: 0.5em;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 .am-topbar-form .am-form-group .am-topbar-form-btn {
   border-color: #ccc;
@@ -3733,10 +3733,10 @@ fieldset[disabled] .am-checkbox-inline {
  ============================================================================ */
 .am-breadcrumb {
   padding: .7em .5em;
-  margin-bottom: 1rem;
+  margin-bottom: 14px;
   list-style: none;
   background-color: transparent;
-  border-radius: 4px;
+  border-radius: 2px;
   font-size: 85%;
 }
 .am-breadcrumb > li {
@@ -3782,12 +3782,12 @@ fieldset[disabled] .am-checkbox-inline {
 .am-pagination > li > span {
   position: relative;
   display: block;
-  padding: 0.5em 1em;
+  padding: 0.5em 14px;
   text-decoration: none;
   line-height: 1.2;
   background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 2px;
   margin-bottom: 5px;
   margin-right: 5px;
 }
@@ -3829,13 +3829,13 @@ fieldset[disabled] .am-checkbox-inline {
   float: left;
 }
 .am-pagination .am-pagination-prev a {
-  border-radius: 4px;
+  border-radius: 2px;
 }
 .am-pagination .am-pagination-next {
   float: right;
 }
 .am-pagination .am-pagination-next a {
-  border-radius: 4px;
+  border-radius: 2px;
 }
 .am-pagination-centered {
   text-align: center;
@@ -4471,7 +4471,7 @@ a.am-badge:focus {
   position: relative;
   margin-left: 42px;
   border: 1px solid #dedede;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 .am-comment-main:before,
 .am-comment-main:after {
@@ -4512,7 +4512,7 @@ a.am-badge:focus {
 }
 .am-comment-title {
   margin: 0 0 8px 0;
-  font-size: 1rem;
+  font-size: 14px;
   line-height: 1.2;
 }
 .am-comment-meta {
@@ -4682,7 +4682,7 @@ a.am-badge:focus {
   list-style: none;
 }
 .am-comments-list .am-comment {
-  margin: 1rem 0 0 0;
+  margin: 14px 0 0 0;
   list-style: none;
 }
 @media only screen and (min-width:641px) {
@@ -4969,7 +4969,7 @@ a.am-close:hover {
 }
 [class*="am-icon-"]:before {
   display: inline-block;
-  font: normal normal normal 1rem/1 "FontAwesome", sans-serif;
+  font: normal normal normal 14px/1 "FontAwesome", sans-serif;
   /*font-weight: normal; // 2
   font-style: normal; // 2
   vertical-align: baseline; // 3
@@ -4984,7 +4984,7 @@ a.am-close:hover {
 .am-icon-border {
   padding: .2em .25em .15em;
   border: solid 0.08em #eee;
-  border-radius: .1em;
+  border-radius: .14px;
 }
 [class*="am-icon-"].am-fl {
   margin-right: .3em;
@@ -7163,13 +7163,13 @@ a.am-close:hover {
 .am-input-group-label {
   height: 39px;
   padding: 0 0.675em;
-  font-size: 1rem;
+  font-size: 14px;
   font-weight: normal;
   line-height: 37px;
   color: #999999;
   text-align: center;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 .am-input-group-label input[type="radio"],
 .am-input-group-label input[type="checkbox"] {
@@ -7298,7 +7298,7 @@ a.am-close:hover {
    Component: List
  ============================================================================ */
 .am-list {
-  margin-bottom: 1rem;
+  margin-bottom: 14px;
   padding-left: 0;
 }
 .am-list > li {
@@ -7395,7 +7395,7 @@ a.am-close:hover {
   margin-bottom: 20px;
   background-color: #fff;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 2px;
   overflow: hidden;
 }
 @media only screen and (max-width: 640px) {
@@ -7405,12 +7405,12 @@ a.am-close:hover {
 }
 /* Panel header */
 .am-panel-hd {
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 14px;
   border-bottom: 1px solid transparent;
 }
 /* Panel content */
 .am-panel-bd {
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 14px;
 }
 .am-panel-title {
   margin: 0;
@@ -7422,7 +7422,7 @@ a.am-close:hover {
 }
 /* Panel footer */
 .am-panel-footer {
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 14px;
   background-color: #f0f0f0;
   border-top: 1px solid #ccc;
   border-bottom-right-radius: 4px;
@@ -7603,8 +7603,8 @@ a.am-close:hover {
 }
 /* Panel group */
 .am-panel-group {
-  margin-bottom: 1rem;
-  border-radius: 4px;
+  margin-bottom: 14px;
+  border-radius: 2px;
   overflow: hidden;
   border: 1px solid transparent;
   border-color: #ccc;
@@ -7702,7 +7702,7 @@ a.am-close:hover {
 .am-progress-outer {
   display: inline-block;
   width: 100%;
-  height: 1rem;
+  height: 14px;
   margin-right: -3em;
   padding-right: 3em;
   overflow: hidden;
@@ -7714,7 +7714,7 @@ a.am-close:hover {
 }
 .am-progress-outer-disable .am-progress-text {
   color: #fff;
-  padding-right: 1em;
+  padding-right: 14px;
   vertical-align: middle;
 }
 .am-progress-outer-disable [class*="am-icon"] {
@@ -7780,7 +7780,7 @@ a.am-close:hover {
   height: 6.25rem;
 }
 .am-progress-svg.am-progress-sm .am-progress-text {
-  font-size: 1rem;
+  font-size: 14px;
 }
 .am-progress-svg .am-progress-text {
   position: absolute;
@@ -7859,10 +7859,10 @@ a.am-close:hover {
 .am-thumbnail {
   display: block;
   padding: 2px;
-  margin-bottom: 1rem;
+  margin-bottom: 14px;
   background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 2px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
@@ -7922,7 +7922,7 @@ img.am-thumbnail,
   border-radius: 0;
 }
 .am-radius {
-  border-radius: 4px;
+  border-radius: 2px;
 }
 .am-round {
   border-radius: 1000px;
@@ -7989,7 +7989,7 @@ img.am-thumbnail,
 .am-vertical-align-middle,
 .am-vertical-align-bottom {
   display: inline-block;
-  font-size: 1rem;
+  font-size: 14px;
   /* 1 */
   max-width: 100%;
 }
@@ -8007,7 +8007,7 @@ img.am-thumbnail,
 }
 /* Margin helpers */
 .am-margin {
-  margin: 1rem;
+  margin: 14px;
 }
 .am-margin-0 {
   margin: 0!important;
@@ -8025,8 +8025,8 @@ img.am-thumbnail,
   margin: 2rem;
 }
 .am-margin-horizontal {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 14px;
+  margin-right: 14px;
 }
 .am-margin-horizontal-0 {
   margin-left: 0!important;
@@ -8049,8 +8049,8 @@ img.am-thumbnail,
   margin-right: 2rem;
 }
 .am-margin-vertical {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 14px;
+  margin-bottom: 14px;
 }
 .am-margin-vertical-0 {
   margin-top: 0!important;
@@ -8073,7 +8073,7 @@ img.am-thumbnail,
   margin-bottom: 2rem;
 }
 .am-margin-top {
-  margin-top: 1rem;
+  margin-top: 14px;
 }
 .am-margin-top-0 {
   margin-top: 0!important;
@@ -8091,7 +8091,7 @@ img.am-thumbnail,
   margin-top: 2rem;
 }
 .am-margin-bottom {
-  margin-bottom: 1rem;
+  margin-bottom: 14px;
 }
 .am-margin-bottom-0 {
   margin-bottom: 0!important;
@@ -8109,7 +8109,7 @@ img.am-thumbnail,
   margin-bottom: 2rem;
 }
 .am-margin-left {
-  margin-left: 1rem;
+  margin-left: 14px;
 }
 .am-margin-left-0 {
   margin-left: 0!important;
@@ -8127,7 +8127,7 @@ img.am-thumbnail,
   margin-left: 2rem;
 }
 .am-margin-right {
-  margin-right: 1rem;
+  margin-right: 14px;
 }
 .am-margin-right-0 {
   margin-right: 0!important;
@@ -8146,7 +8146,7 @@ img.am-thumbnail,
 }
 /* Padding helpers */
 .am-padding {
-  padding: 1rem;
+  padding: 14px;
 }
 .am-padding-0 {
   padding: 0!important;
@@ -8164,8 +8164,8 @@ img.am-thumbnail,
   padding: 2rem;
 }
 .am-padding-horizontal {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 14px;
+  padding-right: 14px;
 }
 .am-padding-horizontal-0 {
   padding-left: 0!important;
@@ -8188,8 +8188,8 @@ img.am-thumbnail,
   padding-right: 2rem;
 }
 .am-padding-vertical {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 14px;
+  padding-bottom: 14px;
 }
 .am-padding-vertical-0 {
   padding-top: 0!important;
@@ -8212,7 +8212,7 @@ img.am-thumbnail,
   padding-bottom: 2rem;
 }
 .am-padding-top {
-  padding-top: 1rem;
+  padding-top: 14px;
 }
 .am-padding-top-0 {
   padding-top: 0!important;
@@ -8230,7 +8230,7 @@ img.am-thumbnail,
   padding-top: 2rem;
 }
 .am-padding-bottom {
-  padding-bottom: 1rem;
+  padding-bottom: 14px;
 }
 .am-padding-bottom-0 {
   padding-bottom: 0!important;
@@ -8248,7 +8248,7 @@ img.am-thumbnail,
   padding-bottom: 2rem;
 }
 .am-padding-left {
-  padding-left: 1rem;
+  padding-left: 14px;
 }
 .am-padding-left-0 {
   padding-left: 0!important;
@@ -8266,7 +8266,7 @@ img.am-thumbnail,
   padding-left: 2rem;
 }
 .am-padding-right {
-  padding-right: 1rem;
+  padding-right: 14px;
 }
 .am-padding-right-0 {
   padding-right: 0!important;
@@ -8681,7 +8681,7 @@ img.am-thumbnail,
   color: #555;
 }
 .am-text-default {
-  font-size: 1rem;
+  font-size: 14px;
 }
 /*
 .@{ns}text-xxs {
@@ -9112,16 +9112,16 @@ img.am-thumbnail,
    Component: Alert Plugin
  ============================================================================ */
 .am-alert {
-  margin-bottom: 1em;
-  padding: 1em 1.5em;
+  margin-bottom: 14px;
+  padding: 14px 1.5em;
   background: #5085FF;
   color: #fff;
-  border-radius: 4px;
-  font-size: 1rem;
+  border-radius: 2px;
+  font-size: 14px;
 }
 @media only screen and (max-width: 640px) {
   .am-alert {
-    padding: 0.75em 1em;
+    padding: 0.75em 14px;
   }
 }
 .am-alert a {
@@ -9195,7 +9195,7 @@ img.am-thumbnail,
   clear: both;
 }
 .am-alert-icon-sm [class*='am-icon-'] {
-  font-size: 1rem;
+  font-size: 14px;
   float: left;
   position: absolute;
   top: 50%;
@@ -9218,7 +9218,7 @@ img.am-thumbnail,
 }
 /* Add margin if adjacent element */
 * + .am-alert {
-  margin-top: 1em;
+  margin-top: 14px;
 }
 /* Remove margin from the last-child */
 .am-alert > :last-child {
@@ -9909,12 +9909,12 @@ TODO:
   top: 0;
   left: 0;
   margin: 0;
-  border-radius: 4px;
+  border-radius: 2px;
   background: #4c4c4c;
   color: #fff;
   border: 1px solid #ccc;
   display: none;
-  font-size: 1rem;
+  font-size: 14px;
   z-index: 1150;
   opacity: 0;
   -webkit-transition: opacity 300ms;
@@ -9927,7 +9927,7 @@ TODO:
 .am-popover-inner {
   position: relative;
   background: #4c4c4c;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 14px;
   z-index: 110;
 }
 .am-popover-caret {
@@ -10226,7 +10226,7 @@ label.am-radio {
 .am-checkbox-inline .am-icon-unchecked:before,
 .am-radio-inline .am-icon-unchecked:before {
   display: inline-block;
-  font: normal normal normal 1rem/1 "FontAwesome", sans-serif;
+  font: normal normal normal 14px/1 "FontAwesome", sans-serif;
   /*font-weight: normal; // 2
   font-style: normal; // 2
   vertical-align: baseline; // 3
@@ -10591,7 +10591,7 @@ tbody.am-collapse.am-in {
 .am-datepicker {
   top: 0;
   left: 0;
-  border-radius: 4px;
+  border-radius: 2px;
   background: #fff;
   -webkit-box-shadow: 0 0 10px #ccc;
           box-shadow: 0 0 10px #ccc;
@@ -10744,7 +10744,7 @@ tbody.am-collapse.am-in {
 }
 .am-datepicker-prev-icon:before {
   display: inline-block;
-  font: normal normal normal 1rem/1 "FontAwesome", sans-serif;
+  font: normal normal normal 14px/1 "FontAwesome", sans-serif;
   /*font-weight: normal; // 2
   font-style: normal; // 2
   vertical-align: baseline; // 3
@@ -10759,7 +10759,7 @@ tbody.am-collapse.am-in {
 }
 .am-datepicker-next-icon:before {
   display: inline-block;
-  font: normal normal normal 1rem/1 "FontAwesome", sans-serif;
+  font: normal normal normal 14px/1 "FontAwesome", sans-serif;
   /*font-weight: normal; // 2
   font-style: normal; // 2
   vertical-align: baseline; // 3
@@ -10903,7 +10903,7 @@ tbody.am-collapse.am-in {
   font-weight: normal;
 }
 .am-datepicker-time-box strong:hover {
-  border-radius: 4px;
+  border-radius: 2px;
   background: #ECECEC;
 }
 .am-datepicker-time-box em {
@@ -10951,7 +10951,7 @@ tbody.am-collapse.am-in {
   position: absolute;
   display: none;
   color: #E54D42;
-  right: 1em;
+  right: 14px;
   top: 0.5em;
 }
 /* ==========================================================================
@@ -11018,7 +11018,7 @@ tbody.am-collapse.am-in {
   cursor: pointer;
 }
 .am-tree .am-tree-branch .am-tree-branch-children {
-  margin-left: 1em;
+  margin-left: 14px;
 }
 .am-tree .am-tree-item {
   white-space: nowrap;
@@ -11134,9 +11134,9 @@ tbody.am-collapse.am-in {
 @media only screen and (max-width: 640px) {
   .am-slider-arrow-prev,
   .am-slider-arrow-next {
-    width: 1em;
-    height: 1em;
-    font-size: 1rem;
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
   }
 }
 .am-slider-arrow-prev {
@@ -11189,7 +11189,7 @@ tbody.am-collapse.am-in {
 }
 @media only screen and (max-width: 640px) {
   .am-inputnumber-wrap .am-inputnumber {
-    border-radius: 4px;
+    border-radius: 2px;
   }
 }
 .am-inputnumber-wrap .am-inputnumber-decrease,
