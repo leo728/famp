@@ -4,10 +4,95 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/static/css/amazeui.css">
+    <link rel="stylesheet" href="/static/css/app.css">
+    {block name="css"}{/block}
 </head>
 <body>
-{block name="page"}{/block}
+<div class="am-layout">
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <a href=""></a>
+        </div>
+        <ul class="am-list am-list-collapse" id="sidebar-menu">
+            {volist name="menus" id="vo"}
+            <li  class="am-panel">
+                {empty name="vo.child"}
+                <a data-am-collapse="{parent: '#sidebar-menu'}" href="{$vo.name|url}">
+                    <i class="{$vo.icon} am-margin-left-sm"></i> {$vo.title}
+                </a>
+                {else/}
+                <a data-am-collapse="{parent: '#sidebar-menu', target: '#auth-id-{$vo.id}'}">
+                    <i class="{$vo.icon} am-margin-left-sm"></i> {$vo.title}
+                    <i class="am-icon-angle-down am-fr am-margin-right"></i>
+                </a>
+                <ul class="am-list am-collapse" id="auth-id-{$vo.id}">
+                    {volist name="vo.child" id="v"}
+                    <li><a href="{$v.name|url}">
+                        <i class="{$v.icon} am-margin-left-sm"></i> {$v.title} </a>
+                    </li>
+                    {/volist}
+                </ul>
+                {/empty}
+            </li>
+            {/volist}
+        </ul>
+
+    </aside>
+    <main class="main">
+        <header class="am-topbar">
+            <ul class="am-nav am-nav-pills am-topbar-nav am-margin-horizontal-sm">
+                <li><a href="javascript:;" class="am-text-lg">
+                    <span class="am-icon-outdent"></span>
+                    <!--<span class="am-icon-indent"></span>-->
+                    </a>
+                </li>
+            </ul>
+
+            <form class="am-topbar-form am-form-inline" role="search">
+                <div class="am-dropdown" data-am-dropdown>
+                    <button class="am-btn am-dropdown-toggle am-btn-default" data-am-dropdown-toggle>
+                        全部 <span class="am-icon-angle-down"></span>
+                    </button>
+                    <ul class="am-dropdown-content">
+                        <li><a href="#">产品</a></li>
+                        <li><a href="#">设计</a></li>
+                        <li><a href="#">开发</a></li>
+                        <li><a href="#">测试</a></li>
+                        <li><a href="#">运维</a></li>
+                    </ul>
+                </div>
+                <input type="text" class="am-form-field">
+                <button class="am-btn am-btn-default am-icon-search" type="submit"></button>
+            </form>
+
+            <div class="am-topbar-right">
+                <ul class="am-nav am-topbar-nav am-nav-pills">
+                    <li><a href="" class="am-icon-bell-o"></a></li>
+                    <li class="am-margin-horizontal"><a href="" class="am-icon-refresh"></a></li>
+                    <li class="am-dropdown am-avatar" data-am-dropdown="{trigger: 'hover' }">
+                        <a href="javascript:;" class="am-dropdown-toggle" data-am-dropdown-toggle>
+                            <div class="am-avatar-img"><i class="am-icon-github"></i></div>
+                            top-dante
+                            <i class="am-icon-angle-down"></i>
+                        </a>
+                        <ul class="am-dropdown-content am-text-center">
+                            <li><a href="">个人信息</a></li>
+                            <li><a href="">修改密码</a></li>
+                            <li><a href="">安全退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <div class="am-page">
+            {block name="page"}{/block}
+        </div>
+    </main>
+</div>
+<div class="am-alert-group"></div>
+{block name="modal"}{/block}
 <script src="https://cdn.staticfile.org/jquery/1.12.4/jquery.min.js"></script>
 <script src="/static/js/amazeui.min.js"></script>
+{block name="js"}{/block}
 </body>
 </html>
