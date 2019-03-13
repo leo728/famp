@@ -39,7 +39,14 @@ class Authorize extends Model
                 $this->result =  unlimitedForLevel($this->dataList());
                 break;
             case 2:
-                $this->result = unlimitedForChild($this->dataList());
+                $data = $this->getList();
+                $result=[];
+                foreach ($data as $item=>$value){
+                    if($value['display']===1){
+                        $result[] = $value;
+                    }
+                }
+                $this->result = unlimitedForChild($result);
                 break;
             case 3:
                 $this->result = $this->where(['pid'=>0,'display'=>1])
@@ -197,6 +204,20 @@ class Authorize extends Model
         }else{
             return result(500,'菜单删除失败，请刷新重试！');
         }
+    }
+
+    /**
+     * 重构数据表
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function resetAuthorize(){
+        $data = $this->getList();
+        foreach ($data as $item=>$value){
+            $this->update(['id'=>$value['id'],'name'=>str_replace('fa/','index/',$value['name'])]);
+        }
+        $this->clearCache();
     }
     /**
      * 清除缓存

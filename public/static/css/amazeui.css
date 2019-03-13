@@ -1683,8 +1683,8 @@ td {
 .am-table > tbody > tr > td,
 .am-table > tfoot > tr > td {
   padding: 0.625em 14px;
-  vertical-align: top;
-  border-top: 1px solid #ccc;
+  vertical-align: middle;
+  border-top: 1px solid #e3e3e3;
 }
 .am-table > thead > tr > th {
   vertical-align: bottom;
@@ -2458,6 +2458,7 @@ fieldset[disabled] .am-checkbox-inline {
 }
 .am-form-label{
   font-weight: 400;
+  padding-right: .875rem;
 }
 @media only screen and (min-width:641px) {
   .am-form-horizontal .am-form-label {
@@ -6382,6 +6383,9 @@ a.am-close:hover {
   border-collapse: separate;
   margin-bottom: 0.625rem;
 }
+.am-table .am-input-group{
+  margin-bottom: 0;
+}
 .am-input-group .am-form-field {
   position: relative;
   z-index: 2;
@@ -8773,7 +8777,7 @@ TODO:
   margin-right: auto;
   width: 340px;
   border-radius: 2px;
-  background: #f8f8f8;
+  background: #fff;
 }
 @media only screen and (max-width: 640px) {
   .am-modal-dialog {
@@ -8785,7 +8789,7 @@ TODO:
   font-size: 1.125rem;
   font-weight: 500;
   text-align: left;
-  border-bottom: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e3e3e3;
 }
 .am-modal-hd .am-close {
   position: absolute;
@@ -8798,7 +8802,7 @@ TODO:
   right: 12px;
 }
 .am-modal-bd {
-  padding: 20px 30px;
+  padding: 30px 30px 20px;
   text-align: left;
   color: #666666;
   position: relative;
@@ -9157,16 +9161,15 @@ TODO:
   top: 0;
   left: 0;
   margin: 0;
-  border-radius: 2px;
-  background: #4c4c4c;
+  border-radius: 4px;
   color: #fff;
-  border: 1px solid #ccc;
   display: none;
-  font-size: 14px;
+  font-size: 12px;
   z-index: 1150;
   opacity: 0;
   -webkit-transition: opacity 300ms;
   transition: opacity 300ms;
+  overflow: visible;
 }
 .am-popover.am-active {
   display: block !important;
@@ -9174,9 +9177,10 @@ TODO:
 }
 .am-popover-inner {
   position: relative;
-  background: #4c4c4c;
-  padding: 0.5rem 14px;
+  background: rgba(0,0,0,0.6);
+  padding: 6px 14px;
   z-index: 110;
+  border-radius: 4px;
 }
 .am-popover-caret {
   position: absolute;
@@ -9186,7 +9190,7 @@ TODO:
   width: 0;
   height: 0;
   vertical-align: middle;
-  border-bottom: 8px solid #4c4c4c;
+  border-bottom: 8px solid rgba(0,0,0,0.6);;
   border-right: 8px solid transparent;
   border-left: 8px solid transparent;
   border-top: 0 dotted;

@@ -18,10 +18,14 @@ class Index extends ViewController
         $authorized = new Authorize();
         $menus = $authorized->getList(2);
         $this->assign(['menus'=>$menus]);
+       // $authorized->resetAuthorize();
     }
 
     public function index()
     {
         return $this->fetch('/index');
+    }
+    public function components(){
+        return $this->fetch('/components');
     }
 }

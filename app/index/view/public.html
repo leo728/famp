@@ -11,30 +11,34 @@
 <div class="am-layout">
     <aside class="sidebar">
         <div class="sidebar-brand">
-            <a href=""></a>
+            <a href="/"></a>
         </div>
         <ul class="am-list am-list-collapse" id="sidebar-menu">
             {volist name="menus" id="vo"}
             <li  class="am-panel">
                 {empty name="vo.child"}
-                <a data-am-collapse="{parent: '#sidebar-menu'}" href="{$vo.name|url}">
-                    <i class="{$vo.icon} am-margin-left-sm"></i> {$vo.title}
+                <a href="{$vo.name|url}">
+                    <i class="{$vo.icon}"></i> <span>{$vo.title}</span>
                 </a>
                 {else/}
                 <a data-am-collapse="{parent: '#sidebar-menu', target: '#auth-id-{$vo.id}'}">
-                    <i class="{$vo.icon} am-margin-left-sm"></i> {$vo.title}
+                    <i class="{$vo.icon}"></i> {$vo.title}
                     <i class="am-icon-angle-down am-fr am-margin-right"></i>
                 </a>
                 <ul class="am-list am-collapse" id="auth-id-{$vo.id}">
+                    <li class="am-nav-header"><i class="{$vo.icon}"></i> {$vo.title}</li>
                     {volist name="vo.child" id="v"}
                     <li><a href="{$v.name|url}">
-                        <i class="{$v.icon} am-margin-left-sm"></i> {$v.title} </a>
+                        <i class="{$v.icon}"></i> {$v.title} </a>
                     </li>
                     {/volist}
                 </ul>
                 {/empty}
             </li>
             {/volist}
+            <li class="am-panel">
+                <a href="{:url('index/components')}"><i class="am-icon-forumbee"></i> 组件预览</a>
+            </li>
         </ul>
 
     </aside>
@@ -67,15 +71,19 @@
 
             <div class="am-topbar-right">
                 <ul class="am-nav am-topbar-nav am-nav-pills">
-                    <li><a href="" class="am-icon-bell-o"></a></li>
-                    <li class="am-margin-horizontal"><a href="" class="am-icon-refresh"></a></li>
+                    <li class="am-margin-right" data-am-popover="{content: '消息通知', trigger: 'hover'}">
+                        <a href="javascript:;" class="am-icon-bell-o am-mark"><sup style="top: 18px">99+</sup></a>
+                    </li>
+                    <li class="am-margin-horizontal"data-am-popover="{content: '重建缓存', trigger: 'hover'}">
+                        <a href="" class="am-icon-refresh"></a>
+                    </li>
                     <li class="am-dropdown am-avatar" data-am-dropdown="{trigger: 'hover' }">
                         <a href="javascript:;" class="am-dropdown-toggle" data-am-dropdown-toggle>
                             <div class="am-avatar-img"><i class="am-icon-github"></i></div>
                             top-dante
                             <i class="am-icon-angle-down"></i>
                         </a>
-                        <ul class="am-dropdown-content am-text-center">
+                        <ul class="am-dropdown-content am-text-center am-text-sm">
                             <li><a href="">个人信息</a></li>
                             <li><a href="">修改密码</a></li>
                             <li><a href="">安全退出</a></li>
@@ -93,6 +101,7 @@
 {block name="modal"}{/block}
 <script src="https://cdn.staticfile.org/jquery/1.12.4/jquery.min.js"></script>
 <script src="/static/js/amazeui.min.js"></script>
+<script src="/static/js/fa.js"></script>
 {block name="js"}{/block}
 </body>
 </html>

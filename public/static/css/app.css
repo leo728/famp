@@ -27,6 +27,8 @@
     border-radius: 4px 0 0 4px;
     width: 68px;
     border-color: #ccc;
+    font-size: 12px;
+    height: 32px;
 }
 .am-avatar{
     position: relative;
@@ -42,8 +44,9 @@
     vertical-align: middle;
     overflow: hidden;
     text-align: center;
-    line-height: 30px;
+    line-height: 28px;
     font-size: 16px;
+    border:1px solid #e3e3e3;
 }
 .am-avatar .am-dropdown-content{
     margin-top: -1px;
@@ -66,7 +69,7 @@
     min-height: calc(100vh - 64px);
 }
 .sidebar {
-    flex: 0 0 200px;
+    flex: 0 0 220px;
     background-color: #001529;
 }
 .sidebar-brand {
@@ -82,22 +85,27 @@
 .am-list-collapse>li.am-panel>.am-list>li{
     border: none;
 }
+.am-list-collapse>li.am-panel>.am-list>li.am-nav-header{
+    display: none;
+}
 .am-list-collapse>li a {
     color: rgba(255, 255, 255, 0.65);
 }
 .am-list-collapse>li.am-panel>a{
-    padding-left: 15px;
+    padding-left: 25px;
 }
 .am-list-collapse>li.am-panel>.am-list{
     background-color: #000c17;
     padding: 7px 0;
 }
 .am-list-collapse>li.am-panel>.am-list>li>a {
-    padding-left: 40px;
+    padding-left: 55px;
 }
 .am-list-collapse [class*="am-icon-"]:first-child{
     margin-right: 7px;
     font-size: 16px;
+    width: 20px;
+    text-align: center;
 }
 .main{
     flex: auto;
@@ -105,4 +113,26 @@
 }
 .am-page{
     padding:10px 20px;
+}
+.am-table-level-1:before {
+    content: "\f0c9";
+    padding-right: .35rem;
+    color: #888;
+    display: inline-block;
+}
+
+.am-table-level-2:before {
+    content: "└";
+    padding-right: .35rem;
+    padding-left: 1.6rem;
+    color: #999;
+    display: inline-block;
+}
+
+.am-table-level-3:before {
+    content: "└";
+    padding-right: .35rem;
+    padding-left: 3.6rem;
+    color: #999;
+    display: inline-block;
 }
