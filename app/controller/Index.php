@@ -1,7 +1,7 @@
 <?php
-namespace app\index\controller;
+namespace app\controller;
 
-use app\index\model\Authorize;
+use app\model\Authorize;
 use think\facade\Cache;
 use think\ViewController;
 

@@ -2,7 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="icon" type="image/png" href="/static/i/favicon.png">
     <link rel="stylesheet" href="/static/css/amazeui.css">
     <link rel="stylesheet" href="/static/css/app.css">
     {block name="css"}{/block}
@@ -51,8 +57,9 @@
                 </li>
             </ul>
 
-            <form class="am-topbar-form am-form-inline" role="search">
+            <form class="am-topbar-form am-form-inline" method="get" role="search">
                 <div class="am-dropdown" data-am-dropdown>
+                    <input type="hidden" name="type" value="projects">
                     <button class="am-btn am-dropdown-toggle am-btn-default" data-am-dropdown-toggle>
                         全部 <span class="am-icon-angle-down"></span>
                     </button>
@@ -64,14 +71,14 @@
                         <li><a href="#">运维</a></li>
                     </ul>
                 </div>
-                <input type="text" class="am-form-field">
+                <input type="text" name="subject" class="am-form-field">
                 <button class="am-btn am-btn-default am-icon-search" type="submit"></button>
             </form>
 
             <div class="am-topbar-right">
                 <ul class="am-nav am-topbar-nav am-nav-pills">
                     <li class="am-margin-right" data-am-popover="{content: '消息通知', trigger: 'hover'}">
-                        <a href="javascript:;" class="am-icon-bell-o am-mark"><sup style="top: 18px">99+</sup></a>
+                        <a href="javascript:;" class="am-icon-bell-o am-mark"><sup style="top: 18px">6</sup></a>
                     </li>
                     <li class="am-margin-horizontal"data-am-popover="{content: '重建缓存', trigger: 'hover'}">
                         <a href="javascript:;" onclick="im.clearCache()" class="am-icon-refresh"></a>
@@ -96,7 +103,12 @@
         </div>
     </main>
 </div>
-<div class="am-alert-group"></div>
+<div class="am-message-group">
+    <div class="am-message am-message-info">success notice</div>
+    <div class="am-message am-message-success">success notice</div>
+    <div class="am-message am-message-warn">success notice</div>
+    <div class="am-message am-message-err">success notice</div>
+</div>
 {block name="modal"}{/block}
 <script src="https://cdn.staticfile.org/jquery/1.12.4/jquery.min.js"></script>
 <script src="/static/js/amazeui.min.js"></script>

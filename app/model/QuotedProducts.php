@@ -6,7 +6,7 @@
  * Time: 17:40
  */
 
-namespace app\index\model;
+namespace app\model;
 
 
 use think\facade\Cache;

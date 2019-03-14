@@ -66,7 +66,7 @@
 .am-layout{
     display: flex;
     flex-flow: row;
-    min-height: calc(100vh - 64px);
+    min-height: calc(100vh);
 }
 .sidebar {
     flex: 0 0 220px;
@@ -162,4 +162,61 @@
     padding-left: 3.6rem;
     color: #999;
     display: inline-block;
+}
+.am-message-group{
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.65);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: fixed;
+    z-index: 1060;
+    width: 100%;
+    top: 8px;
+    left: 0;
+    pointer-events: none;
+    text-align: center;
+    display: none;
+}
+.am-message {
+    padding: 10px 16px;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    pointer-events: all;
+    position: relative;
+    vertical-align: middle;
+    display: none;
+}
+.am-message:before{
+    font-size: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.am-message-info:before{
+    content: "\f05a";
+    color: #5085FF;
+}
+.am-message-success:before{
+    content: "\f058";
+    color: #29BB9C;
+}
+.am-message-err:before{
+    content: "\f111";
+    color: #E54D42;
+}
+.am-message-err:after{
+    content: "\f00d";
+    color: #fff;
+    font-size: 12px;
+    position: absolute;
+    left: 18px;
+    top: 13px;
+}
+.am-message-warn:before{
+    content: "\f06a";
+    color: #EFA100
 }

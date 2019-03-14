@@ -1,7 +1,7 @@
 <?php
-namespace app\index\controller;
+namespace app\controller;
 
-use app\index\model\Authorize as auth;
+use app\model\Authorize as auth;
 use think\facade\Request;
 
 class Authorize extends Index

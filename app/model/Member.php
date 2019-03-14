@@ -1,13 +1,11 @@
 <?php
-namespace app\index\model;
+namespace app\model;
 /**
  * Created by PhpStorm.
  * User: imdante
  * Date: 2017/10/25
  * Time: 16:24
  */
-
-use think\Db;
 use think\facade\Cache;
 use think\Model;
 use think\facade\Request;
