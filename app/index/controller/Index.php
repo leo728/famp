@@ -2,6 +2,7 @@
 namespace app\index\controller;
 
 use app\index\model\Authorize;
+use think\facade\Cache;
 use think\ViewController;
 
 class Index extends ViewController
@@ -27,5 +28,13 @@ class Index extends ViewController
     }
     public function components(){
         return $this->fetch('/components');
+    }
+
+    /**
+     * 清除缓存
+     */
+    public function clear_cache(){
+        Cache::clear();
+        $this->result('',200,'缓存清除成功，正在为您刷新页面');
     }
 }

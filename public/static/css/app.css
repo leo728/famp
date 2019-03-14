@@ -71,12 +71,39 @@
 .sidebar {
     flex: 0 0 220px;
     background-color: #001529;
+    width: 220px;
+    transition: all .2s;
+}
+.sidebar.sidebar-min{
+    flex: 0 0 60px;
+    width: 60px;
+    transition: all .2s;
 }
 .sidebar-brand {
     background-color:rgba(255,255,255,.2);
     height: 40px;
     margin: 10px 20px;
     border-radius: 2px;
+}
+.sidebar-min .sidebar-brand{
+    margin: 0;
+    height: 60px;
+}
+.sidebar-min .am-list>li>a{
+    padding: 0 !important;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+.sidebar-min .am-list>li>a>.am-icon-angle-down,
+.sidebar-min .am-list>li>a>span {
+    display: none;
+}
+.side-min>.am-icon-outdent{
+    transform: rotate(0deg) ;
+}
+.side-max>.am-icon-outdent{
+    transform: rotate(180deg);
 }
 .am-list-collapse>li.am-panel{
     background-color: transparent;

@@ -22,7 +22,7 @@
                 </a>
                 {else/}
                 <a data-am-collapse="{parent: '#sidebar-menu', target: '#auth-id-{$vo.id}'}">
-                    <i class="{$vo.icon}"></i> {$vo.title}
+                    <i class="{$vo.icon}"></i> <span>{$vo.title}</span>
                     <i class="am-icon-angle-down am-fr am-margin-right"></i>
                 </a>
                 <ul class="am-list am-collapse" id="auth-id-{$vo.id}">
@@ -37,7 +37,7 @@
             </li>
             {/volist}
             <li class="am-panel">
-                <a href="{:url('index/components')}"><i class="am-icon-forumbee"></i> 组件预览</a>
+                <a href="{:url('index/components')}"><i class="am-icon-forumbee"></i> <span>组件预览</span></a>
             </li>
         </ul>
 
@@ -45,9 +45,8 @@
     <main class="main">
         <header class="am-topbar">
             <ul class="am-nav am-nav-pills am-topbar-nav am-margin-horizontal-sm">
-                <li><a href="javascript:;" class="am-text-lg">
+                <li><a href="javascript:;" data-collapsed="true" class="am-text-lg">
                     <span class="am-icon-outdent"></span>
-                    <!--<span class="am-icon-indent"></span>-->
                     </a>
                 </li>
             </ul>
@@ -75,7 +74,7 @@
                         <a href="javascript:;" class="am-icon-bell-o am-mark"><sup style="top: 18px">99+</sup></a>
                     </li>
                     <li class="am-margin-horizontal"data-am-popover="{content: '重建缓存', trigger: 'hover'}">
-                        <a href="" class="am-icon-refresh"></a>
+                        <a href="javascript:;" onclick="im.clearCache()" class="am-icon-refresh"></a>
                     </li>
                     <li class="am-dropdown am-avatar" data-am-dropdown="{trigger: 'hover' }">
                         <a href="javascript:;" class="am-dropdown-toggle" data-am-dropdown-toggle>
