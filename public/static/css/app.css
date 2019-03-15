@@ -80,7 +80,7 @@
     transition: all .2s;
 }
 .sidebar-brand {
-    background-color:rgba(255,255,255,.2);
+    background-color:#000c17;
     height: 40px;
     margin: 10px 20px;
     border-radius: 2px;
@@ -94,13 +94,13 @@
     height: 50px;
     line-height: 50px;
     text-align: center;
+    position: relative;
 }
-.sidebar-min .am-list>li>a>.am-icon-angle-down,
-.sidebar-min .am-list>li>a>span {
+.sidebar-min .am-list>li>a>.am-icon-angle-down{
     display: none;
 }
-.side-min>.am-icon-outdent{
-    transform: rotate(0deg) ;
+.am-list>li>a>b{
+    font-weight: 400;
 }
 .side-max>.am-icon-outdent{
     transform: rotate(180deg);
@@ -108,6 +108,7 @@
 .am-list-collapse>li.am-panel{
     background-color: transparent;
     border:none;
+    overflow: visible;
 }
 .am-list-collapse>li.am-panel>.am-list>li{
     border: none;
@@ -133,6 +134,85 @@
     font-size: 16px;
     width: 20px;
     text-align: center;
+}
+.sidebar-min .am-list>li>a>b{
+    display: none;
+}
+.sidebar-min .am-list>li>a>span {
+    display:none;
+    position: absolute;
+    left: 70px;
+    top: 10px;
+    height: 40px;
+    line-height: 40px;
+    background-color:rgb(0, 21, 41);
+    border-radius: 4px;
+    white-space: nowrap;
+    z-index: 90;
+    padding:0 1rem;
+    transition: all .2s;
+}
+.sidebar-min .am-list>li>a>span:before{
+    content: "";
+    border:8px solid transparent;
+    border-right-color: rgb(0, 21, 41);
+    position: absolute;
+    left: -16px;
+    top: 11px;
+}
+.sidebar-min .am-list>li>.am-list{
+    position: absolute;
+    left: 70px;
+    top: 10px;
+    background-color:rgb(0, 21, 41);
+    border-radius: 4px;
+    z-index: 90;
+    display: none;
+    padding: 0 0 .5rem 0;
+    transition: all .2s;
+}
+.sidebar-min .am-list>li>.am-list:before{
+    content: "";
+    border:8px solid transparent;
+    border-right-color: rgb(0, 21, 41);
+    position: absolute;
+    left: -16px;
+    top: 11px;
+}
+.sidebar-min .am-list>li>.am-list>li.am-nav-header{
+    display: block !important;
+    color: #fff;
+    border-radius: 4px 4px 0 0;
+    font-weight: 400;
+    padding: 0 1rem;
+    height: 35px;
+    line-height: 35px;
+}
+.sidebar-min .am-list>li>.am-list>li.am-nav-header>i{
+    width: 20px;
+}
+.sidebar-min .am-list>li>.am-list>li{
+    white-space: nowrap;
+}
+.sidebar-min .am-list>li>.am-list>li>a {
+    padding: 0 1rem !important;
+    height: 35px;
+    line-height: 35px;
+    text-align: left;
+}
+.sidebar-min .am-list>li>a:hover>span{
+    display: block;
+    transition: all .2s;
+}
+.side-min>.am-icon-outdent{
+    transform: rotate(0deg) ;
+}
+.sidebar-min .am-list>li:hover>.am-list{
+    display: block;
+}
+.sidebar>.am-list>li a:hover{
+    color: #fff;
+    transition-duration: .4s;
 }
 .main{
     flex: auto;
