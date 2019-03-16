@@ -2,6 +2,7 @@
 namespace app\controller;
 
 use think\facade\Cache;
+use think\facade\Session;
 
 class Index extends Base
 {
@@ -14,6 +15,10 @@ class Index extends Base
         return $this->fetch('/components');
     }
 
+    public function logout(){
+        Session::clear();
+        $this->result(url('account/login'),200,'您已经成功退出系统，正在为您跳转到登录页面!');
+    }
     /**
      * 清除缓存
      */

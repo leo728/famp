@@ -6686,7 +6686,7 @@ a.am-close:hover {
 }
 .am-panel-default > .am-panel-hd {
   color: #444;
-  background-color: #f0f0f0;
+  background-color: #f8f8f8;
   border-color: #f0f0f0;
 }
 .am-panel-default > .am-panel-hd + .am-panel-collapse > .am-panel-bd {
