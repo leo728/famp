@@ -124,7 +124,7 @@
 }
 .am-list-collapse>li.am-panel>.am-list{
     background-color: #000c17;
-    padding: 7px 0;
+    padding: 5px 0 12px;
 }
 .am-list-collapse>li.am-panel>.am-list>li>a {
     padding-left: 55px;
@@ -262,7 +262,7 @@
     display: none;
 }
 .am-message {
-    padding: 10px 16px;
+    padding: 10px 64px;
     border-radius: 4px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     background: #fff;
@@ -311,4 +311,9 @@
     text-align: center;
     padding-top: 20px;
     color: #1c806b;
+}
+.am-table-project tr>th:first-child,
+.am-table-project tr>td:first-child{
+    padding:.625em 0;
+    text-align: center;
 }

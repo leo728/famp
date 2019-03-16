@@ -24,7 +24,7 @@ class Projects extends Base
         $member = new \app\model\Member();
         $userList = $member->getUserList();
         //读取配置文件项目状态
-        $projectStatus = Config::get('projectStatus');
+        $projectStatus = Config::get('app.projectStatus');
 
         $this->assign(['status'=> $projectStatus,'userlist'=>$userList]);
     }
@@ -77,7 +77,14 @@ class Projects extends Base
         }
         $list = $projectModel->getProjectsPage($map);
         $date = date('Y-m-d H:i:s', strtotime("+7 day"));
-        $this->assign(['list' => $list, 'date' => $date,'getStatus'=>$getStatus,'interval'=>$getInterval,'level'=>$level]);
+        $this->assign([
+            'list' => $list,
+            'date' => $date,
+            'getStatus' => $getStatus,
+            'interval' => $getInterval,
+            'level' => $level]
+        );
+
         return $this->fetch();
     }
 }
