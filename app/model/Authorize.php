@@ -66,26 +66,21 @@ class Authorize extends Model
      * @throws \think\db\exception\ModelNotFoundException
      * @throws \think\exception\DbException
      */
-    public function getSubMenus(){
-        $path = strtolower(Request::module().'/'.Request::controller());
+    public function getLocation(){
+        $path = strtolower(Request::controller().'/'.Request::action());
         $data = $this->dataList();
-        $topMenu =[];
+        $location =[];
         foreach ($data as $item=>$value){
             if($value['name'] == $path){
-                $topMenu = $value;
+                $location = $value;
             }
         }
-
-        $subMenus = [];
-        if(!$topMenu){
-            return false;
+        $topLocation = [];
+        if($location){
+            $parents = getParents($data,$location['id']);
+            $topLocation = $parents[0];
         }
-        foreach ($data as $item=>$value){
-            if($value['pid'] == $topMenu['id']){
-                $subMenus[]= $value;
-            }
-        };
-        return [$topMenu,$subMenus];
+        return ['cur'=>$location,'top'=>$topLocation];
     }
 
     /**

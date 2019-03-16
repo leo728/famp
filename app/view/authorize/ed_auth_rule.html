@@ -17,8 +17,7 @@
             <select name="pid" id="pid">
                 <option value="0">一级菜单</option>
                 {volist name="rules" id="vo"}
-                <option value="{$vo.id}" {eq name="vo.id" value="$data.pid" }selected{
-                /eq}>
+                <option value="{$vo.id}" {eq name="vo.id" value="$data.pid" }selected{/eq}>
                 {switch name="vo.level" }{case value="2"}├─{/case}{case value="3"}&nbsp;&nbsp;└─{/case}{/switch}
                 {$vo.title}
                 </option>

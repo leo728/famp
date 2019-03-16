@@ -1,4 +1,4 @@
-const atoken="12456789abcdef";
+const atoken = "12456789abcdef";
 const im = {
     submit: function (e, t) {
         let f = $(e), d = f.serialize(), u = f.attr('action');
@@ -20,8 +20,10 @@ const im = {
     }, sget: function (u) {
         $.get(u)
     }, showAlert: function (c, m, u) {
-        let s = $('.am-alert-success'), w = $('.am-alert-warning'), d = $('.am-alert-danger'),
-            n = $('.am-alert-notice'), a = d;
+        let s = $('.am-message-success'), w = $('.am-message-warn'), d = $('.am-message-err'),
+            n = $('.am-message-info'), a = d,msgBox = $('.am-message-group'),msg=$('.am-message');
+        //初始化msg 框
+        msg.css('display','none');
         switch (c) {
             case 200:
                 a = s;
@@ -38,7 +40,8 @@ const im = {
             default:
                 a = n
         }
-        a.html(m).fadeIn(300).delay(3000).fadeOut();
+        msgBox.fadeIn(300).delay(4000).fadeOut();
+        a.html(m).css('display','inline-block');
         if (u && c === 200) {
             setTimeout("window.location.href ='" + u + "'", 2000)
         } else if (!u && c === 200) {
@@ -50,8 +53,9 @@ const im = {
     }, modal: function (t, w, d) {
         $(t).modal({width: w, closeViaDimmer: d}, 'open')
     }, clearCache: function () {
-        $('body').append('<div class="cache-loading"><span class="am-icon-spin am-icon-loading"></span> 正在清除缓存... 请稍等...</div>');
-        setTimeout("im.get('/index/index/clear_cache')",5000);
+        $('body').append('<div class="cache-loading"><i class="am-icon-spinner am-icon-pulse"></i> 正在清除缓存... 请稍等...</div>');
+        setTimeout("im.get('/index/clear_cache.html?token='+atoken)", 4000);
+        setTimeout("$('.cache-loading').remove()",4000)
     }, verify: function (t, f) {
         let time = new Date().getTime();
         let captchaUrl = $(t)[0].src;
@@ -139,7 +143,7 @@ $(document).on('click', '.am-upload-remove', function () {
     im.sget('/api/handle/unset_file.html?file=' + file + '&token=' + atoken)
 });
 $(document).ready(function () {
-    $(document).on('click','.am-nav-menu>li',function(){
+    $(document).on('click', '.am-nav-menu>li', function () {
         $(this).toggleClass('am-active').siblings('.am-nav-menu>li').removeClass('am-active');
     });
     $("#selectAll").click(function () {
@@ -168,21 +172,21 @@ const store = $.AMUI.store;
 let sideControl = $('[data-collapsed]'),
     sidebarCollapsed = store.get('sidebar_collapsed'),
     sidebar = $('.sidebar');
-if(sidebarCollapsed){
+if (sidebarCollapsed) {
     sidebar.addClass('sidebar-min');
     sideControl.addClass('side-max').removeClass('side-min')
-}else {
+} else {
     sidebar.removeClass('sidebar-min');
     sideControl.addClass('side-main').removeClass('side-max')
 }
-$(document).on('click','[data-collapsed]',function(){
+$(document).on('click', '[data-collapsed]', function () {
     sidebarCollapsed = store.get('sidebar_collapsed');
-    if(sidebarCollapsed){
+    if (sidebarCollapsed) {
         sidebar.removeClass('sidebar-min');
-        store.set('sidebar_collapsed',false);
+        store.set('sidebar_collapsed', false);
         sideControl.addClass('side-min').removeClass('side-max');
-    }else {
-        store.set('sidebar_collapsed',true);
+    } else {
+        store.set('sidebar_collapsed', true);
         sidebar.addClass('sidebar-min');
         sideControl.addClass('side-max').removeClass('side-min')
     }

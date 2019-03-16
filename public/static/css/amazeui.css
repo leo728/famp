@@ -3008,26 +3008,26 @@ fieldset[disabled] .am-checkbox-inline {
 /* ==========================================================================
    Component: Pagination
  ============================================================================ */
-.am-pagination {
+.pagination {
   padding-left: 0;
   margin: 0.9375rem 0;
   list-style: none;
   color: #e1e1e1;
-  text-align: left;
+  text-align: center;
 }
-.am-pagination:before,
-.am-pagination:after {
+.pagination:before,
+.pagination:after {
   content: " ";
   display: table;
 }
-.am-pagination:after {
+.pagination:after {
   clear: both;
 }
-.am-pagination > li {
+.pagination > li {
   display: inline-block;
 }
-.am-pagination > li > a,
-.am-pagination > li > span {
+.pagination > li > a,
+.pagination > li > span {
   position: relative;
   display: block;
   padding: 0.5em 14px;
@@ -3039,56 +3039,56 @@ fieldset[disabled] .am-checkbox-inline {
   margin-bottom: 5px;
   margin-right: 5px;
 }
-.am-pagination > li:last-child > a,
-.am-pagination > li:last-child > span {
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
   margin-right: 0;
 }
-.am-pagination > li > a:hover,
-.am-pagination > li > span:hover,
-.am-pagination > li > a:focus,
-.am-pagination > li > span:focus {
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
   background-color: #f0f0f0;
 }
-.am-pagination > .am-active > a,
-.am-pagination > .am-active > span,
-.am-pagination > .am-active > a:hover,
-.am-pagination > .am-active > span:hover,
-.am-pagination > .am-active > a:focus,
-.am-pagination > .am-active > span:focus {
+.pagination > .am-active > a,
+.pagination > .am-active > span,
+.pagination > .am-active > a:hover,
+.pagination > .am-active > span:hover,
+.pagination > .am-active > a:focus,
+.pagination > .am-active > span:focus {
   z-index: 2;
   color: #fff;
   background-color: #5085FF;
   border-color: #5085FF;
   cursor: default;
 }
-.am-pagination > .am-disabled > span,
-.am-pagination > .am-disabled > span:hover,
-.am-pagination > .am-disabled > span:focus,
-.am-pagination > .am-disabled > a,
-.am-pagination > .am-disabled > a:hover,
-.am-pagination > .am-disabled > a:focus {
+.pagination > .am-disabled > span,
+.pagination > .am-disabled > span:hover,
+.pagination > .am-disabled > span:focus,
+.pagination > .am-disabled > a,
+.pagination > .am-disabled > a:hover,
+.pagination > .am-disabled > a:focus {
   color: #e1e1e1;
   background-color: #fff;
   border-color: #ddd;
   cursor: not-allowed;
   pointer-events: none;
 }
-.am-pagination .am-pagination-prev {
+.pagination .pagination-prev {
   float: left;
 }
-.am-pagination .am-pagination-prev a {
+.pagination .pagination-prev a {
   border-radius: 2px;
 }
-.am-pagination .am-pagination-next {
+.pagination .pagination-next {
   float: right;
 }
-.am-pagination .am-pagination-next a {
+.pagination .pagination-next a {
   border-radius: 2px;
 }
-.am-pagination-centered {
+.pagination-centered {
   text-align: center;
 }
-.am-pagination-right {
+.pagination-right {
   text-align: right;
 }
 /* ==========================================================================
