@@ -2,15 +2,15 @@
 Navicat MariaDB Data Transfer
 
 Source Server         : local
-Source Server Version : 100313
+Source Server Version : 100122
 Source Host           : localhost:3306
 Source Database       : fa_pe666_cn
 
 Target Server Type    : MariaDB
-Target Server Version : 100313
+Target Server Version : 100122
 File Encoding         : 65001
 
-Date: 2019-03-16 23:25:45
+Date: 2019-03-18 18:41:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,31 +21,31 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `raw_authorize`;
 CREATE TABLE `raw_authorize` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `pid` int(11) DEFAULT 0,
+  `pid` int(11) DEFAULT '0',
   `title` varchar(50) NOT NULL,
   `name` varchar(200) NOT NULL,
   `icon` varchar(100) DEFAULT NULL,
-  `display` int(11) DEFAULT 1,
-  `is_common` int(11) DEFAULT 0,
-  `order` int(11) DEFAULT 0,
-  `status` int(11) DEFAULT 1,
+  `display` int(11) DEFAULT '1',
+  `is_common` int(11) DEFAULT '0',
+  `order` int(11) DEFAULT '0',
+  `status` int(11) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COMMENT='权限控制菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COMMENT='权限控制菜单表';
 
 -- ----------------------------
 -- Records of raw_authorize
 -- ----------------------------
-INSERT INTO `raw_authorize` VALUES ('1', '0', '首页概述', 'index/index', 'am-icon-dashboard', '1', '0', '0', '1');
-INSERT INTO `raw_authorize` VALUES ('2', '0', '项目管理', 'projects', 'am-icon-tasks', '1', '0', '0', '1');
+INSERT INTO `raw_authorize` VALUES ('1', '0', '首页概述', 'index/index', 'am-icon-dashboard', '1', '0', '9', '1');
+INSERT INTO `raw_authorize` VALUES ('2', '0', '项目管理', 'projects', 'am-icon-tasks', '1', '0', '8', '1');
 INSERT INTO `raw_authorize` VALUES ('3', '2', '项目列表', 'projects/index', 'am-icon-tasks', '1', '1', '8', '1');
-INSERT INTO `raw_authorize` VALUES ('5', '0', '财务管理', 'finance', 'am-icon-paypal', '1', '0', '0', '1');
+INSERT INTO `raw_authorize` VALUES ('5', '0', '财务管理', 'finance', 'am-icon-paypal', '1', '0', '7', '1');
 INSERT INTO `raw_authorize` VALUES ('6', '5', '收支记录', 'finance/index', 'am-icon-list-ul', '1', '1', '5', '1');
 INSERT INTO `raw_authorize` VALUES ('7', '5', '工时管理', 'finance/man_hour', 'am-icon-coffee', '1', '0', '0', '1');
 INSERT INTO `raw_authorize` VALUES ('8', '5', '资金流', 'finance/management', 'am-icon-btc', '1', '0', '0', '1');
-INSERT INTO `raw_authorize` VALUES ('10', '0', '部门管理', 'member', 'am-icon-graduation-cap', '1', '0', '0', '1');
-INSERT INTO `raw_authorize` VALUES ('13', '0', '文档管理', 'documents/index', 'am-icon-folder-open-o', '1', '0', '0', '1');
-INSERT INTO `raw_authorize` VALUES ('14', '0', '权限管理', 'authorize/index', 'am-icon-sliders', '1', '0', '0', '1');
-INSERT INTO `raw_authorize` VALUES ('15', '0', '全局设置', 'settings/index', 'am-icon-cogs', '1', '0', '0', '1');
+INSERT INTO `raw_authorize` VALUES ('10', '0', '部门管理', 'member', 'am-icon-graduation-cap', '1', '0', '6', '1');
+INSERT INTO `raw_authorize` VALUES ('13', '0', '文档管理', 'documents/index', 'am-icon-folder-open-o', '1', '0', '5', '1');
+INSERT INTO `raw_authorize` VALUES ('14', '0', '权限管理', 'authorize/index', 'am-icon-sliders', '1', '0', '4', '1');
+INSERT INTO `raw_authorize` VALUES ('15', '0', '全局设置', 'settings/index', 'am-icon-cogs', '1', '0', '3', '1');
 INSERT INTO `raw_authorize` VALUES ('16', '14', '权限菜单', 'authorize/index', 'am-icon-bars', '1', '0', '0', '1');
 INSERT INTO `raw_authorize` VALUES ('17', '14', '管理组', 'authorize/groups', 'am-icon-users', '1', '0', '0', '1');
 INSERT INTO `raw_authorize` VALUES ('18', '14', '管理日志', 'authorize/m_logs', 'am-icon-file-text-o', '1', '0', '0', '1');
@@ -53,13 +53,15 @@ INSERT INTO `raw_authorize` VALUES ('19', '10', '部门设置', 'member/departme
 INSERT INTO `raw_authorize` VALUES ('20', '10', '员工列表', 'member/index', 'am-icon-list', '1', '1', '1', '1');
 INSERT INTO `raw_authorize` VALUES ('21', '5', '工资表', 'finance/wages', 'am-icon-table', '1', '1', '3', '1');
 INSERT INTO `raw_authorize` VALUES ('24', '2', '产品报价', 'projects/products', 'am-icon-th-large', '1', '0', '0', '1');
-INSERT INTO `raw_authorize` VALUES ('25', '2', '项目概览', 'project/overview', 'am-icon-area-chart', '1', '0', '9', '1');
+INSERT INTO `raw_authorize` VALUES ('25', '2', '项目概览', 'projects/overview', 'am-icon-area-chart', '1', '0', '9', '1');
 INSERT INTO `raw_authorize` VALUES ('26', '2', '报价单', 'project/quotation ', 'am-icon-file-excel-o', '1', '0', '7', '1');
 INSERT INTO `raw_authorize` VALUES ('27', '5', '财务概览', 'finance/overview', 'am-icon-pie-chart', '1', '0', '6', '1');
 INSERT INTO `raw_authorize` VALUES ('28', '15', '基础信息', 'settings/baseinfo', 'am-icon-info-circle', '1', '0', '9', '1');
 INSERT INTO `raw_authorize` VALUES ('29', '15', '管理员', '/settings/manager', 'am-icon-user-secret', '1', '0', '8', '1');
 INSERT INTO `raw_authorize` VALUES ('30', '15', '上传设置', 'settings/uploader', 'am-icon-cloud-upload', '1', '0', '7', '1');
 INSERT INTO `raw_authorize` VALUES ('31', '15', '密钥管理', 'settings/keyt', 'am-icon-key', '1', '0', '6', '1');
+INSERT INTO `raw_authorize` VALUES ('32', '0', '组件预览', 'index/components', 'am-icon-forumbee', '1', '0', '2', '1');
+INSERT INTO `raw_authorize` VALUES ('33', '16', '编辑菜单', 'authorize/ed_auth_rule', '-', '1', '0', '3', '1');
 
 -- ----------------------------
 -- Table structure for raw_authorize_group
@@ -68,10 +70,10 @@ DROP TABLE IF EXISTS `raw_authorize_group`;
 CREATE TABLE `raw_authorize_group` (
   `group_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `group_name` varchar(50) DEFAULT NULL,
-  `rules` text DEFAULT NULL,
+  `rules` text,
   `icon` varchar(100) DEFAULT NULL,
   `order` int(11) DEFAULT NULL,
-  `status` int(11) DEFAULT 1,
+  `status` int(11) DEFAULT '1',
   PRIMARY KEY (`group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='权限组';
 
@@ -109,7 +111,7 @@ CREATE TABLE `raw_finance` (
   `payee` varchar(50) DEFAULT NULL COMMENT '收款方',
   `voucher` varchar(255) DEFAULT NULL COMMENT '收据 凭证',
   `dateline` int(11) DEFAULT NULL,
-  `status` int(11) DEFAULT 1,
+  `status` int(11) DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='收支记录表';
 
@@ -148,7 +150,7 @@ CREATE TABLE `raw_member` (
   `reg_ip` char(20) DEFAULT NULL,
   `last_login_time` int(11) DEFAULT NULL,
   `last_login_ip` char(20) DEFAULT NULL,
-  `status` int(11) DEFAULT 1,
+  `status` int(11) DEFAULT '1',
   PRIMARY KEY (`uid`),
   UNIQUE KEY `think_user_uid_openid_uindex` (`uid`,`hash`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='用户列表';
@@ -168,10 +170,10 @@ INSERT INTO `raw_member` VALUES ('5', 'tDgbqM4M6PUz5337', '王斌', '17787937708
 DROP TABLE IF EXISTS `raw_member_department`;
 CREATE TABLE `raw_member_department` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `pid` int(11) DEFAULT 0,
+  `pid` int(11) DEFAULT '0',
   `department` varchar(50) DEFAULT NULL,
-  `order` int(11) DEFAULT 0,
-  `status` int(11) DEFAULT 1,
+  `order` int(11) DEFAULT '0',
+  `status` int(11) DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COMMENT='部门表';
 
@@ -196,6 +198,53 @@ INSERT INTO `raw_member_department` VALUES ('15', '3', '综合部主任', '0', '
 INSERT INTO `raw_member_department` VALUES ('16', '3', '综合部员工', '0', '1');
 
 -- ----------------------------
+-- Table structure for raw_products
+-- ----------------------------
+DROP TABLE IF EXISTS `raw_products`;
+CREATE TABLE `raw_products` (
+  `pid` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(120) DEFAULT NULL,
+  `in_price` decimal(10,2) DEFAULT NULL,
+  `out_price` decimal(10,2) DEFAULT NULL,
+  `unit` varchar(50) DEFAULT NULL,
+  `supplier` varchar(120) DEFAULT NULL,
+  `status` int(11) DEFAULT '1',
+  PRIMARY KEY (`pid`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COMMENT='产品报价表';
+
+-- ----------------------------
+-- Records of raw_products
+-- ----------------------------
+INSERT INTO `raw_products` VALUES ('1', '520喷绘布', '6.00', '18.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('2', '530喷绘布', '6.00', '20.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('3', '网格布', '15.00', '55.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('4', '刀刮布', '26.00', '75.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('5', '室内写真', '10.00', '40.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('6', '室内PP纸', '10.00', '45.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('7', '室内灯片', '16.00', '55.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('8', '户外写真', '15.00', '55.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('9', '户外PP纸', '15.00', '55.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('10', '户外灯片', '20.00', '60.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('11', '白胶车贴', '16.00', '55.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('12', '黑胶车贴', '18.00', '65.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('13', '单透贴', '16.00', '60.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('14', '反光膜', '25.00', '75.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('15', '金彩格', '28.00', '80.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('16', '室内写真KT板', '20.00', '75.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('17', '户外写真KT板', '26.00', '85.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('18', '超卡板', '13.00', '45.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('19', '5mmPVC', '30.00', '60.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('20', '8mmPVC板', '50.00', '100.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('21', '10mmPVC板', '60.00', '120.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('22', '15mmPVC板', '90.00', '180.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('23', '镶边条 小', '3.00', '9.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('24', '镶边条 大', '6.00', '18.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('25', '镶边条 金色', '6.00', '18.00', '㎡', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('26', '布标 70cm', '3.00', '25.00', 'm', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('27', '布标 90cm', '4.00', '30.00', 'm', '赓达数码', '1');
+INSERT INTO `raw_products` VALUES ('28', '钢架扣板', '50.00', '120.00', '㎡', '昆明', '1');
+
+-- ----------------------------
 -- Table structure for raw_projects
 -- ----------------------------
 DROP TABLE IF EXISTS `raw_projects`;
@@ -207,12 +256,12 @@ CREATE TABLE `raw_projects` (
   `customer_pm` varchar(50) DEFAULT NULL COMMENT '甲方负责人',
   `customer_mobile` varchar(22) DEFAULT NULL,
   `price` decimal(10,2) DEFAULT NULL,
-  `level` int(11) DEFAULT 3,
+  `level` int(11) DEFAULT '3',
   `dateline` int(11) DEFAULT NULL,
   `end_time` int(11) DEFAULT NULL,
   `pm_id` int(11) DEFAULT NULL,
-  `message` longtext DEFAULT NULL,
-  `status` int(11) DEFAULT 0,
+  `message` longtext,
+  `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='项目列表';
 
@@ -248,10 +297,10 @@ CREATE TABLE `raw_projects_item` (
   `specif` varchar(100) DEFAULT NULL COMMENT '甲方负责人',
   `nums` tinyint(22) DEFAULT NULL,
   `area` decimal(10,2) DEFAULT NULL,
-  `univalent` decimal(10,2) DEFAULT 3.00,
+  `univalent` decimal(10,2) DEFAULT '3.00',
   `total` decimal(10,2) DEFAULT NULL,
   `dateline` int(11) DEFAULT NULL,
-  `status` int(11) DEFAULT 0,
+  `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='项目制作清单';
 
@@ -270,10 +319,10 @@ CREATE TABLE `raw_projects_report` (
   `specif` varchar(100) DEFAULT NULL COMMENT '甲方负责人',
   `nums` tinyint(22) DEFAULT NULL,
   `area` decimal(10,2) DEFAULT NULL,
-  `univalent` decimal(10,2) DEFAULT 3.00,
+  `univalent` decimal(10,2) DEFAULT '3.00',
   `total` decimal(10,2) DEFAULT NULL,
   `dateline` int(11) DEFAULT NULL,
-  `status` int(11) DEFAULT 0,
+  `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='项目报表';
 
@@ -323,53 +372,6 @@ CREATE TABLE `raw_quoted_item` (
 -- ----------------------------
 -- Records of raw_quoted_item
 -- ----------------------------
-
--- ----------------------------
--- Table structure for raw_quoted_products
--- ----------------------------
-DROP TABLE IF EXISTS `raw_quoted_products`;
-CREATE TABLE `raw_quoted_products` (
-  `pid` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(120) DEFAULT NULL,
-  `in_price` decimal(10,2) DEFAULT NULL,
-  `out_price` decimal(10,2) DEFAULT NULL,
-  `unit` varchar(50) DEFAULT NULL,
-  `supplier` varchar(120) DEFAULT NULL,
-  `status` int(11) DEFAULT 1,
-  PRIMARY KEY (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COMMENT='产品报价表';
-
--- ----------------------------
--- Records of raw_quoted_products
--- ----------------------------
-INSERT INTO `raw_quoted_products` VALUES ('1', '520喷绘布', '6.00', '18.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('2', '530喷绘布', '6.00', '20.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('3', '网格布', '15.00', '55.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('4', '刀刮布', '26.00', '75.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('5', '室内写真', '10.00', '40.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('6', '室内PP纸', '10.00', '45.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('7', '室内灯片', '16.00', '55.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('8', '户外写真', '15.00', '55.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('9', '户外PP纸', '15.00', '55.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('10', '户外灯片', '20.00', '60.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('11', '白胶车贴', '16.00', '55.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('12', '黑胶车贴', '18.00', '65.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('13', '单透贴', '16.00', '60.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('14', '反光膜', '25.00', '75.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('15', '金彩格', '28.00', '80.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('16', '室内写真KT板', '20.00', '75.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('17', '户外写真KT板', '26.00', '85.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('18', '超卡板', '13.00', '45.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('19', '5mmPVC', '30.00', '60.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('20', '8mmPVC板', '50.00', '100.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('21', '10mmPVC板', '60.00', '120.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('22', '15mmPVC板', '90.00', '180.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('23', '镶边条 小', '3.00', '9.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('24', '镶边条 大', '6.00', '18.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('25', '镶边条 金色', '6.00', '18.00', '㎡', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('26', '布标 70cm', '3.00', '25.00', 'm', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('27', '布标 90cm', '4.00', '30.00', 'm', '赓达数码', '1');
-INSERT INTO `raw_quoted_products` VALUES ('28', '钢架扣板', '50.00', '120.00', '㎡', '昆明', '1');
 
 -- ----------------------------
 -- Table structure for raw_working_hours

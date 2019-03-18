@@ -27,6 +27,6 @@ class Base extends ViewController
         $authorized = new Authorize();
         $menus = $authorized->getList(2);
         $location = $authorized->getLocation();
-       $this->assign(['menus'=>$menus,'menu'=>$location]);
+        $this->assign(['menus' => $menus, 'menu' => $location]);
     }
 }

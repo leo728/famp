@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Title</title>
+    <title>FAMP小微企业项目管理系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <link rel="icon" type="image/png" href="/static/i/favicon.png">
+    <link rel="icon" type="image/png" href="/static/i/famp-brand.png">
     <link rel="stylesheet" href="/static/css/amazeui.css">
     <link rel="stylesheet" href="/static/css/app.css">
     {block name="css"}{/block}
@@ -21,12 +21,14 @@
         </div>
         <ul class="am-list am-list-collapse" id="sidebar-menu">
             {volist name="menus" id="vo"}
-            <li  class="am-panel">
                 {empty name="vo.child"}
+            <li class="no-children {neq name="vo.name" value="index/index"}{eq name="menu.cur.id" value="$vo.id"}am-active{/eq}{/neq}">
                 <a href="{$vo.name|url}">
                     <i class="{$vo.icon}"></i> <span>{$vo.title}</span>
                 </a>
+            </li>
                 {else/}
+            <li class="am-panel {eq name="menu.top.id" value="$vo.id"}am-active"{/eq}">
                 <a data-am-collapse="{parent: '#sidebar-menu', target: '#auth-id-{$vo.id}'}">
                     <i class="{$vo.icon}"></i> <b>{$vo.title}</b>
                     <i class="am-icon-angle-down am-fr am-margin-right"></i>
@@ -34,7 +36,8 @@
                 <ul class="am-list am-collapse" id="auth-id-{$vo.id}">
                     <li class="am-nav-header"><i class="{$vo.icon}"></i> {$vo.title}</li>
                     {volist name="vo.child" id="v"}
-                    <li><a href="{$v.name|url}">
+                    <li {eq name="menu.cur.id" value="$v.id"}class="am-active"{/eq}">
+                        <a href="{$v.name|url}">
                         <i class="{$v.icon}"></i> {$v.title} </a>
                     </li>
                     {/volist}
@@ -42,9 +45,6 @@
                 {/empty}
             </li>
             {/volist}
-            <li class="am-panel">
-                <a href="{:url('index/components')}"><i class="am-icon-forumbee"></i> <span>组件预览</span></a>
-            </li>
         </ul>
 
     </aside>

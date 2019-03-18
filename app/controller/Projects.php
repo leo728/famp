@@ -8,6 +8,7 @@
 
 namespace app\controller;
 
+use app\model\Products;
 use think\facade\Request;
 use think\facade\Config;
 
@@ -29,6 +30,10 @@ class Projects extends Base
         $this->assign(['status'=> $projectStatus,'userlist'=>$userList]);
     }
 
+    public function overview(){
+
+        return $this->fetch();
+    }
     /**
      * 项目首页
      * @return mixed
@@ -86,5 +91,78 @@ class Projects extends Base
         );
 
         return $this->fetch();
+    }
+
+    /**
+     * 添加项目
+     * @return array|mixed
+     */
+    public function create_item(){
+        $project = new \app\model\Projects();
+        $result = $project->createProject();
+        return $result;
+    }
+    /**
+     * 项目详情
+     * @return mixed
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function details(){
+        $project = new \app\model\Projects();
+        $id = Request::param('id','','intval');
+        $data = $project->getProject($id);
+        $this->assign(['data'=>$data]);
+        return $this->fetch();
+    }
+    /**
+     * 更新项目状态
+     * @return array
+     */
+    public function ed_project_status(){
+        $project = new \app\model\Projects();
+        $result = $project->edProjectStatus();
+        return $result;
+    }
+    /**
+     * 编辑项目
+     * @return mixed
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function ed_project()
+    {
+        $project = new \app\model\Projects();
+        $id =Request::param('id','','intval');
+        $data = $project->getProject($id);
+        $this->assign(['data'=>$data]);
+        return $this->fetch();
+    }
+
+    /*--------------------------------------*/
+    /*---------------products---------------*/
+    /*--------------------------------------*/
+    /**
+     * 产品报价首页
+     * @return mixed
+     * @throws \think\exception\DbException
+     */
+    public function products()
+    {
+        $products = new Products();
+        $list = $products->getPage();
+        $this->assign(['list'=>$list]);
+        return $this->fetch();
+    }
+    /**
+     * 添加产品报价
+     * @return array
+     */
+    public function add_products(){
+        $qp = new Products();
+        $result = $qp->add();
+        return $result;
     }
 }

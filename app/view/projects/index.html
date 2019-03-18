@@ -7,61 +7,67 @@
     <a href="javascript:;" onclick="im.modal('#add',600)" class="am-btn am-btn-primary am-icon-plus"> 项目</a>
     <a href="{:url('create_list')}" class="am-btn am-btn-primary am-icon-plus"> 报价</a>
     <a href="{:url('finance/create_item')}" class="am-btn am-btn-primary am-icon-plus"> 收支</a>
-    <form class="am-form am-form-inline am-fr">
-        <div class="am-form-group">
-            <div class="am-dropdown" data-am-dropdown>
-                <button class="am-btn am-btn-default am-dropdown-toggle"
-                        data-am-dropdown-toggle>项目状态 <span class="am-icon-caret-down"></span>
-                </button>
-                <ul class="am-dropdown-content">
-                    <li><a href="{:url('index')}?interval={$interval}&status">全部</a></li>
-                    {volist name="status" id="vo"}
-                    <li><a href="{:url('index')}?status={$vo.status}&interval={$interval}">{$vo.status_name}</a></li>
-                    {/volist}
-                </ul>
-            </div>
-            <div class="am-dropdown" data-am-dropdown>
-                <button class="am-btn am-btn-default am-dropdown-toggle"
-                        data-am-dropdown-toggle>时间区间 <span class="am-icon-caret-down"></span>
-                </button>
-                <ul class="am-dropdown-content">
-                    <li><a href="{:url('index')}?status={$getStatus}&interval">全部</a></li>
-                    <li><a href="{:url('index')}?status={$getStatus}&interval=1">最近一个月</a></li>
-                    <li><a href="{:url('index')}?status={$getStatus}&interval=3">最近三个月</a></li>
-                    <li><a href="{:url('index')}?status={$getStatus}&interval=6">最近半年</a></li>
-                    <li><a href="{:url('index')}?status={$getStatus}&interval=12">最近一年</a></li>
-                    <li><a href="{:url('index')}?status={$getStatus}&interval=36">三年</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="am-form-group" style="width: 200px">
-            <input type="text" name="subject" placeholder="输入项目名称搜索">
-        </div>
-        <button type="submit" class="am-btn am-btn-default">
-            <span class="am-icon-search"></span> 搜索</button>
-    </form>
+
 </div>
-<table class="am-table am-table-project am-table-striped">
+<ul class="am-nav am-nav-tab">
+    <li {empty name="getStatus"}class="am-active"{/empty}>
+        <a href="{:url('index')}?interval={$interval}&status">全部</a>
+    </li>
+    {volist name="status" id="vo"}
+    <li {eq name="vo.status" value="$getStatus"}class="am-active"{/eq}>
+        <a href="{:url('index')}?status={$vo.status}&interval={$interval}">{$vo.status_name}</a></li>
+    {/volist}
+    <li class="am-nav-tab-last">
+        <form class="am-form am-form-inline am-fr">
+            <div class="am-form-group">
+                <div class="am-dropdown" data-am-dropdown>
+                    <button class="am-btn am-btn-default am-dropdown-toggle"
+                            data-am-dropdown-toggle>时间区间 <span class="am-icon-caret-down"></span>
+                    </button>
+                    <ul class="am-dropdown-content">
+                        <li><a href="{:url('index')}?status={$getStatus}&interval">全部</a></li>
+                        <li><a href="{:url('index')}?status={$getStatus}&interval=1">最近一个月</a></li>
+                        <li><a href="{:url('index')}?status={$getStatus}&interval=3">最近三个月</a></li>
+                        <li><a href="{:url('index')}?status={$getStatus}&interval=6">最近半年</a></li>
+                        <li><a href="{:url('index')}?status={$getStatus}&interval=12">最近一年</a></li>
+                        <li><a href="{:url('index')}?status={$getStatus}&interval=36">三年</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="am-form-group" style="width: 200px">
+                <input type="text" name="subject" placeholder="输入项目名称搜索">
+            </div>
+            <button type="submit" class="am-btn am-btn-default">
+                <span class="am-icon-search"></span> 搜索</button>
+        </form>
+    </li>
+</ul>
+
+<table class="am-table am-table-project am-margin-top">
     <colgroup>
         <col width="50">
         <col>
+        <col width="80">
         <col width="120">
         <col width="100">
         <col width="100">
         <col width="100">
-        <col width="130">
+        <col width="180">
     </colgroup>
     <tbody>
     {volist name="list" id="vo"}
     <tr>
         <td>
-            <div class="am-icon-btn am-radius {$vo.levelValue['color_style']}">{$vo.subject|mbs=1}</div>
+            <a href="{:url('projects/details',['id'=>$vo['id']])}">
+            <div class="am-icon-btn am-radius {$vo.statusValue['color']}">{$vo.subject|mbs=1}</div>
+            </a>
         </td>
         <td>
-            <span class="am-text-lg">{$vo.subject}
-                <span class="am-badge {$vo.statusValue.color}">{$vo.statusValue['status_name']}</span>
-            </span>
+            <a href="{:url('projects/details',['id'=>$vo['id']])}" class="am-title">{$vo.subject}</a>
             <div class="am-text-muted">{$vo.customer}</div>
+        </td>
+        <td>
+            <span class="am-badge {$vo.statusValue.color}">{$vo.statusValue['status_name']}</span>
         </td>
         <td>
             <span class="am-text-muted">项目金额</span>
@@ -82,15 +88,9 @@
         <td>
             <div class="am-table-btn">
                 <a href="{:url('projects/details',['id'=>$vo['id']])}">详情</a>
-                <div class="am-dropdown" data-am-dropdown="{trigger: 'hover' }">
-                    <a href="javascript:;" class="am-dropdown-toggle"
-                       data-am-dropdown-toggle>更多 <span class="am-icon-angle-down"></span></a>
-                    <ul class="am-dropdown-content">
-                        <li><a href="{:url('ed_project',['id'=>$vo['id']])}" class="am-icon-pencil"> 编辑</a></li>
-                        <li><a href="javascript:;" onclick="edStatus({$vo.id},{$vo.status})" class="am-icon-refresh"> 进度修改</a></li>
-                        <li><a href="javascript:;" onclick="delProject({$vo.id})" class="am-icon-trash-o"> 删除</a></li>
-                    </ul>
-                </div>
+                <a href="{:url('ed_project',['id'=>$vo['id']])}">编辑</a>
+                <a href="javascript:;" onclick="edStatus({$vo.id},{$vo.status})">进度</a>
+                <a href="javascript:;" onclick="delProject({$vo.id})">删除</a>
             </div>
         </td>
     </tr>
@@ -106,12 +106,14 @@
         <div class="am-modal-bd">
             <form action="{:url('ed_project_status')}" method="POST" id="eps-01" role="form" class="am-form">
                 <input type="hidden" name="id" value="">
-                <div class="am-form-group">
-                    <select name="status" id="eps-select" data-am-selected="{btnWidth:'100%',maxHeight:'100px'}">
+                <div class="am-form-group am-margin-bottom-0">
+                    <div class="am-btn-group am-btn-group-sm" data-am-button="">
                         {volist name="status" id="vo"}
-                        <option value="{$vo.status}">{$vo.status_name}</option>
+                        <label class="am-btn am-btn-default">
+                            <input type="radio" name="status" value="{$vo.status}"> {$vo.status_name}
+                        </label>
                         {/volist}
-                    </select>
+                    </div>
                 </div>
             </form>
         </div>
@@ -140,8 +142,7 @@
     function edStatus(e,s){
         let m = $('#edStatus');
         m.find('[name="id"]').val(e);
-        $("#eps-select").find("option[text='"+s+"']").attr("selected",true);
-        im.modal('#edStatus');
+        im.modal('#edStatus','410px');
     }
     function delProject(e){
         let u = "{:url('del_project')}?id="+e;

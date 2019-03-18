@@ -14,8 +14,9 @@ use think\facade\Request;
 use think\Model;
 use think\Validate;
 
-class QuotedProducts extends Model
+class Products extends Model
 {
+
     protected $rules=[
         'title'=>'require',
         'out_price'=>'require|number',

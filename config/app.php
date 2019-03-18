@@ -67,7 +67,7 @@ return [
     'projectStatus'=>[
         ['status'=>1,'status_name'=>'已接单','color'=>''],
         ['status'=>2,'status_name'=>'制作中','color'=>'am-badge-primary'],
-        ['status'=>3,'status_name'=>'施工中','color'=>'am-'],
+        ['status'=>3,'status_name'=>'施工中','color'=>'am-badge-secondary'],
         ['status'=>4,'status_name'=>'待收款','color'=>'am-badge-warning'],
         ['status'=>5,'status_name'=>'已完结','color'=>'am-badge-success']
     ]

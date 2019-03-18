@@ -53,7 +53,8 @@ const im = {
     }, modal: function (t, w, d) {
         $(t).modal({width: w, closeViaDimmer: d}, 'open')
     }, clearCache: function () {
-        $('body').append('<div class="cache-loading"><i class="am-icon-spinner am-icon-pulse"></i> 正在清除缓存... 请稍等...</div>');
+        $('body').append('<div class="cache-loading"><i class="am-icon-spinner am-icon-pulse">' +
+            '</i> 正在清除缓存... 请稍等...</div>');
         setTimeout("im.get('/index/clear_cache.html?token='+atoken)", 4000);
         setTimeout("$('.cache-loading').remove()",4000)
     }, verify: function (t, f) {
@@ -114,7 +115,8 @@ $('#uploader').upload({
         cache: false,
         processData: false,
     },
-    tpl: '<div class="am-upload-btn am-icon-cloud-upload am-btn"> 选择图片' + '<input class="am-upload-input" type="file"></div>'
+    tpl: '<div class="am-upload-btn am-icon-cloud-upload am-btn"> 选择图片'
+        + '<input class="am-upload-input" type="file"></div>'
 });
 $('#attachment').upload({
     header: {
@@ -134,7 +136,8 @@ $('#attachment').upload({
         cache: false,
         processData: false,
     },
-    tpl: '<div class="am-upload-btn am-icon-cloud-upload am-btn"> 选择图片' + '<input class="am-upload-input" type="file"></div>'
+    tpl: '<div class="am-upload-btn am-icon-cloud-upload am-btn"> 选择图片' +
+        '<input class="am-upload-input" type="file"></div>'
 });
 $(document).on('click', '.am-upload-remove', function () {
     $('.rval').val('');
@@ -143,8 +146,8 @@ $(document).on('click', '.am-upload-remove', function () {
     im.sget('/api/handle/unset_file.html?file=' + file + '&token=' + atoken)
 });
 $(document).ready(function () {
-    $(document).on('click', '.am-nav-menu>li', function () {
-        $(this).toggleClass('am-active').siblings('.am-nav-menu>li').removeClass('am-active');
+    $(document).on('click', '.sidebar>.am-list>li>a', function () {
+        $(this).parent('li').toggleClass('am-active').siblings('.sidebar>.am-list>li').removeClass('am-active');
     });
     $("#selectAll").click(function () {
         if (this.checked) {
