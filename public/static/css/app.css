@@ -80,14 +80,27 @@
     transition: all .2s;
 }
 .sidebar-brand {
-    background-color:#000c17;
-    height: 40px;
-    margin: 10px 20px;
+    height: 60px;
+    padding: 10px 20px;
     border-radius: 2px;
+    font-size: 16px;
+    text-align: center;
+    border-bottom: 1px solid #000c17;
+}
+.sidebar-brand>a {
+    color: #f0f0f0;
+    line-height: 40px;
+    display: block;
 }
 .sidebar-min .sidebar-brand{
     margin: 0;
     height: 60px;
+    text-align: center;
+    line-height: 60px;
+}
+.sidebar-min .sidebar-brand span {
+    display: none;
+    transition:  all .2s;
 }
 .sidebar-min .am-list>li>a{
     padding: 0 !important;
