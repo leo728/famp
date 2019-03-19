@@ -1,5 +1,21 @@
+body{
+    background-color: #f0f2f5;
+}
+.am-text-gray{
+    color: #666;
+}
+.am-text-max{
+    font-size: 30px;
+    font-weight: 400;
+}
+.am-panel-default .am-panel-hd{
+    background-color: #fff;
+    border-bottom-color: #e3e3e3;
+}
 .am-topbar {
-    border-bottom: 1px solid #e3e3e3;
+    border-bottom: none;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0,21,41,.08);
 }
 .am-topbar-form{
     position: relative;
@@ -145,7 +161,12 @@
 }
 .am-list-collapse>li.am-panel>.am-list{
     background-color: #000c17;
-    padding: 5px 0 12px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all .2s ease-in-out;
+}
+.am-list-collapse>li.am-panel.am-active>.am-list{
+    max-height: 500px;
 }
 .am-list-collapse>li.am-panel>.am-list>li>a {
     padding:0 0 0 55px;
@@ -261,6 +282,10 @@
 }
 .am-page{
     padding:10px 20px;
+}
+.am-page>h2{
+    font-size: 24px;
+    font-weight: 400;
 }
 .am-table-level-1:before {
     content: "\f0c9";

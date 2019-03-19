@@ -782,6 +782,12 @@ select {
   height: auto;
   float: left;
 }
+[class*="am-avg-"].am-avg-gutter{
+  margin:0 -.5rem;
+}
+[class*="am-avg-"].am-avg-gutter>li{
+  padding: 0 .5rem;
+}
   .am-avg-1 > li {
     width: 100%;
   }

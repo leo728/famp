@@ -147,7 +147,7 @@ $(document).on('click', '.am-upload-remove', function () {
 });
 $(document).ready(function () {
     $(document).on('click', '.sidebar>.am-list>li>a', function () {
-        $(this).parent('li').toggleClass('am-active').siblings('.sidebar>.am-list>li').removeClass('am-active');
+        $(this).parent('li').addClass('am-active').siblings('.sidebar>.am-list>li').removeClass('am-active');
     });
     $("#selectAll").click(function () {
         if (this.checked) {

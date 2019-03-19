@@ -117,6 +117,8 @@ class Authorize extends Model
         if (!$data['name'] || !$data['title']) {
             return ['code' => 403, 'msg' => '名称和地址不能为空'];
         }
+        trim($data['title']);
+        trim($data['title']);
         $result = $this->save($data);
         if (!$result) {
             return ['code' => 403, 'msg' => '添加失败'];

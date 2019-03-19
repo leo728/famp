@@ -89,7 +89,6 @@ class Projects extends Base
             'interval' => $getInterval,
             'level' => $level]
         );
-
         return $this->fetch();
     }
 
@@ -140,10 +139,11 @@ class Projects extends Base
         $this->assign(['data'=>$data]);
         return $this->fetch();
     }
-
-    /*--------------------------------------*/
-    /*---------------products---------------*/
-    /*--------------------------------------*/
+    // ------------- quotation-----------
+    public function quotation(){
+        return $this->fetch();
+    }
+    //---------------products------------
     /**
      * 产品报价首页
      * @return mixed

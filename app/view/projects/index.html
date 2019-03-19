@@ -1,7 +1,10 @@
 {extend name="public"/}
 {block name="name"}项目列表{/block}
 {block name="page"}
-<h2>项目列表</h2>
+<h2 class="am-cf">
+    项目列表
+    <small class="am-fr">项目总数：{$list->total()}</small>
+</h2>
 <hr>
 <div class="am-cf am-margin-bottom">
     <a href="javascript:;" onclick="im.modal('#add',600)" class="am-btn am-btn-primary am-icon-plus"> 项目</a>
