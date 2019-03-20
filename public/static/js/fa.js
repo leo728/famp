@@ -97,6 +97,22 @@ const im = {
         im.showAlert(525, '复制成功')
     }
 };
+function getDays() {
+    let date = new Date();
+    let year = date.getFullYear();
+    let mouth = date.getMonth() + 1;
+    let days;
+    if (mouth === 2) {
+        days = year % 4 === 0 ? 29 : 28;
+    }
+    else if (mouth === 1 || mouth === 3 || mouth === 5 || mouth === 7 || mouth === 8 || mouth === 10 || mouth === 12) {
+        days = 31;
+    }
+    else {
+        days = 30;
+    }
+    return days;
+}
 $('#uploader').upload({
     header: {
         url: '/api/handle/uploader.html?type=thumb&token=' + atoken,

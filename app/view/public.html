@@ -56,7 +56,6 @@
                     </a>
                 </li>
             </ul>
-
             <form class="am-topbar-form am-form-inline" method="get" role="search">
                 <div class="am-dropdown" data-am-dropdown>
                     <input type="hidden" name="type" value="projects">
@@ -97,6 +96,11 @@
                 </ul>
             </div>
         </header>
+        <div class="am-page-header">
+            <h2>{block name="name"}{/block}</h2>
+            <div class="am-toolbar">{block name="toolbar"}{/block}</div>
+            <div class="am-page-ext">{block name="ext"}{/block}</div>
+        </div>
         <div class="am-page">
             {block name="page"}{/block}
         </div>

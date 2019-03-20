@@ -13,9 +13,10 @@ body{
     border-bottom-color: #e3e3e3;
 }
 .am-topbar {
-    border-bottom: none;
     background: #fff;
     box-shadow: 0 1px 4px rgba(0,21,41,.08);
+    margin-bottom: 0;
+    z-index: 3;
 }
 .am-topbar-form{
     position: relative;
@@ -281,11 +282,23 @@ body{
     min-height: 50vh;
 }
 .am-page{
-    padding:10px 20px;
+    padding: 20px;
 }
-.am-page>h2{
+.am-page-header{
+    padding: 20px;
+    background-color: #fff;
+    position: relative;
+    z-index: 2;
+}
+.am-page-ext {
+    position: absolute;
+    top: 28px;
+    right: 20px;
+}
+.am-page-header h2{
     font-size: 24px;
     font-weight: 400;
+    margin-bottom: 0;
 }
 .am-table-level-1:before {
     content: "\f0c9";
@@ -404,4 +417,13 @@ body{
     left: -1px;
     top: 4px;
     height: 14px;
+}
+.am-position-relative{
+    position: relative;
+}
+.select-view {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    z-index: 2;
 }

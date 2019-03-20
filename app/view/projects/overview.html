@@ -1,7 +1,5 @@
 {extend name="/public"/}
-{block name="css"}
-
-{/block}
+{block name="name"}项目概览{/block}
 {block name="page"}
 <ul class="am-avg-4 am-avg-gutter">
     <li>
@@ -68,24 +66,50 @@
 </ul>
 <!--end-->
 <section class="am-panel am-panel-default">
-    <header class="am-panel-bd">
-        <ul class="am-nav am-nav-tab">
-            <li class="am-active"><a href="#">项目概览</a></li>
-            <li class="am-nav-tab-last">本周</li>
-            <li class="am-nav-tab-last">本月</li>
-            <li class="am-nav-tab-last">季度</li>
-            <li class="am-nav-tab-last">全年</li>
-        </ul>
-    </header>
-    <div class="am-panel-bd">
-        面板内容
+    <div class="am-panel-bd am-position-relative">
+        <div class="select-view">
+            <span class="am-btn am-btn-default am-btn-sm" onclick="setFor('',this)">本月</span>
+            <span class="am-btn am-btn-default am-btn-sm" onclick="setFor(1,this)">本季度</span>
+            <span class="am-btn am-btn-default am-btn-sm" onclick="setFor(2,this)">半年</span>
+            <span class="am-btn am-btn-default am-btn-sm" onclick="setFor(3,this)">全年</span>
+        </div>
+        <div id="chart" style="height: 360px"></div>
     </div>
 </section>
+<div class="am-g am-g-gutter">
+    <div class="am-u-6">
+        <section class="am-panel am-panel-default">
+            <header class="am-panel-hd">
+                <h3 class="am-panel-title">
+                    <span class="am-icon-tasks am-text-primary"></span> 进行中项目</h3>
+            </header>
+            <div class="am-panel-bd">
+                面板内容
+            </div>
+        </section>
 
+    </div>
+    <div class="am-u-6">
+        <section class="am-panel am-panel-default">
+            <header class="am-panel-hd">
+                <h3 class="am-panel-title">
+                    <span class="am-icon-check-square am-text-success"></span> 已完成项目</h3>
+            </header>
+            <div class="am-panel-bd">
+                面板内容
+            </div>
+        </section>
+
+    </div>
+</div>
 {/block}
 {block name="modal"}
 
 {/block}
 {block name="js"}
+{js file="/static/js/echarts.min.js"/}
+{js file="/static/js/pro_charts.js"/}
+<script>
 
+</script>
 {/block}

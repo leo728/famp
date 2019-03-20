@@ -673,8 +673,12 @@ select {
   position: relative;
   flex: auto;
 }
+.am-g-gutter{
+  margin: 0 -.5rem;
+  width: auto;
+}
 .am-g-gutter>[class*="am-u-"]{
-  padding: 0 1rem;
+  padding: 0 .5rem;
 }
   .am-u-1 {
     max-width: 8.33333333%;
@@ -1008,8 +1012,9 @@ a.am-btn-default:visited {
 .am-btn-default.am-active,
 .am-dropdown.am-active .am-btn-default.am-dropdown-toggle {
   background-image: none;
-  background-color: #FFF;
-  border-color: #cccccc;
+  background-color: #5085FF;
+  border-color: #5085FF;
+  color: #fff;
 }
 .am-btn-default.am-disabled,
 .am-btn-default[disabled],
@@ -6672,7 +6677,7 @@ a.am-close:hover {
 }
 /* Panel header */
 .am-panel-hd {
-  padding: 10px 14px;
+  padding: 1rem;
   border-bottom: 1px solid transparent;
 }
 /* Panel content */
