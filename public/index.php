@@ -14,5 +14,5 @@ namespace think;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-// 执行应用并响应
-(new App())->initialize()->run()->send();
+// 执行HTTP应用并响应
+(new App())->http->run()->send();

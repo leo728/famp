@@ -36,6 +36,8 @@ return [
     'route_complete_match'  => false,
     // 使用注解路由
     'route_annotation'      => false,
+    // 默认的路由变量规则
+    'default_route_pattern' => '[\w\.]+',
     // 域名根，如thinkphp.cn
     'url_domain_root'       => '',
     // 是否自动转换URL中的控制器和操作名
@@ -58,10 +60,6 @@ return [
     'default_action'        => 'index',
     // 操作方法后缀
     'action_suffix'         => '',
-    // 默认输出类型
-    'default_return_type'   => 'html',
-    // 默认AJAX 数据返回格式,可选json xml ...
-    'default_ajax_return'   => 'json',
     // 默认JSONP格式返回的处理方法
     'default_jsonp_handler' => 'jsonpReturn',
     // 默认JSONP处理方法
