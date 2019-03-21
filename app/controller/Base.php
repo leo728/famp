@@ -26,7 +26,6 @@ class Base extends Controller
         $authorized = new Authorize();
         $menus = $authorized->getList(2);
         $location = $authorized->getLocation();
-        $think = new Think();
-        $think->assign(['menus' => $menus, 'menu' => $location]);
+        $this->assign(['menus' => $menus, 'menu' => $location]);
     }
 }
