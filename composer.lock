@@ -263,12 +263,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/top-think/framework.git",
-                "reference": "e9d7bb69bc0b0daaf4f2627f33bde3493ef68b2b"
+                "reference": "682159b39061e40e55fa4527996b48136df4b1e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/top-think/framework/zipball/e9d7bb69bc0b0daaf4f2627f33bde3493ef68b2b",
-                "reference": "e9d7bb69bc0b0daaf4f2627f33bde3493ef68b2b",
+                "url": "https://api.github.com/repos/top-think/framework/zipball/682159b39061e40e55fa4527996b48136df4b1e6",
+                "reference": "682159b39061e40e55fa4527996b48136df4b1e6",
                 "shasum": ""
             },
             "require": {
@@ -316,7 +316,7 @@
                 "orm",
                 "thinkphp"
             ],
-            "time": "2019-03-21T10:11:35+00:00"
+            "time": "2019-03-21T15:01:02+00:00"
         },
         {
             "name": "topthink/think-installer",

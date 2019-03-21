@@ -9,10 +9,10 @@ class Index extends Base
 
     public function index()
     {
-        return $this->fetch('/index');
+        return view('/index');
     }
     public function components(){
-        return $this->fetch('/components');
+        return view('/components');
     }
 
     public function logout(){
