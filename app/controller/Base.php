@@ -10,6 +10,8 @@ namespace app\controller;
 
 use app\model\Authorize;
 use think\Controller;
+use think\facade\View;
+
 class Base extends Controller
 {
     /**
@@ -23,6 +25,6 @@ class Base extends Controller
         $authorized = new Authorize();
         $menus = $authorized->getList(2);
         $location = $authorized->getLocation();
-        view('',['menus' => $menus, 'menu' => $location]);
+        View::assign(['menus' => $menus, 'menu' => $location]);
     }
 }
