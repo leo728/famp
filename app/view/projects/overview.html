@@ -76,32 +76,87 @@
         <div id="chart" style="height: 360px"></div>
     </div>
 </section>
-<div class="am-g am-g-gutter">
-    <div class="am-u-6">
-        <section class="am-panel am-panel-default">
-            <header class="am-panel-hd">
-                <h3 class="am-panel-title">
-                    <span class="am-icon-tasks am-text-primary"></span> 进行中项目</h3>
-            </header>
-            <div class="am-panel-bd">
-                面板内容
-            </div>
-        </section>
+<section class="am-panel am-panel-default">
+    <div class="am-panel-bd">
+        <div class="am-tabs" data-am-tabs="{noSwipe: 1}">
+            <ul class="am-tabs-nav am-nav am-nav-tab">
+                <li class="am-active"><a href="javascript: void(0)">
+                    <i class="am-icon-tasks"></i> 进行中项目
+                </a></li>
+                <li><a href="javascript: void(0)"><i class="am-icon-check-square"></i> 已完成项目</a></li>
+            </ul>
 
-    </div>
-    <div class="am-u-6">
-        <section class="am-panel am-panel-default">
-            <header class="am-panel-hd">
-                <h3 class="am-panel-title">
-                    <span class="am-icon-check-square am-text-success"></span> 已完成项目</h3>
-            </header>
-            <div class="am-panel-bd">
-                面板内容
+            <div class="am-tabs-bd">
+                <div class="am-tab-panel am-active">
+                    <table class="am-table am-table-project am-margin-bottom-0">
+                        <colgroup>
+                            <col width="50">
+                            <col>
+                            <col width="80">
+                            <col width="120">
+                        </colgroup>
+                        <tbody>
+                        {volist name="ongoing" id="vo"}
+                        <tr>
+                            <td>
+                                <a href="{:url('projects/details',['id'=>$vo['id']])}">
+                                    <div class="am-icon-btn am-radius {$vo.statusValue['color']}">{$vo.subject|mbs=1}</div>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{:url('projects/details',['id'=>$vo['id']])}" class="am-title">{$vo.subject}</a>
+                                <div class="am-text-muted">{$vo.customer}</div>
+                            </td>
+                            <td>
+                                <span class="am-text-muted">项目金额</span>
+                                <div class="am-text-danger am-text-lg">￥{$vo.price}</div>
+                            </td>
+                            <td>
+                                <span class="am-text-muted">完成时间</span>
+                                <div>{$vo.end_time|date='Y-m-d'}</div>
+                            </td>
+                        </tr>
+                        {/volist}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="am-tab-panel">
+                    <table class="am-table am-table-project am-margin-bottom-0">
+                        <colgroup>
+                            <col width="50">
+                            <col>
+                            <col width="80">
+                            <col width="120">
+                        </colgroup>
+                        <tbody>
+                        {volist name="complete" id="vo"}
+                        <tr>
+                            <td>
+                                <a href="{:url('projects/details',['id'=>$vo['id']])}">
+                                    <div class="am-icon-btn am-radius {$vo.statusValue['color']}">{$vo.subject|mbs=1}</div>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{:url('projects/details',['id'=>$vo['id']])}" class="am-title">{$vo.subject}</a>
+                                <div class="am-text-muted">{$vo.customer}</div>
+                            </td>
+                            <td>
+                                <span class="am-text-muted">项目金额</span>
+                                <div class="am-text-danger am-text-lg">￥{$vo.price}</div>
+                            </td>
+                            <td>
+                                <span class="am-text-muted">接单时间</span>
+                                <div>{$vo.dateline|date='Y-m-d'}</div>
+                            </td>
+                        </tr>
+                        {/volist}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </section>
-
+        </div>
     </div>
-</div>
+</section>
 {/block}
 {block name="modal"}
 

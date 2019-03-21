@@ -19,11 +19,12 @@ class Index extends Base
         Session::clear();
         $this->result(url('account/login'),200,'您已经成功退出系统，正在为您跳转到登录页面!');
     }
+
     /**
-     * 清除缓存
+     * 清除全站缓存
      */
     public function clear_cache(){
         Cache::clear();
-        $this->result('',403,'缓存清除成功，正在为您刷新页面');
+        $this->result('',200,'缓存清除成功，正在为您刷新页面');
     }
 }

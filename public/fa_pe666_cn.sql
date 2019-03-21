@@ -2,15 +2,15 @@
 Navicat MariaDB Data Transfer
 
 Source Server         : local
-Source Server Version : 100122
+Source Server Version : 100313
 Source Host           : localhost:3306
 Source Database       : fa_pe666_cn
 
 Target Server Type    : MariaDB
-Target Server Version : 100122
+Target Server Version : 100313
 File Encoding         : 65001
 
-Date: 2019-03-18 18:41:54
+Date: 2019-03-21 22:50:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,14 +21,14 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `raw_authorize`;
 CREATE TABLE `raw_authorize` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `pid` int(11) DEFAULT '0',
+  `pid` int(11) DEFAULT 0,
   `title` varchar(50) NOT NULL,
   `name` varchar(200) NOT NULL,
   `icon` varchar(100) DEFAULT NULL,
-  `display` int(11) DEFAULT '1',
-  `is_common` int(11) DEFAULT '0',
-  `order` int(11) DEFAULT '0',
-  `status` int(11) DEFAULT '1',
+  `display` int(11) DEFAULT 1,
+  `is_common` int(11) DEFAULT 0,
+  `order` int(11) DEFAULT 0,
+  `status` int(11) DEFAULT 1,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COMMENT='权限控制菜单表';
 
@@ -54,7 +54,7 @@ INSERT INTO `raw_authorize` VALUES ('20', '10', '员工列表', 'member/index', 
 INSERT INTO `raw_authorize` VALUES ('21', '5', '工资表', 'finance/wages', 'am-icon-table', '1', '1', '3', '1');
 INSERT INTO `raw_authorize` VALUES ('24', '2', '产品报价', 'projects/products', 'am-icon-th-large', '1', '0', '0', '1');
 INSERT INTO `raw_authorize` VALUES ('25', '2', '项目概览', 'projects/overview', 'am-icon-area-chart', '1', '0', '9', '1');
-INSERT INTO `raw_authorize` VALUES ('26', '2', '报价单', 'project/quotation ', 'am-icon-file-excel-o', '1', '0', '7', '1');
+INSERT INTO `raw_authorize` VALUES ('26', '2', '报价单', 'projects/quotation', 'am-icon-file-excel-o', '1', '0', '7', '1');
 INSERT INTO `raw_authorize` VALUES ('27', '5', '财务概览', 'finance/overview', 'am-icon-pie-chart', '1', '0', '6', '1');
 INSERT INTO `raw_authorize` VALUES ('28', '15', '基础信息', 'settings/baseinfo', 'am-icon-info-circle', '1', '0', '9', '1');
 INSERT INTO `raw_authorize` VALUES ('29', '15', '管理员', '/settings/manager', 'am-icon-user-secret', '1', '0', '8', '1');
@@ -70,10 +70,10 @@ DROP TABLE IF EXISTS `raw_authorize_group`;
 CREATE TABLE `raw_authorize_group` (
   `group_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `group_name` varchar(50) DEFAULT NULL,
-  `rules` text,
+  `rules` text DEFAULT NULL,
   `icon` varchar(100) DEFAULT NULL,
   `order` int(11) DEFAULT NULL,
-  `status` int(11) DEFAULT '1',
+  `status` int(11) DEFAULT 1,
   PRIMARY KEY (`group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='权限组';
 
@@ -111,7 +111,7 @@ CREATE TABLE `raw_finance` (
   `payee` varchar(50) DEFAULT NULL COMMENT '收款方',
   `voucher` varchar(255) DEFAULT NULL COMMENT '收据 凭证',
   `dateline` int(11) DEFAULT NULL,
-  `status` int(11) DEFAULT '1',
+  `status` int(11) DEFAULT 1,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='收支记录表';
 
@@ -150,7 +150,7 @@ CREATE TABLE `raw_member` (
   `reg_ip` char(20) DEFAULT NULL,
   `last_login_time` int(11) DEFAULT NULL,
   `last_login_ip` char(20) DEFAULT NULL,
-  `status` int(11) DEFAULT '1',
+  `status` int(11) DEFAULT 1,
   PRIMARY KEY (`uid`),
   UNIQUE KEY `think_user_uid_openid_uindex` (`uid`,`hash`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='用户列表';
@@ -170,10 +170,10 @@ INSERT INTO `raw_member` VALUES ('5', 'tDgbqM4M6PUz5337', '王斌', '17787937708
 DROP TABLE IF EXISTS `raw_member_department`;
 CREATE TABLE `raw_member_department` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `pid` int(11) DEFAULT '0',
+  `pid` int(11) DEFAULT 0,
   `department` varchar(50) DEFAULT NULL,
-  `order` int(11) DEFAULT '0',
-  `status` int(11) DEFAULT '1',
+  `order` int(11) DEFAULT 0,
+  `status` int(11) DEFAULT 1,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COMMENT='部门表';
 
@@ -208,7 +208,7 @@ CREATE TABLE `raw_products` (
   `out_price` decimal(10,2) DEFAULT NULL,
   `unit` varchar(50) DEFAULT NULL,
   `supplier` varchar(120) DEFAULT NULL,
-  `status` int(11) DEFAULT '1',
+  `status` int(11) DEFAULT 1,
   PRIMARY KEY (`pid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COMMENT='产品报价表';
 
@@ -256,12 +256,12 @@ CREATE TABLE `raw_projects` (
   `customer_pm` varchar(50) DEFAULT NULL COMMENT '甲方负责人',
   `customer_mobile` varchar(22) DEFAULT NULL,
   `price` decimal(10,2) DEFAULT NULL,
-  `level` int(11) DEFAULT '3',
+  `level` int(11) DEFAULT 3,
   `dateline` int(11) DEFAULT NULL,
   `end_time` int(11) DEFAULT NULL,
   `pm_id` int(11) DEFAULT NULL,
-  `message` longtext,
-  `status` int(11) DEFAULT '0',
+  `message` longtext DEFAULT NULL,
+  `status` int(11) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='项目列表';
 
@@ -297,10 +297,10 @@ CREATE TABLE `raw_projects_item` (
   `specif` varchar(100) DEFAULT NULL COMMENT '甲方负责人',
   `nums` tinyint(22) DEFAULT NULL,
   `area` decimal(10,2) DEFAULT NULL,
-  `univalent` decimal(10,2) DEFAULT '3.00',
+  `univalent` decimal(10,2) DEFAULT 3.00,
   `total` decimal(10,2) DEFAULT NULL,
   `dateline` int(11) DEFAULT NULL,
-  `status` int(11) DEFAULT '0',
+  `status` int(11) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='项目制作清单';
 
@@ -319,10 +319,10 @@ CREATE TABLE `raw_projects_report` (
   `specif` varchar(100) DEFAULT NULL COMMENT '甲方负责人',
   `nums` tinyint(22) DEFAULT NULL,
   `area` decimal(10,2) DEFAULT NULL,
-  `univalent` decimal(10,2) DEFAULT '3.00',
+  `univalent` decimal(10,2) DEFAULT 3.00,
   `total` decimal(10,2) DEFAULT NULL,
   `dateline` int(11) DEFAULT NULL,
-  `status` int(11) DEFAULT '0',
+  `status` int(11) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='项目报表';
 

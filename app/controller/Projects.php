@@ -31,7 +31,12 @@ class Projects extends Base
     }
 
     public function overview(){
-
+        $pro = new \app\model\Projects();
+        $ongingWhere[]= ['p.status','<>',5];
+        $completeWhere[] = ['p.status','=',5];
+        $onging = $pro->getProjectsList($ongingWhere,10);
+        $complete = $pro->getProjectsList($completeWhere,10);
+        $this->assign(['ongoing'=>$onging,'complete'=>$complete]);
         return $this->fetch();
     }
     /**

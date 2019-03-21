@@ -263,12 +263,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/top-think/framework.git",
-                "reference": "e82ddce5b534f0a66be9509c063cf98267b92e53"
+                "reference": "e9d7bb69bc0b0daaf4f2627f33bde3493ef68b2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/top-think/framework/zipball/e82ddce5b534f0a66be9509c063cf98267b92e53",
-                "reference": "e82ddce5b534f0a66be9509c063cf98267b92e53",
+                "url": "https://api.github.com/repos/top-think/framework/zipball/e9d7bb69bc0b0daaf4f2627f33bde3493ef68b2b",
+                "reference": "e9d7bb69bc0b0daaf4f2627f33bde3493ef68b2b",
                 "shasum": ""
             },
             "require": {
@@ -316,7 +316,48 @@
                 "orm",
                 "thinkphp"
             ],
-            "time": "2019-03-09T15:14:55+00:00"
+            "time": "2019-03-21T10:11:35+00:00"
+        },
+        {
+            "name": "topthink/think-installer",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/top-think/think-installer.git",
+                "reference": "f5400a12c60e513911aef41fe443fa6920952675"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/top-think/think-installer/zipball/f5400a12c60e513911aef41fe443fa6920952675",
+                "reference": "f5400a12c60e513911aef41fe443fa6920952675",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "think\\composer\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "think\\composer\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "yunwuxin",
+                    "email": "448901948@qq.com"
+                }
+            ],
+            "time": "2018-05-11T06:45:42+00:00"
         },
         {
             "name": "topthink/think-template",
@@ -356,23 +397,24 @@
         },
         {
             "name": "topthink/think-view",
-            "version": "v1.0.4",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/top-think/think-view.git",
-                "reference": "1b2ad9cc50428953da2f983c58b25bf74c219323"
+                "reference": "2f21fdf06a6ae313f13c9978dae33fb761851b88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/top-think/think-view/zipball/1b2ad9cc50428953da2f983c58b25bf74c219323",
-                "reference": "1b2ad9cc50428953da2f983c58b25bf74c219323",
+                "url": "https://api.github.com/repos/top-think/think-view/zipball/2f21fdf06a6ae313f13c9978dae33fb761851b88",
+                "reference": "2f21fdf06a6ae313f13c9978dae33fb761851b88",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
+                "topthink/think-installer": "^2.0",
                 "topthink/think-template": "^2.0"
             },
-            "type": "library",
+            "type": "think-extend",
             "extra": {
                 "think-config": {
                     "template": "src/config/template.php"
@@ -380,11 +422,8 @@
             },
             "autoload": {
                 "psr-4": {
-                    "think\\": "src"
-                },
-                "files": [
-                    "src/helper.php"
-                ]
+                    "think\\view\\driver\\": "src"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -396,8 +435,8 @@
                     "email": "liu21st@gmail.com"
                 }
             ],
-            "description": "thinkphp view",
-            "time": "2019-02-20T06:04:39+00:00"
+            "description": "thinkphp template driver",
+            "time": "2019-03-20T14:47:42+00:00"
         }
     ],
     "packages-dev": [],

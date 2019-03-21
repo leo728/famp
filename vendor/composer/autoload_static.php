@@ -8,12 +8,13 @@ class ComposerStaticInitcec20db7bb5e8f374bfe3e76f31b7373
 {
     public static $files = array (
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
-        '3c51c36e2870ac9423bd005f23b1c166' => __DIR__ . '/..' . '/topthink/think-view/src/helper.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         't' => 
         array (
+            'think\\view\\driver\\' => 18,
+            'think\\composer\\' => 15,
             'think\\' => 6,
         ),
         'a' => 
@@ -34,11 +35,18 @@ class ComposerStaticInitcec20db7bb5e8f374bfe3e76f31b7373
     );
 
     public static $prefixDirsPsr4 = array (
+        'think\\view\\driver\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/topthink/think-view/src',
+        ),
+        'think\\composer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/topthink/think-installer/src',
+        ),
         'think\\' => 
         array (
             0 => __DIR__ . '/..' . '/topthink/framework/src/think',
             1 => __DIR__ . '/..' . '/topthink/think-template/src',
-            2 => __DIR__ . '/..' . '/topthink/think-view/src',
         ),
         'app\\' => 
         array (
