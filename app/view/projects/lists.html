@@ -12,11 +12,11 @@
     <div class="am-panel-bd">
         <ul class="am-nav am-nav-tab">
         <li {empty name="getStatus"}class="am-active"{/empty}>
-            <a href="{:url('index')}?interval={$interval}&status">全部</a>
+            <a href="{:url('lists')}?interval={$interval}&status">全部</a>
         </li>
         {volist name="status" id="vo"}
         <li {eq name="vo.status" value="$getStatus"}class="am-active"{/eq}>
-            <a href="{:url('index')}?status={$vo.status}&interval={$interval}">{$vo.status_name}</a></li>
+            <a href="{:url('lists')}?status={$vo.status}&interval={$interval}">{$vo.status_name}</a></li>
         {/volist}
         <li class="am-nav-tab-last">
             <form class="am-form am-form-inline am-fr">
