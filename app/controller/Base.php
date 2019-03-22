@@ -25,6 +25,24 @@ class Base extends Controller
         $authorized = new Authorize();
         $menus = $authorized->getList(2);
         $location = $authorized->getLocation();
-        View::assign(['menus' => $menus, 'menu' => $location]);
+        $this->assign(['menus' => $menus, 'menu' => $location]);
+    }
+
+    /**
+     * 纠结之 5.1版本的 assign数据分享
+     * 继承 View类 全局调用
+     * @param array $var
+     */
+    public function assign(array $var=[]){
+        View::assign($var);
+    }
+
+    /**
+     * 纠结模板输出，杜绝使用助手函数
+     * @param string $template
+     * @return string
+     */
+    public function fetch($template=''){
+        return View::fetch($template);
     }
 }
