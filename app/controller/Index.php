@@ -25,6 +25,6 @@ class Index extends Base
      */
     public function clear_cache(){
         Cache::clear();
-        $this->result('',200,'缓存清除成功，正在为您刷新页面');
+        $this->result('',200,'缓存清除成功，正在为您刷新页面','json');
     }
 }

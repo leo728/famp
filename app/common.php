@@ -129,15 +129,21 @@ function unlimitedForLevel($list, $pid = 0, $level = 0)
 function mbs($string,$length='40'){
     return mb_substr($string,0,$length,'UTF-8');
 }
+
 /**
- * 格式化api借口
- * @param $code
- * @param $msg
+ * @param int $code
+ * @param string $msg
  * @param string $data
- * @return array
+ * @return \think\response\Json
  */
-function result($code,$msg,$data=''){
-    return ['code' => $code, 'msg' => $msg, 'data' => $data, 'timestamp' => time(), 'hash' => staticVersion()];
+function result(int $code,string $msg,$data=''){
+    $result = [
+        'code' => $code,
+        'msg'  => $msg,
+        'time' => time(),
+        'data' => $data,
+    ];
+   return json($result);
 }
 /**
  * 获取用户uid

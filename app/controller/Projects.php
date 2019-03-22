@@ -30,7 +30,14 @@ class Projects extends Base
         $this->assign(['status'=> $projectStatus,'userlist'=>$userList]);
     }
 
-    public function overview(){
+    /**
+     * 项目统计首页
+     * @return string
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function index(){
         $pro = new \app\model\Projects();
         $ongingWhere[]= ['p.status','<>',5];
         $completeWhere[] = ['p.status','=',5];
@@ -44,7 +51,7 @@ class Projects extends Base
      * @return mixed
      * @throws \think\exception\DbException
      */
-    public function index()
+    public function lists()
     {
         $projectModel = new \app\model\Projects();
         //项目状态和紧急程度配置输出
