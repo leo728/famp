@@ -42,7 +42,7 @@ class Base extends Controller
      * @param string $template
      * @return string
      */
-    public function fetch($template=''){
+    public function fetch(string $template=''){
         return View::fetch($template);
     }
 }
