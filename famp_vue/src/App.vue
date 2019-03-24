@@ -1,36 +1,59 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <div>
-      <p>
-        If Ant-Design-Vue is successfully added to this project, you'll see an
-        <code v-text="'<a-button>'"></code>
-        below
-      </p>
-      <a-button type="primary">Primary</a-button>
-    </div>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <a-layout id="root">
+    <a-layout-sider
+            :trigger="null"
+            collapsible
+            v-model="collapsed"
+    >
+      <div class="logo" />
+      <Menus/>
+    </a-layout-sider>
+    <a-layout>
+      <a-layout-header style="background: #fff; padding: 0">
+        <a-icon
+                class="trigger"
+                :type="collapsed ? 'menu-unfold' : 'menu-fold'"
+                @click="()=> collapsed = !collapsed"
+        />
+      </a-layout-header>
+      <a-layout-content :style="{ margin: '24px 16px', minHeight: '280px' }">
+        <router-view></router-view>
+      </a-layout-content>
+    </a-layout>
+  </a-layout>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  import Menus from './components/Menus';
+  export default {
+    data(){
+      return {
+        collapsed: false,
+      }
+    },
+    components:{
+      Menus
+    }
   }
-}
 </script>
-
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #root{
+    min-height: 100vh;
+  }
+  #root .trigger {
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color .3s;
+  }
+
+  #root .trigger:hover {
+    color: #1890ff;
+  }
+
+  #root .logo {
+    height: 32px;
+    background: rgba(255,255,255,.2);
+    margin: 16px;
+  }
 </style>
