@@ -5,6 +5,7 @@ import Projects from './views/Projects'
 import Member from './views/Member'
 import Finance from './views/Finance'
 import Settings from './views/Settings'
+import FinanceLists from './views/finance/lists'
 
 Vue.use(Router)
 
@@ -12,59 +13,89 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: '首页概述',
       component: Home,
-      meta:{'title':'首页概述','icon':'dashboard'}
+      icon:'dashboard'
     },
     {
       path: '/projects',
-      name: 'projects',
+      name: '项目管理',
       component: Projects,
-      meta:{'title':'项目管理','icon':'dashboard'},
-      children:[
-          {
-            path:'',
-            name:'',
-            meta:{}
-          },
-      ]
-    },
-    {
-      path: '/member',
-      name: 'member',
-      component: Member,
-      meta:{'title':'部门管理','icon':'dashboard'},
+      icon:'project',
       children:[
         {
-          path:'',
-          name:'',
-          meta:{}
+          path:'/projects/lists',
+          name:'项目列表',
+          icon:'list'
+        },
+        {
+          path:'/projects/quoted',
+          name:'报价清单',
+          icon:'file-down'
+        },
+        {
+          path:'/projects/products',
+          name:'产品报价',
+          icon:'file-down'
         },
       ]
     },
     {
       path: '/finance',
-      name: 'finance',
+      name: '财务管理',
       component: Finance,
-      meta:{'title':'财务管理','icon':'dashboard'},
+      icon:'money-collect',
       children:[
         {
-          path:'',
-          name:'',
-          meta:{}
+          path:'/finance/lists',
+          name:'收支记录',
+          component:FinanceLists,
+          icon:''
+        },
+        {
+          path:'/finance/wake_hour',
+          name:'工时管理',
+          icon:''
+        },
+        {
+          path:'/finance/table',
+          name:'工资表',
+          icon:''
+        },
+        {
+          path:'/finance/fina',
+          name:'资金管理',
+          icon:''
+        },
+      ]
+    },
+    {
+      path: '/member',
+      name: '部门设置',
+      component: Member,
+      icon:'cluster',
+      children:[
+        {
+          path:'/member/staff',
+          name:'员工列表',
+          icon:''
+        },
+        {
+          path:'/member/department',
+          name:'部门设置',
+          icon:''
         },
       ]
     },
     {
       path: '/settings',
-      name: 'settings',
+      name: '全局设置',
       component: Settings,
-      meta:{'title':'全局设置','icon':'dashboard'},
+      icon:'setting',
       children:[
         {
           path:'',
-          name:'',
-          meta:{}
+          name:''
         },
       ]
     }

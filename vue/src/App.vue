@@ -16,7 +16,7 @@
                 @click="()=> collapsed = !collapsed"
         />
       </a-layout-header>
-      <a-layout-content :style="{ margin: '24px 16px', minHeight: '280px' }">
+      <a-layout-content :style="{ padding: '24px', minHeight: '280px',boxSizing:'border-box' }">
         <router-view></router-view>
       </a-layout-content>
     </a-layout>

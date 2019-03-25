@@ -7,19 +7,25 @@
                     theme="dark"
                     :inlineCollapsed="collapsed"
             >
-                <a-menu-item :key="vo.name" v-for="vo in menus">
+                <template v-for="vo in menus">
+                <a-menu-item :key="vo.name" v-if="!vo.children" style="margin:0">
                     <router-link :to="vo.path">
-                        <a-icon :type="vo.meta.icon" />
-                        <span>{{vo.meta.title}}</span>
+                        <a-icon :type="vo.icon" style="font-size: 18px;" />
+                        <span>{{vo.name}}</span>
                     </router-link>
                 </a-menu-item>
-                <a-sub-menu key="sub1">
-                    <span slot="title"><a-icon type="mail" /><span>Navigation One</span></span>
-                    <a-menu-item key="5">Option 5</a-menu-item>
-                    <a-menu-item key="6">Option 6</a-menu-item>
-                    <a-menu-item key="7">Option 7</a-menu-item>
-                    <a-menu-item key="8">Option 8</a-menu-item>
+                <a-sub-menu :key="vo.path" v-else>
+                <span slot="title">
+                    <a-icon :type="vo.icon" style="font-size: 18px;" />
+                    <span>{{vo.name}}</span>
+                </span>
+                    <a-menu-item :key="v.path" v-for="v in vo.children">
+                        <router-link :to="v.path">
+                        {{v.name}}
+                        </router-link>
+                    </a-menu-item>
                 </a-sub-menu>
+                </template>
             </a-menu>
         </div>
 </template>
