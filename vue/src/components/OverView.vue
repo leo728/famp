@@ -16,7 +16,7 @@
             this.setDataValue()
         },
         mounted() {
-            this.renderEcharts()
+            setTimeout(this.renderEcharts,1000)
         },
         methods: {
             renderEcharts() {
@@ -28,20 +28,11 @@
                         '#07a2a4', '#9a7fd1', '#588dd5', '#f5994e', '#c05050',
                         '#59678c', '#c9ab00', '#7eb00a', '#6f5553', '#c14089'
                     ],
-                    title: {
-                        text: '项目概览',
-                        subtext: '根据不同时段统计项目数量',
-                        textStyle: {
-                            fontSize: 18,
-                            fontWeight: 'bolder',
-                            color: '#5085FF'
-                        }
-                    },
                     grid: {
                         backgroundColor: '#fff',
                         borderWidth: 0,
                         x: 30,
-                        y: 80,
+                        y: 20,
                         x2: 40,
                         y2: 30
                     },

@@ -82,7 +82,7 @@ export default new Router({
         },
         {
           path:'/member/department',
-          name:'部门设置',
+          name:'部门列表',
           icon:''
         },
       ]
@@ -94,8 +94,8 @@ export default new Router({
       icon:'setting',
       children:[
         {
-          path:'',
-          name:''
+          path:'settings/info',
+          name:'基础信息'
         },
       ]
     }
