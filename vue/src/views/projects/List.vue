@@ -1,7 +1,7 @@
 <template>
     <div>
         <a-card :bodyStyle="{padding:'24px'}">
-            <div>
+            <div slot="title">
                 <a-row>
                     <a-col :span="12">
                         <AddProject/>
@@ -19,17 +19,15 @@
                                 <a-input-search
                                         placeholder="输入关键字"
                                         style="width: 200px"
-                                        @search=""
                                 />
                             </a-form-item>
                         </a-form>
                     </a-col>
                 </a-row>
-                <a-divider />
             </div>
             <div>
                 <a-list itemLayout="horizontal">
-                    <a-list-item v-for="item in lists">
+                    <a-list-item v-for="item in lists" :key="item.id">
                         <a slot="actions">详情</a>
                         <a slot="actions">编辑</a>
                         <a slot="actions">更多</a>
@@ -39,20 +37,35 @@
                                     slot="avatar"
                                     shape="square"
                                     :size="48"
-                                    :class="item.statusValue.color"
                             >
                                 {{item.firstName}}
                             </a-avatar>
-                            <div slot="description">demoo</div>
+                            <div slot="description">
+                                <span class="mr-10">客户：{{item.customer}}</span>
+                                <span class="mr-10">项目经理：{{item.username}}</span>
+                                <span>时间：{{item.dateline_d}} - {{item.end_time_d}}</span>
+                            </div>
                         </a-list-item-meta>
+                        <div :style="{marginRight: '24px',color:'#f5222d'}">
+                            ￥{{item.price}}
+                        </div>
                         <div style="width: 170px">
                             <a-progress :percent="70" size="small" status="active" />
                         </div>
-                        <div>content</div>
                     </a-list-item>
                 </a-list>
             </div>
         </a-card>
+        <a-pagination
+                :defaultCurrent="1"
+                :total="total"
+                :showTotal="total => `共有 ${total} 个项目`"
+                :pageSize="15"
+                :style="{textAlign:'center',padding: '24px 0'}"
+                showSizeChanger
+                showQuickJumper
+
+        />
     </div>
 </template>
 
@@ -79,7 +92,7 @@
             getProjects(){
                this.$axios.get('get_projects').then((res)=>{
                    this.lists = res.data.data.data
-                   this.data = res.data.total
+                   this.total = res.data.data.total
                })
             },
             getStatusLevel(){
@@ -88,8 +101,8 @@
                     this.level = res.data.data.level
                 })
             },
-            setStatus(e){
-                console.log(e)
+            setStatus(){
+
             }
         }
     }

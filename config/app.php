@@ -70,10 +70,10 @@ return [
     ],
     //项目状态对照表
     'projectStatus'=>[
-        ['status'=>1,'status_name'=>'已接单','color'=>'status-primary'],
-        ['status'=>2,'status_name'=>'制作中','color'=>'status-secondary'],
-        ['status'=>3,'status_name'=>'施工中','color'=>'status-secondary'],
-        ['status'=>4,'status_name'=>'待收款','color'=>'status-warning'],
-        ['status'=>5,'status_name'=>'已完结','color'=>'status-success']
+        ['status'=>1,'status_name'=>'已接单'],
+        ['status'=>2,'status_name'=>'制作中'],
+        ['status'=>3,'status_name'=>'施工中'],
+        ['status'=>4,'status_name'=>'待收款'],
+        ['status'=>5,'status_name'=>'已完结']
     ]
 ];

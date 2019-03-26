@@ -2,13 +2,13 @@
     <div class="sidebar-menus">
             <a-menu
                     :defaultSelectedKeys="['1']"
-                    :defaultOpenKeys="['sub1']"
+                    :defaultOpenKeys="['/projects']"
                     mode="inline"
                     theme="dark"
                     :inlineCollapsed="collapsed"
             >
                 <template v-for="vo in menus">
-                <a-menu-item :key="vo.name" v-if="!vo.children" style="margin:0">
+                <a-menu-item :key="vo.path" v-if="!vo.children" style="margin:0">
                     <router-link :to="vo.path">
                         <a-icon :type="vo.icon" style="font-size: 18px;" />
                         <span>{{vo.name}}</span>
