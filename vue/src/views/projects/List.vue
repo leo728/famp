@@ -1,6 +1,6 @@
 <template>
     <div>
-        <a-card :bodyStyle="{padding:'16px 24px'}">
+        <a-card :bodyStyle="{padding:'24px'}">
             <div>
                 <a-row>
                     <a-col :span="12">
@@ -15,7 +15,7 @@
                                     </a-button>
                                 </a-button-group>
                             </a-form-item>
-                            <a-form-item>
+                            <a-form-item :style="{marginRight:0}">
                                 <a-input-search
                                         placeholder="输入关键字"
                                         style="width: 200px"
@@ -33,8 +33,7 @@
                         <a slot="actions">详情</a>
                         <a slot="actions">编辑</a>
                         <a slot="actions">更多</a>
-                        <a-list-item-meta
-                                description="Ant Design, a design language for background applications, is refined by Ant UED Team">
+                        <a-list-item-meta>
                             <router-link slot="title" to="">{{item.subject}}</router-link>
                             <a-avatar
                                     slot="avatar"
@@ -44,7 +43,11 @@
                             >
                                 {{item.firstName}}
                             </a-avatar>
+                            <div slot="description">demoo</div>
                         </a-list-item-meta>
+                        <div style="width: 170px">
+                            <a-progress :percent="70" size="small" status="active" />
+                        </div>
                         <div>content</div>
                     </a-list-item>
                 </a-list>
