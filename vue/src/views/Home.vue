@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div class="page-content">
         <DataView/>
         <a-card
                 style="width:100%;margin-top: 16px"
@@ -34,7 +34,7 @@
 </style>
 <script>
     import OverView from '../components/OverView'
-    import DataView from './../components/DataView'
+    import DataView from '../components/DataView'
 
     export default {
         name: "home",

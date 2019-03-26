@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import Projects from './views/Projects'
-import Member from './views/Member'
-import Finance from './views/Finance'
-import Settings from './views/Settings'
+import Projects from './views/projects/Projects'
+import ProjectsLists from './views/projects/List'
+import Member from './views/member/Member'
+import Finance from './views/finance/Finance'
+import Settings from './views/settings/Settings'
 import FinanceLists from './views/finance/lists'
 
 Vue.use(Router)
@@ -26,7 +27,8 @@ export default new Router({
         {
           path:'/projects/lists',
           name:'项目列表',
-          icon:'list'
+          icon:'list',
+          component: ProjectsLists
         },
         {
           path:'/projects/quoted',

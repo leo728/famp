@@ -136,7 +136,7 @@
                         } else {
                             a = ['10月', '11月', '12月']
                         }
-                        b = getRanData(3);
+                        b = this.getRanData(3);
                         break;
                     case 2:
                         if (m >= 1 || m <= 6) {
@@ -144,17 +144,17 @@
                         } else {
                             a = ['7月', '8月', '9月', '10月', '11月', '12月']
                         }
-                        b = getRanData(6);
+                        b = this.getRanData(6);
                         break;
                     case 3:
                         a = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
-                        b = getRanData(12);
+                        b = this.getRanData(12);
                         break;
                     default:
-                        a = day;
-                        b = value;
+                        a = this.day;
+                        b = this.value;
                 }
-                renderEcharts(a, b)
+                this.renderEcharts(a, b)
             },
             getRanData(e) {
                 let d = [];
