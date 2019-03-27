@@ -4,16 +4,26 @@
             <div slot="title">
                 <a-row>
                     <a-col :span="12">
-                        <AddProject/>
+                        <div class="i-b mr-10"><AddProject/></div>
+                        <div class="i-b"><AddRecord/></div>
                     </a-col>
                     <a-col :span="12" style="text-align: right">
                         <a-form layout="inline">
                             <a-form-item>
-                                <a-button-group>
-                                    <a-button v-for="item in status" :key="item.status" @click="setStatus">
+                                <a-radio-group
+                                        defaultValue="0"
+                                        buttonStyle="solid"
+                                        @change="setStatus"
+                                        name="status"
+                                >
+                                    <a-radio-button value="0">全部</a-radio-button>
+                                    <a-radio-button
+                                            v-for="item in status"
+                                            :key="item.status"
+                                            :value="item.status">
                                         {{item.status_name}}
-                                    </a-button>
-                                </a-button-group>
+                                    </a-radio-button>
+                                </a-radio-group>
                             </a-form-item>
                             <a-form-item :style="{marginRight:0}">
                                 <a-input-search
@@ -29,14 +39,30 @@
                 <a-list itemLayout="horizontal">
                     <a-list-item v-for="item in lists" :key="item.id">
                         <a slot="actions">详情</a>
+                        <a slot="actions">状态</a>
                         <a slot="actions">编辑</a>
-                        <a slot="actions">更多</a>
+                        <a slot="actions" @click="setId">
+                        <a-popconfirm
+                                @confirm="delProjects"
+                                @cancel="cancelProject"
+                                placement="left"
+                                okText="确认"
+                                cancelText="取消"
+                                :data-id="item.id"
+                        >
+                            <template slot="title">
+                                <div>选中项目：{{item.subject}}</div>
+                                <div>此操作不可逆，请谨慎操作！</div>
+                            </template>
+                            删除
+                        </a-popconfirm>
+                        </a>
                         <a-list-item-meta>
                             <router-link slot="title" to="">{{item.subject}}</router-link>
                             <a-avatar
                                     slot="avatar"
-                                    shape="square"
-                                    :size="48"
+                                    :size="46"
+                                    :class="item.statusValue.color"
                             >
                                 {{item.firstName}}
                             </a-avatar>
@@ -46,51 +72,50 @@
                                 <span>时间：{{item.dateline_d}} - {{item.end_time_d}}</span>
                             </div>
                         </a-list-item-meta>
-                        <div :style="{marginRight: '24px',color:'#f5222d'}">
-                            ￥{{item.price}}
+                        <div :style="{marginRight: '24px',width:'120px'}">
+                            <div>金额</div>
+                            <span :style="{color:'#f5222d'}">￥{{item.price}}</span>
                         </div>
-                        <div style="width: 170px">
+                        <div :style="{width: '170px',paddingTop:'10px'}">
                             <a-progress :percent="70" size="small" status="active" />
                         </div>
                     </a-list-item>
                 </a-list>
             </div>
         </a-card>
-        <a-pagination
-                :defaultCurrent="1"
-                :total="total"
-                :showTotal="total => `共有 ${total} 个项目`"
-                :pageSize="15"
-                :style="{textAlign:'center',padding: '24px 0'}"
-                showSizeChanger
-                showQuickJumper
-
-        />
+        <div :style="{textAlign:'center',padding:'20px 0'}">
+            <a-button @click="onLoadMore">加载更多</a-button>
+        </div>
     </div>
 </template>
 
 <script>
     import AddProject from './../../components/AddProjects'
+    import AddRecord from './../../components/AddRecord'
     export default {
         name: "lists",
         components:{
-            AddProject
+            AddProject,
+            AddRecord
         },
         data(){
             return {
                 lists:[],
                 total:0,
                 status:[],
-                level:[]
+                curStatus:0,
+                level:[],
+                page:1,
+                projectId:0
             }
         },
         created(){
-            this.getProjects()
+            this.getProjects(this.curStatus,this.page)
             this.getStatusLevel()
         },
         methods:{
             getProjects(){
-               this.$axios.get('get_projects').then((res)=>{
+               this.$axios.get('get_projects.html?status='+this.curStatus+'&page='+this.page).then((res)=>{
                    this.lists = res.data.data.data
                    this.total = res.data.data.total
                })
@@ -101,8 +126,39 @@
                     this.level = res.data.data.level
                 })
             },
-            setStatus(){
+            setStatus({ target }){
+                this.curStatus = target.value
+                this.page=1
+                this.getProjects()
+            },
+            onLoadMore(){
+                this.page++
+                this.$axios.get('get_projects.html?status='+this.curStatus+'&page='+this.page).then((res)=>{
+                    let resData = res.data.data.data
+                    if(resData.length>0){
 
+                        this.lists = this.lists.concat(resData)
+                    }else {
+                        this.$message.warning('没有更多数据了，要加油哦，项目有点少了');
+                    }
+                })
+            },
+            delProjects(){
+                this.$axios.get('delete_projects?id='+this.projectId).then((res)=>{
+                    let code = res.data.data.code
+                    if(code === 200){
+                        this.getProjects()
+                        this.$message.success('项目删除成功！');
+                    }else {
+                        this.$message.error('项目删除失败，项目不存在或是已经删除！');
+                    }
+                })
+            },
+            setId({target}){
+                this.projectId = target.dataset.id
+            },
+            cancelProject(){
+                this.projectId = 0
             }
         }
     }

@@ -75,7 +75,7 @@ class Projects extends Model
             $data[$key]['levelValue'] = $this->projectLevel[$vaule['level']-1];
             $data[$key]['dateline_d'] = date('Y-m-d',$vaule['dateline']);
             $data[$key]['end_time_d'] = date('Y-m-d',$vaule['end_time']);
-            $data[$key]['firstName'] = mb_substr($vaule['subject'],1,1);
+            $data[$key]['firstName'] = mb_substr($vaule['subject'],0,1);
         }
 
         return $data;

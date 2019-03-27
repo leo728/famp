@@ -1,4 +1,5 @@
 <template>
+  <a-locale-provider :locale="locale">
   <a-layout id="root">
     <a-layout-sider
             :trigger="null"
@@ -21,13 +22,16 @@
       </a-layout-content>
     </a-layout>
   </a-layout>
+  </a-locale-provider>
 </template>
 <script>
   import Menus from './components/Menus';
+  import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN';
   export default {
     data(){
       return {
         collapsed: false,
+        locale: zhCN,
       }
     },
     components:{

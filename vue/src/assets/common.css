@@ -2,20 +2,23 @@
     padding: 24px;
 }
 .status-primary{
-    background-color: #1890ff;
+    color: #1890ff;
+    border: 1px solid #91d5ff;
+    background-color: #e6f7ff
 }
 .status-success{
-    background-color: #52c41a;
+    border: 1px solid #b7eb8f;
+    background-color: #f6ffed;
+    color: #52c41a;
 }
 .status-error{
-    background-color: #1890ff;
-}
-.status-warning{
-    background-color: #f5222d;
-}
-.status-secondary{
-    background-color: #1890ff;
+    color: #f5222d;
+    border: 1px solid #ffa39e;
+    background-color: #fff1f0;
 }
 .mr-10{
     margin-right: 10px;
+}
+.i-b{
+    display: inline-block;
 }

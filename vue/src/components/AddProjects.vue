@@ -1,6 +1,6 @@
 <template>
     <div class="add-projects-modal">
-        <a-button type="primary" @click="showModal" icon="plus">新建项目</a-button>
+        <a-button @click="showModal" icon="plus">新建项目</a-button>
         <a-modal
                 title="Basic Modal"
                 v-model="visible"
