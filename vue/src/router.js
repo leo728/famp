@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Projects from './views/projects/Projects'
 import ProjectsLists from './views/projects/List'
+import Quoted from './views/projects/Quoted'
 import Member from './views/member/Member'
 import Finance from './views/finance/Finance'
 import Settings from './views/settings/Settings'
@@ -33,6 +34,7 @@ export default new Router({
         {
           path:'/projects/quoted',
           name:'报价清单',
+          component: Quoted,
           icon:'file-down'
         },
         {

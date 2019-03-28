@@ -1,9 +1,9 @@
 <template>
     <div>
-        <a-card :bodyStyle="{padding:'24px'}">
+        <a-card :bodyStyle="{padding:'24px'}" :headStyle="{padding:'0 24px'}">
             <div slot="title">
                 <a-row>
-                    <a-col :span="12">
+                    <a-col :span="12" :style="{paddingTop:'5px'}">
                         <div class="i-b mr-10"><AddProject/></div>
                         <div class="i-b"><AddRecord/></div>
                     </a-col>
@@ -92,6 +92,7 @@
 <script>
     import AddProject from './../../components/AddProjects'
     import AddRecord from './../../components/AddRecord'
+    import utils from './../../plugins/utils'
     export default {
         name: "lists",
         components:{
@@ -102,16 +103,15 @@
             return {
                 lists:[],
                 total:0,
-                status:[],
+                status:utils.getItem('projectStatus'),
                 curStatus:0,
-                level:[],
+                level: utils.getItem('projectLevel'),
                 page:1,
                 projectId:0
             }
         },
         created(){
             this.getProjects(this.curStatus,this.page)
-            this.getStatusLevel()
         },
         methods:{
             getProjects(){
@@ -119,12 +119,6 @@
                    this.lists = res.data.data.data
                    this.total = res.data.data.total
                })
-            },
-            getStatusLevel(){
-                this.$axios.get('get_projects_level_status').then((res)=>{
-                    this.status = res.data.data.status
-                    this.level = res.data.data.level
-                })
             },
             setStatus({ target }){
                 this.curStatus = target.value
