@@ -78,18 +78,21 @@
                 form: this.$form.createForm(this),
                 status:[],
                 level:[],
+                user:[]
             }
         },
         created(){
             this.status = JSON.parse(window.localStorage.getItem('projectStatus'))
             this.level = JSON.parse(window.localStorage.getItem('projectLevel'))
+            this.$axios.get('get_user.html').then((res)=>{
+                this.user = res.data.data
+            })
         },
         methods: {
             showModal() {
                 this.visible = true
             },
             handleOk(e) {
-                console.log(e);
                 this.visible = false
             },
             setDate(date) {

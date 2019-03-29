@@ -31,6 +31,17 @@ class Projects extends Api
     }
 
     /**
+     * 获取简单项目列表 用于收支添加和预览
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function get_simple_projects(){
+        $project = new \app\api\model\Projects();
+        $data = $project->getProjectsListSimple();
+        $this->result($data,200,'success','json');
+    }
+    /**
      * 获取项目紧急程度和项目状态
      */
     public function get_projects_level_status(){

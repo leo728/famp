@@ -76,6 +76,7 @@ class Projects extends Model
             $data[$key]['dateline_d'] = date('Y-m-d',$vaule['dateline']);
             $data[$key]['end_time_d'] = date('Y-m-d',$vaule['end_time']);
             $data[$key]['firstName'] = mb_substr($vaule['subject'],0,1);
+            $data[$key]['percent'] = ceil($vaule['status'] / 5 * 100);
         }
 
         return $data;
@@ -116,7 +117,11 @@ class Projects extends Model
     public function getProjectsListSimple(){
         $data = Cache::get('ProjectsListSimple');
         if(!$data) {
-            $data = $this->field('id,subject')->order('id', 'desc')->limit(20)->select();
+            $data = $this->field('id,subject')
+                ->where('status','<>','5')
+                ->order('id', 'desc')
+                ->limit(20)
+                ->select();
             Cache::set('ProjectsListSimple',$data,0);
         }
         return $data;

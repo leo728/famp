@@ -81,8 +81,10 @@
                             <div>金额</div>
                             <span :style="{color:'#f5222d'}">￥{{item.price}}</span>
                         </div>
-                        <div :style="{width: '170px',paddingTop:'10px'}">
-                            <a-progress :percent="70" size="small" status="active" />
+                        <div :style="{width: '170px'}">
+                            <div>项目进度</div>
+                            <a-progress :percent="item.percent" size="small" v-if="item.percent === 100"/>
+                            <a-progress :percent="item.percent" size="small" status="active" v-else/>
                         </div>
                     </a-list-item>
                 </a-list>
