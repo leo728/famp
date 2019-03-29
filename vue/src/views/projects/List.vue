@@ -5,7 +5,12 @@
                 <a-row>
                     <a-col :span="12" :style="{paddingTop:'5px'}">
                         <div class="i-b mr-10"><AddProject/></div>
-                        <div class="i-b"><AddRecord/></div>
+                        <div class="i-b mr-10"><AddRecord/></div>
+                        <div class="i-b">
+                            <router-link :to="{path:'/projects/add_quoted'}">
+                                <a-button icon="plus">报价</a-button>
+                            </router-link>
+                        </div>
                     </a-col>
                     <a-col :span="12" style="text-align: right">
                         <a-form layout="inline">

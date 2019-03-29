@@ -4,6 +4,8 @@ import Home from './views/Home.vue'
 import Projects from './views/projects/Projects'
 import ProjectsLists from './views/projects/List'
 import Quoted from './views/projects/Quoted'
+import AddQuoted from './views/projects/AddQuoted'
+import Products from './views/projects/Products'
 import Member from './views/member/Member'
 import Finance from './views/finance/Finance'
 import Settings from './views/settings/Settings'
@@ -15,91 +17,100 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: '首页概述',
+      name: 'Home',
       component: Home,
-      icon:'dashboard'
+      meta:{title:'首页概述',icon:'dashboard'},
+
     },
     {
       path: '/projects',
-      name: '项目管理',
+      name: 'Projects',
       component: Projects,
-      icon:'project',
+      meta:{title:'项目管理', icon:'project'},
       children:[
         {
           path:'/projects/lists',
-          name:'项目列表',
-          icon:'list',
-          component: ProjectsLists
+          name:'ProjectsLists',
+          component: ProjectsLists,
+          meta:{'title':'项目列表', show:1}
         },
         {
           path:'/projects/quoted',
-          name:'报价清单',
+          name:'Quoted',
           component: Quoted,
-          icon:'file-down'
+          meta:{'title':'报价清单', show:1}
+        },
+        {
+          path:'/projects/add_quoted',
+          name:'AddQuoted',
+          component: AddQuoted,
+          meta:{'title':'新建报价', show:0},
         },
         {
           path:'/projects/products',
-          name:'产品报价',
-          icon:'file-down'
+          name:'Products',
+          component:Products,
+          meta:{'title':'产品报价', show:1},
         },
       ]
     },
     {
       path: '/finance',
-      name: '财务管理',
+      name: 'Finance',
       component: Finance,
-      icon:'money-collect',
+      meta:{'title':'项目列表',icon:'money-collect'},
       children:[
         {
           path:'/finance/lists',
-          name:'收支记录',
+          name:'FinanceLists',
           component:FinanceLists,
-          icon:''
+          meta:{title:'收支记录',show:1},
         },
         {
           path:'/finance/wake_hour',
-          name:'工时管理',
-          icon:''
+          name:'WakeHour',
+          meta:{'title':'工时管理',show:1},
         },
         {
           path:'/finance/table',
-          name:'工资表',
-          icon:''
+          name:'WakeTable',
+          meta:{'title':'工资表', show:1},
         },
         {
           path:'/finance/fina',
-          name:'资金管理',
-          icon:''
+          name:'Fina',
+          meta:{'title':'资金管理', show:1},
         },
       ]
     },
     {
       path: '/member',
-      name: '部门设置',
+      name: 'Member',
       component: Member,
-      icon:'cluster',
+      meta:{'title':'部门设置',icon:'cluster'},
       children:[
         {
           path:'/member/staff',
-          name:'员工列表',
-          icon:''
+          name:'Staff',
+          meta:{'title':'员工列表', show:1},
         },
         {
           path:'/member/department',
-          name:'部门列表',
-          icon:''
+          name:'Department',
+          meta:{'title':'部门列表', show:1},
         },
       ]
     },
     {
       path: '/settings',
-      name: '全局设置',
+      name: 'Settings',
       component: Settings,
-      icon:'setting',
+      meta:{'title':'全局设置',icon:'setting'},
       children:[
         {
           path:'settings/info',
-          name:'基础信息'
+          name:'Info',
+          meta:{'title':'企业信息', show:1},
         },
       ]
     }
