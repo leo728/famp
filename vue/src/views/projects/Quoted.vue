@@ -1,31 +1,99 @@
 <template>
-    <div>
-
-    </div>
+    <a-form :form="form">
+        <a-form-item
+                :label-col="formItemLayout.labelCol"
+                :wrapper-col="formItemLayout.wrapperCol"
+                label="Name"
+        >
+            <a-input
+                    v-decorator="[
+          'username',
+          {rules: [{ required: true, message: 'Please input your name' }]}
+        ]"
+                    placeholder="Please input your name"
+            />
+        </a-form-item>
+        <a-form-item
+                :label-col="formItemLayout.labelCol"
+                :wrapper-col="formItemLayout.wrapperCol"
+                label="Nickname"
+        >
+            <a-input
+                    v-decorator="[
+          'nickname',
+          {rules: [{ required: checkNick, message: 'Please input your nickname' }]}
+        ]"
+                    placeholder="Please input your nickname"
+            />
+        </a-form-item>
+        <a-form-item
+                :label-col="formItemLayout.labelCol"
+                :wrapper-col="formItemLayout.wrapperCol"
+                label="Nickname"
+        >
+            <a-input v-decorator="['sss']" placeholder="Please input your nickname"/>
+        </a-form-item>
+        <a-form-item
+                :label-col="formItemLayout.labelCol"
+                :wrapper-col="formItemLayout.wrapperCol"
+                label="checkNick"
+        >
+            <a-checkbox
+                    :checked="checkNick"
+                    @change="handleChange"
+            >
+                Nickname is required
+            </a-checkbox>
+        </a-form-item>
+        <a-form-item
+                :label-col="formTailLayout.labelCol"
+                :wrapper-col="formTailLayout.wrapperCol"
+        >
+            <a-button
+                    type="primary"
+                    @click="check"
+            >
+                Check
+            </a-button>
+        </a-form-item>
+    </a-form>
 </template>
 
 <script>
+    const formItemLayout = {
+        labelCol: { span: 4 },
+        wrapperCol: { span: 8 },
+    };
+    const formTailLayout = {
+        labelCol: { span: 4 },
+        wrapperCol: { span: 8, offset: 4 },
+    };
     export default {
-        name: "Quoted",
-        data() {
+        data () {
             return {
+                checkNick: false,
+                formItemLayout,
+                formTailLayout,
                 form: this.$form.createForm(this),
-                dateFormat: 'YYYY-MM-DD',
             };
         },
-        methods:{
-            setDate(date) {
+        methods: {
+            check  () {
+                console.log(this.form.getFieldsValue())
+                this.form.validateFields(
+                    (err) => {
+                        if (!err) {
+                            console.info('success');
+                        }
+                    },
+                );
             },
-            pmSet(){
-
+            handleChange  (e) {
+                this.checkNick = e.target.checked;
+                this.$nextTick(() => {
+                    this.form.validateFields(['nickname'], { force: true });
+                });
             },
-            filterOption(input, option) {
-                return option.componentOptions.children[0].text.toLowerCase().indexOf(input.toLowerCase()) >= 0
-            }
-        }
-    }
+        },
+    };
 </script>
-
-<style scoped>
-
-</style>

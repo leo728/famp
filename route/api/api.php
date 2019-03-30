@@ -14,5 +14,6 @@ Route::get('get_projects_simple', 'projects/get_simple_projects');
 
 
 Route::get('get_payment', 'finance/payment');
+Route::get('inset_records', 'finance/insert_records');
 
 Route::get('get_user', 'user/get_user_list');
