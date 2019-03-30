@@ -107,7 +107,11 @@
                 this.form.validateFields(
                     (err) => {
                         if (!err) {
-                            this.axios.get('insert_records.html',this.form.getFieldsValue()).then((res)=>{
+                            this.axios({
+                                method:'post',
+                                url:'insert_records.html',
+                                data:this.form.getFieldsValue()
+                            }).then((res)=>{
                                 console.log(res)
                             })
                         }
