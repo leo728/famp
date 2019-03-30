@@ -12,7 +12,8 @@ class Finance extends Api
         $data = Config::get('app.payment');
         $this->result($data,200,'','json');
     }
-    public function insert_records(){
+    public function add_records(){
+        echo '000';
         $this->result('',200,'','json');
     }
 }

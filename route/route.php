@@ -9,23 +9,12 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
-// 事件定义文件
+Route::get('think', function () {
+    return 'hello,ThinkPHP5!';
+});
+
+Route::get('hello/:name', 'index/hello');
+
 return [
-    'bind'      => [
-    ],
-    'listen'    => [
-        'AppInit'      => [
-            'think\listener\LoadLangPack',
-        ],
-        'AppBegin'     => [
-            'think\listener\CheckRequestCache',
-        ],
-        'AppEnd'       => [],
-        'LogLevel'     => [],
-        'LogWrite'     => [],
-        'ResponseSend' => [],
-        'ResponseEnd'  => [],
-    ],
-    'subscribe' => [
-    ],
+
 ];

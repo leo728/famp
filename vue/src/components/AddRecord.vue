@@ -84,8 +84,7 @@
                 confirmLoading: false,
                 projects:[],
                 payment:[],
-                user:[],
-                records:[]
+                user:[]
             }
         },
         created(){
@@ -109,7 +108,7 @@
                         if (!err) {
                             this.axios({
                                 method:'post',
-                                url:'insert_records.html',
+                                url:'add_records.html',
                                 data:this.form.getFieldsValue()
                             }).then((res)=>{
                                 console.log(res)
