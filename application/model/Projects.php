@@ -1,5 +1,5 @@
 <?php
-namespace app\api\model;
+namespace app\model;
 
 use think\facade\Cache;
 use think\facade\Config;

@@ -1,20 +1,15 @@
 <?php
-// +----------------------------------------------------------------------
-// | ThinkPHP [ WE CAN DO IT JUST THINK ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2006~2018 http://thinkphp.cn All rights reserved.
-// +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: liu21st <liu21st@gmail.com>
-// +----------------------------------------------------------------------
 
-Route::get('think', function () {
-    return 'hello,ThinkPHP5!';
-});
+//projects router
+Route::get('api/get_projects_level_status','projects/get_projects_level_status');
+Route::get('api/get_projects','projects/get_projects');
+Route::get('api/get_projects_simple','projects/get_simple_projects');
 
-Route::get('hello/:name', 'index/hello');
+//user router
+Route::get('api/get_user','user/get_user_list');
 
-return [
+//finance router
+Route::get('api/get_payment','finance/payment');
 
-];
+Route::post('api/add_records','finance/add_records')->allowCrossDomain();
+

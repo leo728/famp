@@ -6,9 +6,9 @@
  * Time: 16:05
  */
 
-namespace app\api\controller;
+namespace app\controller;
 
-use app\api\model\Member;
+use app\model\Member;
 
 class User extends Api
 {

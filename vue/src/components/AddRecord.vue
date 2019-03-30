@@ -111,7 +111,12 @@
                                 url:'add_records.html',
                                 data:this.form.getFieldsValue()
                             }).then((res)=>{
-                                console.log(res)
+                                if(res.data.code === 200){
+                                    this.visible = false
+                                    this.$message.success(res.data.msg);
+                                }else {
+                                    this.$message.error(res.data.msg);
+                                }
                             })
                         }
                     },

@@ -6,8 +6,7 @@
  * Time: 17:40
  */
 
-namespace app\api\model;
-
+namespace app\model;
 
 use think\facade\Cache;
 use think\facade\Request;

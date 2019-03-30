@@ -6,7 +6,7 @@
  * Time: 12:50
  */
 
-namespace app\api\controller;
+namespace app\controller;
 use think\facade\Config;
 use think\facade\Request;
 
@@ -18,7 +18,7 @@ class Projects extends Api
      * @throws \think\exception\DbException'
      */
     public function get_projects(){
-        $project = new \app\api\model\Projects();
+        $project = new \app\model\Projects();
         $status = Request::get('status',0,'intval');
         if($status){
             $map[]= ['p.status','=',$status];
@@ -37,7 +37,7 @@ class Projects extends Api
      * @throws \think\exception\DbException
      */
     public function get_simple_projects(){
-        $project = new \app\api\model\Projects();
+        $project = new \app\model\Projects();
         $data = $project->getProjectsListSimple();
         $this->result($data,200,'success','json');
     }

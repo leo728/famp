@@ -1,8 +1,7 @@
 <?php
-namespace app\api\controller;
+namespace app\controller;
 
 use think\Controller;
-header("Access-Control-Allow-Origin: *");
 class Api extends Controller
 {
     public function initialize()
