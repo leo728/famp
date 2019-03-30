@@ -103,6 +103,7 @@
                 this.visible = true
             },
             submitRecords() {
+                this.confirmLoading = true
                 this.form.validateFields(
                     (err) => {
                         if (!err) {
@@ -112,7 +113,6 @@
                                 data:this.form.getFieldsValue()
                             }).then((res)=>{
                                 if(res.data.code === 200){
-                                    this.visible = false
                                     this.$message.success(res.data.msg);
                                 }else {
                                     this.$message.error(res.data.msg);
@@ -121,6 +121,10 @@
                         }
                     },
                 )
+                setTimeout(() => {
+                    this.visible = false;
+                    this.confirmLoading = false;
+                }, 6000);
             },
             handleCancel() {
                 this.visible = false
