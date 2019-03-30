@@ -58,7 +58,7 @@ export default new Router({
       path: '/finance',
       name: 'Finance',
       component: Finance,
-      meta:{'title':'项目列表',icon:'money-collect'},
+      meta:{'title':'财务管理',icon:'money-collect'},
       children:[
         {
           path:'/finance/lists',

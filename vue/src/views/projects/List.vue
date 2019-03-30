@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div id="projects-list">
         <a-card :bodyStyle="{padding:'24px'}" :headStyle="{padding:'0 24px'}">
             <div slot="title">
                 <a-row>
                     <a-col :span="12" :style="{paddingTop:'5px'}">
-                        <div class="i-b mr-10"><AddProject/></div>
-                        <div class="i-b mr-10"><AddRecord/></div>
+                        <div class="i-b mr-5"><AddProject/></div>
+                        <div class="i-b mr-5"><AddRecord/></div>
                         <div class="i-b">
                             <router-link :to="{path:'/projects/add_quoted'}">
                                 <a-button icon="plus">报价</a-button>
@@ -33,7 +33,9 @@
                             <a-form-item :style="{marginRight:0}">
                                 <a-input-search
                                         placeholder="输入关键字"
-                                        style="width: 200px"
+                                        v-model="searchKey"
+                                        :style="{width: '200px'}"
+                                        @search="search"
                                 />
                             </a-form-item>
                         </a-form>
@@ -82,7 +84,7 @@
                             <span :style="{color:'#f5222d'}">￥{{item.price}}</span>
                         </div>
                         <div :style="{width: '170px'}">
-                            <div>项目进度</div>
+                            <div><a-tag :class="item.statusValue.color">{{item.statusValue.status_name}}</a-tag></div>
                             <a-progress :percent="item.percent" size="small" v-if="item.percent === 100"/>
                             <a-progress :percent="item.percent" size="small" status="active" v-else/>
                         </div>
@@ -114,7 +116,8 @@
                 curStatus:0,
                 level: utils.getItem('projectLevel'),
                 page:1,
-                projectId:0
+                projectId:0,
+                searchKey:''
             }
         },
         created(){
@@ -160,6 +163,19 @@
             },
             cancelProject(){
                 this.projectId = 0
+            },
+            search(){
+                if(!this.searchKey){
+                    this.$message.warning('没有任何关键字')
+                }else {
+                    this.axios.get('get_projects.html?subject='+this.searchKey).then((res)=>{
+                        if(res.data.code === 200){
+                            this.lists = res.data.data.data
+                        }else {
+                            this.$message.warning('没有找到任何相关的项目信息');
+                        }
+                    })
+                }
             }
         }
     }

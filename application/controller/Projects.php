@@ -20,10 +20,14 @@ class Projects extends Api
     public function get_projects(){
         $project = new \app\model\Projects();
         $status = Request::get('status',0,'intval');
+        $subject = Request::get('subject','');
         if($status){
             $map[]= ['p.status','=',$status];
         }else{
             $map[]= ['p.status','<>',20];
+        }
+        if($subject){
+            $map[]= ['p.subject','like',"%$subject%"];
         }
 
         $data = $project->getProjectsPage($map);

@@ -1,7 +1,6 @@
 <template>
   <div class="page">
     <div class="page-header">
-      <a-card>
         <div>
           <a-breadcrumb>
             <a-breadcrumb-item>
@@ -9,8 +8,7 @@
             <a-breadcrumb-item>项目管理</a-breadcrumb-item>
           </a-breadcrumb>
         </div>
-        <div><h2 style="margin: 10px 0 0">{{PageName}}</h2></div>
-      </a-card>
+        <h2>{{PageName}}</h2>
     </div>
     <div class="page-content">
         <router-view></router-view>
