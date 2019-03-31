@@ -99,9 +99,9 @@
 </template>
 
 <script>
-    import AddProject from './../../components/AddProjects'
-    import AddRecord from './../../components/AddRecord'
-    import utils from './../../plugins/utils'
+    import AddProject from '../../components/AddProjects'
+    import AddRecord from '../../components/AddRecord'
+    import utils from '../../plugins/utils'
     export default {
         name: "lists",
         components:{
