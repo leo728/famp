@@ -24,4 +24,5 @@ npm install core-js@2
 ```
 npm run serve
 ```
-
+## 部分界面预览  
+![avatar](/preview/show.png)
