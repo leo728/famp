@@ -6,7 +6,7 @@
                     <router-link to="/"><a-icon type="dashboard" /> 管理控制台</router-link></a-breadcrumb-item>
                 <a-breadcrumb-item>财务管理</a-breadcrumb-item>
             </a-breadcrumb>
-            <h2>收支列表</h2>
+            <h2>工时管理</h2>
         </div>
         <div class="page-content">
         </div>

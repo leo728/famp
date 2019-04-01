@@ -1,19 +1,5 @@
 <template>
-  <div class="page">
-    <div class="page-header">
-        <div>
-          <a-breadcrumb>
-            <a-breadcrumb-item>
-              <router-link to="/"><a-icon type="dashboard" /> 管理控制台</router-link></a-breadcrumb-item>
-            <a-breadcrumb-item>项目管理</a-breadcrumb-item>
-          </a-breadcrumb>
-        </div>
-        <h2>{{PageName}}</h2>
-    </div>
-    <div class="page-content">
-        <router-view></router-view>
-    </div>
-  </div>
+    <router-view></router-view>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <a-button icon="plus" @click="showModal">收支</a-button>
+        <a-button icon="plus" type="primary" @click="showModal">收支</a-button>
         <a-modal
                 title="添加收支记录"
                 :visible="visible"

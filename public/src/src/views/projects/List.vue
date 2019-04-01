@@ -1,14 +1,20 @@
 <template>
-    <div id="projects-list">
-        <a-card :bodyStyle="{padding:'24px'}" :headStyle="{padding:'0 24px'}">
-            <div slot="title">
+    <div class="page">
+        <div class="page-header">
+                <a-breadcrumb>
+                    <a-breadcrumb-item>
+                        <router-link to="/"><a-icon type="dashboard" /> 管理控制台</router-link></a-breadcrumb-item>
+                    <a-breadcrumb-item>项目管理</a-breadcrumb-item>
+                </a-breadcrumb>
+            <h2>项目列表</h2>
+            <div :style="{marginTop:'15px'}">
                 <a-row>
                     <a-col :span="12" :style="{paddingTop:'5px'}">
                         <div class="i-b mr-5"><AddProject/></div>
                         <div class="i-b mr-5"><AddRecord/></div>
                         <div class="i-b">
                             <router-link :to="{path:'/projects/add_quoted'}">
-                                <a-button icon="plus">报价</a-button>
+                                <a-button type="primary" icon="plus">报价</a-button>
                             </router-link>
                         </div>
                     </a-col>
@@ -42,58 +48,60 @@
                     </a-col>
                 </a-row>
             </div>
-            <div>
+        </div>
+        <div class="page-content">
+            <a-card :bodyStyle="{padding:'24px'}" :headStyle="{padding:'0 24px'}">
                 <a-list itemLayout="horizontal">
-                    <a-list-item v-for="item in lists" :key="item.id">
-                        <a slot="actions">详情</a>
-                        <a slot="actions">状态</a>
-                        <a slot="actions">编辑</a>
-                        <a slot="actions" @click="setId">
-                        <a-popconfirm
-                                @confirm="delProjects"
-                                @cancel="cancelProject"
-                                placement="left"
-                                okText="确认"
-                                cancelText="取消"
-                                :data-id="item.id"
-                        >
-                            <template slot="title">
-                                <div>选中项目：{{item.subject}}</div>
-                                <div>此操作不可逆，请谨慎操作！</div>
-                            </template>
-                            删除
-                        </a-popconfirm>
-                        </a>
-                        <a-list-item-meta>
-                            <router-link slot="title" to="">{{item.subject}}</router-link>
-                            <a-avatar
-                                    slot="avatar"
-                                    :size="46"
-                                    :class="item.statusValue.color"
-                            >
-                                {{item.firstName}}
-                            </a-avatar>
-                            <div slot="description">
-                                <span class="mr-10">客户：{{item.customer}}</span>
-                                <span class="mr-10">项目经理：{{item.username}}</span>
-                                <span>时间：{{item.dateline_d}} - {{item.end_time_d}}</span>
+                        <a-list-item v-for="item in lists" :key="item.id">
+                            <a slot="actions">详情</a>
+                            <a slot="actions">状态</a>
+                            <a slot="actions">编辑</a>
+                            <a slot="actions" @click="setId">
+                                <a-popconfirm
+                                        @confirm="delProjects"
+                                        @cancel="cancelProject"
+                                        placement="left"
+                                        okText="确认"
+                                        cancelText="取消"
+                                        :data-id="item.id"
+                                >
+                                    <template slot="title">
+                                        <div>选中项目：{{item.subject}}</div>
+                                        <div>此操作不可逆，请谨慎操作！</div>
+                                    </template>
+                                    删除
+                                </a-popconfirm>
+                            </a>
+                            <a-list-item-meta>
+                                <router-link slot="title" to="">{{item.subject}}</router-link>
+                                <a-avatar
+                                        slot="avatar"
+                                        :size="46"
+                                        :class="item.statusValue.color"
+                                >
+                                    {{item.firstName}}
+                                </a-avatar>
+                                <div slot="description">
+                                    <span class="mr-10">客户：{{item.customer}}</span>
+                                    <span class="mr-10">项目经理：{{item.username}}</span>
+                                    <span>时间：{{item.dateline_d}} - {{item.end_time_d}}</span>
+                                </div>
+                            </a-list-item-meta>
+                            <div :style="{marginRight: '24px',width:'120px'}">
+                                <div>金额</div>
+                                <span :style="{color:'#f5222d'}">￥{{item.price}}</span>
                             </div>
-                        </a-list-item-meta>
-                        <div :style="{marginRight: '24px',width:'120px'}">
-                            <div>金额</div>
-                            <span :style="{color:'#f5222d'}">￥{{item.price}}</span>
-                        </div>
-                        <div :style="{width: '170px'}">
-                            <div><a-tag :class="item.statusValue.color">{{item.statusValue.status_name}}</a-tag></div>
-                            <a-progress :percent="item.percent" size="small" v-if="item.percent === 100"/>
-                            <a-progress :percent="item.percent" size="small" status="active" v-else/>
-                        </div>
-                    </a-list-item>
-                </a-list>
+                            <div :style="{width: '170px'}">
+                                <div><a-tag :class="item.statusValue.color">{{item.statusValue.status_name}}</a-tag></div>
+                                <a-progress :percent="item.percent" size="small" v-if="item.percent === 100"/>
+                                <a-progress :percent="item.percent" size="small" status="active" v-else/>
+                            </div>
+                        </a-list-item>
+                    </a-list>
+            </a-card>
+            <div :style="{textAlign:'center',padding:'20px 0'}">
+                <a-button @click="onLoadMore">加载更多</a-button>
             </div>
-        </a-card>
-        <div :style="{textAlign:'center',padding:'20px 0'}">
-            <a-button @click="onLoadMore">加载更多</a-button>
         </div>
     </div>
 </template>

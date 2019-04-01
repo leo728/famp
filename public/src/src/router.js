@@ -1,15 +1,26 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+
 import Projects from './views/projects/Projects'
 import ProjectsLists from './views/projects/List'
 import Quoted from './views/projects/Quoted'
 import AddQuoted from './views/projects/AddQuoted'
 import Products from './views/projects/Products'
+
 import Member from './views/member/Member'
+import Staff from './views/member/Staff'
+import Department from './views/member/Department'
+
 import Finance from './views/finance/Finance'
-import Settings from './views/settings/Settings'
 import FinanceLists from './views/finance/lists'
+import WakeHour from './views/finance/WakeHour'
+import Table from './views/finance/Table'
+import Fina from './views/finance/Fina'
+
+import Settings from './views/settings/Settings'
+import SettingsInfo from './views/settings/Info'
+
 
 Vue.use(Router)
 
@@ -69,16 +80,19 @@ export default new Router({
         {
           path:'/finance/wake_hour',
           name:'WakeHour',
+          component:WakeHour,
           meta:{'title':'工时管理',show:1},
         },
         {
           path:'/finance/table',
-          name:'WakeTable',
+          name:'Table',
+          component:Table,
           meta:{'title':'工资表', show:1},
         },
         {
           path:'/finance/fina',
           name:'Fina',
+          component:Fina,
           meta:{'title':'资金管理', show:1},
         },
       ]
@@ -92,11 +106,13 @@ export default new Router({
         {
           path:'/member/staff',
           name:'Staff',
+          component:Staff,
           meta:{'title':'员工列表', show:1},
         },
         {
           path:'/member/department',
           name:'Department',
+          component:Department,
           meta:{'title':'部门列表', show:1},
         },
       ]
@@ -110,6 +126,7 @@ export default new Router({
         {
           path:'settings/info',
           name:'Info',
+          component:SettingsInfo,
           meta:{'title':'企业信息', show:1},
         },
       ]

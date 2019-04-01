@@ -5,6 +5,7 @@
             :trigger="null"
             collapsible
             v-model="collapsed"
+            width="220"
     >
       <div class="logo" />
       <Menus/>

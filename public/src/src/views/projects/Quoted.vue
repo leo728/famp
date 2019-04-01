@@ -1,99 +1,65 @@
 <template>
-    <a-form :form="form">
-        <a-form-item
-                :label-col="formItemLayout.labelCol"
-                :wrapper-col="formItemLayout.wrapperCol"
-                label="Name"
-        >
-            <a-input
-                    v-decorator="[
-          'username',
-          {rules: [{ required: true, message: 'Please input your name' }]}
-        ]"
-                    placeholder="Please input your name"
-            />
-        </a-form-item>
-        <a-form-item
-                :label-col="formItemLayout.labelCol"
-                :wrapper-col="formItemLayout.wrapperCol"
-                label="Nickname"
-        >
-            <a-input
-                    v-decorator="[
-          'nickname',
-          {rules: [{ required: checkNick, message: 'Please input your nickname' }]}
-        ]"
-                    placeholder="Please input your nickname"
-            />
-        </a-form-item>
-        <a-form-item
-                :label-col="formItemLayout.labelCol"
-                :wrapper-col="formItemLayout.wrapperCol"
-                label="Nickname"
-        >
-            <a-input v-decorator="['sss']" placeholder="Please input your nickname"/>
-        </a-form-item>
-        <a-form-item
-                :label-col="formItemLayout.labelCol"
-                :wrapper-col="formItemLayout.wrapperCol"
-                label="checkNick"
-        >
-            <a-checkbox
-                    :checked="checkNick"
-                    @change="handleChange"
+    <div class="page">
+        <div class="page-header">
+            <a-breadcrumb>
+                <a-breadcrumb-item>
+                    <router-link to="/"><a-icon type="dashboard" /> 管理控制台</router-link></a-breadcrumb-item>
+                <a-breadcrumb-item>项目管理</a-breadcrumb-item>
+            </a-breadcrumb>
+            <h2>报价管理</h2>
+            <a-row :style="{marginTop:'15px'}">
+                <a-col :span="12">
+                    <router-link :to="{path:'/projects/add_quoted'}">
+                        <a-button type="primary" icon="plus">新建</a-button>
+                    </router-link>
+                </a-col>
+                <a-col :span="12">col-12</a-col>
+            </a-row>
+        </div>
+        <div class="page-content">
+            <a-list
+                    :grid="{ gutter: 16, column: 3 }"
+                    :dataSource="quotedList"
+                    hoverable
             >
-                Nickname is required
-            </a-checkbox>
-        </a-form-item>
-        <a-form-item
-                :label-col="formTailLayout.labelCol"
-                :wrapper-col="formTailLayout.wrapperCol"
-        >
-            <a-button
-                    type="primary"
-                    @click="check"
-            >
-                Check
-            </a-button>
-        </a-form-item>
-    </a-form>
+                <a-list-item slot="renderItem" v-for="item in quotedList">
+                    <a-card hoverable :bordered="false">
+                        <template class="ant-card-actions" slot="actions">
+                            <div><a-icon type="export"/> 导出</div>
+                            <div><a-icon type="edit"/> 编辑</div>
+                            <div><a-icon type="delete" /> 删除</div>
+                        </template>
+                        <a-card-meta
+                                :title="item.title"
+                                description="This is the description">
+                            <a-avatar slot="avatar" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                        </a-card-meta>
+                    </a-card>
+                </a-list-item>
+            </a-list>
+        </div>
+    </div>
 </template>
 
 <script>
-    const formItemLayout = {
-        labelCol: { span: 4 },
-        wrapperCol: { span: 8 },
-    };
-    const formTailLayout = {
-        labelCol: { span: 4 },
-        wrapperCol: { span: 8, offset: 4 },
-    };
     export default {
-        data () {
+        data(){
             return {
-                checkNick: false,
-                formItemLayout,
-                formTailLayout,
-                form: this.$form.createForm(this),
-            };
-        },
-        methods: {
-            check  () {
-                console.log(this.form.getFieldsValue())
-                this.form.validateFields(
-                    (err) => {
-                        if (!err) {
-                            console.info('success');
-                        }
+                quotedList :[
+                    {
+                        title: 'Title 1',
                     },
-                );
-            },
-            handleChange  (e) {
-                this.checkNick = e.target.checked;
-                this.$nextTick(() => {
-                    this.form.validateFields(['nickname'], { force: true });
-                });
-            },
-        },
+                    {
+                        title: 'Title 2',
+                    },
+                    {
+                        title: 'Title 3',
+                    },
+                    {
+                        title: 'Title 4',
+                    },
+                ]
+            }
+        }
     };
 </script>

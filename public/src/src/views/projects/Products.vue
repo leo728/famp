@@ -1,13 +1,19 @@
 <template>
-    <div></div>
+    <div class="page">
+        <div class="page-header">
+            <a-breadcrumb>
+                <a-breadcrumb-item>
+                    <router-link to="/"><a-icon type="dashboard" /> 管理控制台</router-link></a-breadcrumb-item>
+                <a-breadcrumb-item>项目管理</a-breadcrumb-item>
+            </a-breadcrumb>
+            <h2>产品报价</h2>
+        </div>
+        <div class="page-content">
+        </div>
+    </div>
 </template>
 
 <script>
     export default {
-        name: "AddQuoted"
-    }
+    };
 </script>
-
-<style scoped>
-
-</style>
