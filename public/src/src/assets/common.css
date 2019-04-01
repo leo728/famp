@@ -7,7 +7,7 @@
     margin: 10px 0 0;
 }
 .page-content{
-    padding: 24px;
+    padding: 14px;
 }
 .status-primary{
     color: #1890ff;
@@ -39,4 +39,31 @@
 }
 .ant-btn-success {
 
+}
+.ant-btn {
+    padding: 0 10px !important;
+}
+.ant-btn-sm {
+    font-size: 12px !important;
+}
+.ant-btn > .anticon + span,
+.ant-btn > span + .anticon {
+    margin-left: 2px !important;
+}
+.row-striped {
+    border-top: 1px solid #e8e8e8;
+}
+.row-striped:nth-of-type(2n+1){
+    background-color: #fafafa;
+}
+.row-striped>[class*="ant-col-"]{
+    text-align: center;
+}
+.row-striped>[class*="ant-col-"]:first-child{
+    text-align: left;
+    padding-left: 12px !important;
+}
+.ant-bordered {
+    border:1px solid #e8e8e8;
+    padding: 2px;
 }
