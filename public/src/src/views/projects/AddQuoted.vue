@@ -48,27 +48,40 @@
                     <div :style="{marginTop:'10px'}">
                         <a-popover trigger="click" v-model="popVisible">
                             <template slot="content">
-                                <div style="width: 900px">
+                                <div style="width: 1000px">
+                                    <a-row :gutter="4" style="margin-bottom: 5px">
+                                        <a-col :span="6">制作项目内容</a-col>
+                                        <a-col :span="5">制作工艺</a-col>
+                                        <a-col :span="3">规格</a-col>
+                                        <a-col :span="1">数量</a-col>
+                                        <a-col :span="2">面积/总数</a-col>
+                                        <a-col :span="1">单位</a-col>
+                                        <a-col :span="2">单价</a-col>
+                                        <a-col :span="2">总价</a-col>
+                                    </a-row>
                                     <a-row :gutter="4">
-                                        <a-col :span="7">
+                                        <a-col :span="6">
                                             <a-input v-model="item.content" placeholder="输入制作内容、项目"/>
                                         </a-col>
-                                        <a-col :span="3">
+                                        <a-col :span="5">
                                             <a-select
                                                     v-model="item.crafts"
                                                     style="width: 100%"
                                                     showSearch
                                                     placeholder="制作工艺"
                                                     :maxTagCount="10"
+                                                    @change="setProduct"
                                             >
-                                                <a-select-option value="Zhejiang">Zhejiang</a-select-option>
-                                                <a-select-option value="Jiangsu">Jiangsu</a-select-option>
+                                                <a-select-option
+                                                        v-for="item in products"
+                                                        :key="item.pid"
+                                                        :value="item.pid">{{item.title}}</a-select-option>
                                             </a-select>
                                         </a-col>
-                                        <a-col :span="2"><a-input placeholder="规格尺寸" v-model="item.spec"/></a-col>
-                                        <a-col :span="2"><a-input placeholder="数量" v-model="item.nums"/></a-col>
+                                        <a-col :span="3"><a-input placeholder="规格尺寸" v-model="item.spec"/></a-col>
+                                        <a-col :span="1"><a-input placeholder="数量" v-model="item.nums"/></a-col>
                                         <a-col :span="2"><a-input placeholder="面积" v-model="item.area"/></a-col>
-                                        <a-col :span="2"><a-input placeholder="单位" v-model="item.unit"/></a-col>
+                                        <a-col :span="1"><a-input placeholder="单位" v-model="item.unit"/></a-col>
                                         <a-col :span="2"><a-input placeholder="单价" v-model="item.price"/></a-col>
                                         <a-col :span="2"><a-input placeholder="总价" v-model="item.total"/></a-col>
                                         <a-col :span="2">
@@ -145,12 +158,16 @@
                 quoted:{subject:'',customer:'',mobile:'',item:[],total:'',pm:'',dateline:''},
                 item:{content:'',crafts:'',spec:'',nums:'',area:'',price:'',unit:'',total:''},
                 quotedItem:utils.getItem('quotedItem'),
-                user:[]
+                user:[],
+                products:[]
             };
         },
         created(){
             this.$axios.get('get_user.html').then((res)=>{
                 this.user = res.data.data
+            });
+            this.$axios.get('get_products.html').then((res)=>{
+                this.products = res.data.data
             })
         },
         methods:{
@@ -164,7 +181,6 @@
                 this.addLoading = true
                 if(!this.item.content || !this.item.crafts ||!this.item.spec || !this.item.nums ||!this.item.nums){
                     this.$message.error('请输入制作内容、制作工艺、规格尺寸、数量、单价');
-                    this.addLoading = false
                 }else {
                     if(this.quotedItem === null){
                         this.quotedItem = []
@@ -174,11 +190,11 @@
                     }else {
                         this.quotedItem = this.quotedItem.concat(this.item)
                     }
-                    this.addLoading = false
                     this.popVisible = false
+                    utils.setItem('quotedItem',this.quotedItem)
+                    this.item = {content:'',crafts:'',spec:'',nums:'',area:'',price:'',unit:'',total:''}
                 }
-                utils.setItem('quotedItem',this.quotedItem)
-                this.item = {content:'',crafts:'',spec:'',nums:'',area:'',price:'',unit:'',total:''}
+                this.addLoading = false
             },
             delItem(e){
                 this.quotedItem.splice(e,1);
@@ -186,6 +202,17 @@
             },
             setUid(){
 
+            },
+            setProduct(pid){
+                let proItem;
+                for (let i of this.products){
+                    if(i.pid === pid){
+                        proItem = i;
+                        break
+                    }
+                }
+                this.item.price = proItem.out_price
+                this.item.unit = proItem.unit
             }
         }
     };

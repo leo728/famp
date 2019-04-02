@@ -4,6 +4,7 @@
 Route::get('api/get_projects_level_status','projects/get_projects_level_status');
 Route::get('api/get_projects','projects/get_projects');
 Route::get('api/get_projects_simple','projects/get_simple_projects');
+Route::get('api/get_products','projects/get_products');
 
 //user router
 Route::get('api/get_user','user/get_user_list');

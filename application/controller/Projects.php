@@ -7,6 +7,7 @@
  */
 
 namespace app\controller;
+use app\model\Products;
 use think\facade\Config;
 use think\facade\Request;
 
@@ -52,5 +53,17 @@ class Projects extends Api
         $status = Config::get('app.projectStatus');
         $level = Config::get('app.projectLevel');
         $this->result(['status'=>$status,'level'=>$level],200,'success','json');
+    }
+
+    /**
+     * 获取全部产品信息
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function get_products(){
+        $pro = new Products();
+        $data = $pro->getList();
+        $this->result($data,200,'success','json');
     }
 }
