@@ -1,5 +1,5 @@
 <template>
-    <div id="main" style="height: 320px;width: 100%;box-sizing: border-box; overflow: hidden"></div>
+    <div id="main" style="height: 280px;width: 100%;box-sizing: border-box; overflow: hidden"></div>
 </template>
 
 <script>
@@ -94,12 +94,6 @@
                             data: this.value,
                             smooth: true,
                             smoothMonotone: 'none',
-                            markPoint: {
-                                data: [
-                                    {type: 'max', name: '最大值'},
-                                    {type: 'min', name: '最小值'}
-                                ]
-                            },
                             markLine: {
                                 data: [
                                     {type: 'average', name: '平均值'}

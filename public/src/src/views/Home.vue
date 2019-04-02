@@ -8,13 +8,13 @@
                 :bordered="false"
                 @tabChange="key => onTabChange(key, 'noTitleKey')"
         >
-            <div v-if="noTitleKey === 'projects'" style="height: 320px;position: relative">
+            <div v-if="noTitleKey === 'projects'" style="height: 280px;position: relative">
                 <div class="spin-container" v-show="spinning">
                     <a-spin tip="数据加载中..." :spinning="spinning"></a-spin>
                 </div>
                 <OverView/>
             </div>
-            <p v-else="noTitleKey === 'finance'" style="height: 320px;position: relative">app content</p>
+            <p v-else="noTitleKey === 'finance'" style="height: 280px;position: relative">app content</p>
         </a-card>
     </div>
 </template>

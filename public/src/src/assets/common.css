@@ -73,3 +73,20 @@
     border:1px solid #e8e8e8;
     padding: 2px;
 }
+.header-right {
+    flex: auto;
+    text-align: right;
+}
+.header-right>span {
+    display: inline-block;
+    padding: 0 5px;
+    margin: 0 15px;
+    cursor: pointer;
+}
+.header-right>span:hover{
+    background-color: #fafafa;
+}
+.top-count sup{
+    top: -18px !important;
+    right: -5px !important;
+}
