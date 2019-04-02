@@ -66,4 +66,14 @@ class Projects extends Api
         $data = $pro->getList();
         $this->result($data,200,'success','json');
     }
+
+    /**
+     * 获取产品报价分页
+     * @throws \think\exception\DbException
+     */
+    public function get_products_page(){
+        $pro = new Products();
+        $data = $pro->getPage();
+        $this->result($data,200,'success','json');
+    }
 }

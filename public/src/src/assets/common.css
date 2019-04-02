@@ -7,7 +7,7 @@
     margin: 10px 0 0;
 }
 .page-content{
-    padding: 14px;
+    padding: 20px;
 }
 .status-primary{
     color: #1890ff;
@@ -29,6 +29,12 @@
 }
 .i-b{
     display: inline-block;
+}
+.text-red{
+    color: #f5222d !important;
+}
+.text-center{
+    text-align: center;
 }
 .ant-form-item{
     margin-bottom: 10px;
