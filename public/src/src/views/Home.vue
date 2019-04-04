@@ -14,7 +14,7 @@
                 </div>
                 <OverView/>
             </div>
-            <p v-else="noTitleKey === 'finance'" style="height: 280px;position: relative">app content</p>
+            <div v-else="noTitleKey === 'finance'" style="height: 280px;position: relative">app content</div>
         </a-card>
     </div>
 </template>
