@@ -1,5 +1,6 @@
 module.exports = {
-  assetsDir: 'assets',
+  assetsDir: 'static',
+
   css: {
     loaderOptions: {
       less: {
@@ -11,5 +12,11 @@ module.exports = {
         javascriptEnabled: true
       }
     }
-  }
+  },
+
+  publicPath: undefined,
+  outputDir: 'build',
+  runtimeCompiler: undefined,
+  productionSourceMap: undefined,
+  parallel: undefined
 }
