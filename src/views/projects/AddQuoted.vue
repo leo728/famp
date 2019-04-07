@@ -147,7 +147,7 @@
 </template>
 
 <script>
-    import utils  from './../../plugins/utils'
+    import utils  from '../../plugins/utils'
     export default {
         data() {
             return {
