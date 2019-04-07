@@ -7,7 +7,12 @@
             v-model="collapsed"
             width="220"
     >
-      <div class="logo" />
+      <div class="logo">
+        <a href="">
+          <img src="./assets/logo.svg" height="40">
+          <span>FAMP<div>小微企业ERP系统</div></span>
+        </a>
+      </div>
       <Menus/>
     </a-layout-sider>
     <a-layout>
@@ -94,8 +99,23 @@
   }
 
   #root .logo {
-    height: 32px;
-    background: rgba(255,255,255,.2);
+    height: 40px;
     margin: 16px;
+    font-size: 24px;
+  }
+  .logo img {
+    vertical-align: baseline;
+  }
+  .logo div{
+    font-size: 12px;
+    color: #9e9e9e;
+  }
+  .logo span {
+    line-height: 20px;
+    padding-left: 7px;
+    display: inline-block;
+  }
+  .ant-layout-sider-collapsed .logo>a>span {
+    display: none;
   }
 </style>
