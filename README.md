@@ -1,4 +1,5 @@
 # famp 
+![avatar](http://famdata.oss-cn-shenzhen.aliyuncs.com/preview/logo.svg)
 * 前端页面采用vue和vue-cli构建
 * vuex状态管理
 * jwt api管理
