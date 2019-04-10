@@ -81,9 +81,12 @@
 }
 .header-right>span {
     display: inline-block;
-    padding: 0 5px;
-    margin: 0 15px;
+    padding: 0 15px;
+    margin: 0 5px;
     cursor: pointer;
+}
+.header-right>span>a {
+    display: block;
 }
 .header-right>span:hover{
     background-color: #fafafa;

@@ -1,72 +1,124 @@
 <template>
-    <div class="page-content">
-        <DataView/>
-        <a-card
-                style="width:100%;margin-top: 16px"
-                :tabList="tabListNoTitle"
-                :activeTabKey="noTitleKey"
-                :bordered="false"
-                @tabChange="key => onTabChange(key, 'noTitleKey')"
-        >
-            <div v-if="noTitleKey === 'projects'" style="height: 280px;position: relative">
-                <div class="spin-container" v-show="spinning">
-                    <a-spin tip="数据加载中..." :spinning="spinning"></a-spin>
-                </div>
-                <OverView/>
-            </div>
-            <div v-else="noTitleKey === 'finance'" style="height: 280px;position: relative">app content</div>
-        </a-card>
+    <div id="Home">
+        <a-locale-provider :locale="locale">
+            <a-layout id="root">
+                <a-layout-sider
+                        :trigger="null"
+                        collapsible
+                        v-model="collapsed"
+                        width="220"
+                >
+                    <div class="logo">
+                        <a href="">
+                            <img src="./../assets/logo.svg" height="40">
+                            <span>FAMP<div>小微企业ERP系统</div></span>
+                        </a>
+                    </div>
+                    <Menus/>
+                </a-layout-sider>
+                <a-layout>
+                    <a-layout-header style="background: #fff; padding: 0; display: flex">
+                        <a-icon
+                                class="trigger"
+                                :type="collapsed ? 'menu-unfold' : 'menu-fold'"
+                                @click="()=> collapsed = !collapsed"
+                        />
+                        <div class="header-right" style="">
+              <span>
+                <a-badge class="top-count" :count="99"  :overflowCount="9">
+                <a-icon type="bell"/>
+                </a-badge>
+              </span>
+                            <span>
+                <a-tooltip placement="bottom" >
+                  <template slot="title">
+                      <span>使用帮助</span>
+                  </template>
+                 <a-icon type="question-circle"/>
+                </a-tooltip>
+              </span>
+                            <span>
+                  <a-dropdown placement="bottomRight">
+                    <a href="" class="ant-dropdown-link">
+                      <img src="./../assets/avatar.jpg" :style="{width:'28px',height:'28px',borderRadius:'30px'}">
+                      Serati Ma
+                    </a>
+                    <a-menu slot="overlay" :style="{top:'0'}">
+                      <a-menu-item><router-link :to="{path:'/settings/profile'}">个人信息</router-link></a-menu-item>
+                      <a-menu-item><router-link :to="{path:'/settings/reset_pass'}">重置密码</router-link></a-menu-item>
+                      <a-menu-item>安全退出</a-menu-item>
+                    </a-menu>
+                  </a-dropdown>
+                </span>
+                            <span>
+                  <a-dropdown placement="bottomRight" >
+                    <a href="javascript:;"><a-icon type="global"/></a>
+                    <a-menu slot="overlay" :style="{top:'0'}">
+                      <a-menu-item>简体中文</a-menu-item>
+                      <a-menu-item>繁体中文</a-menu-item>
+                      <a-menu-item>English</a-menu-item>
+                    </a-menu>
+                  </a-dropdown>
+              </span>
+                        </div>
+                    </a-layout-header>
+                    <a-layout-content>
+                        <router-view></router-view>
+                    </a-layout-content>
+                </a-layout>
+            </a-layout>
+        </a-locale-provider>
     </div>
 </template>
 <style>
-    .spin-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(255,255,255,.5);
-        z-index: 33;
-        text-align: center;
-        box-sizing: border-box;
-        padding-top: 120px;
+    #root{
+        min-height: 100vh;
+    }
+    #root .trigger {
+        font-size: 18px;
+        line-height: 64px;
+        padding: 0 24px;
+        cursor: pointer;
+        transition: color .3s;
+    }
+
+    #root .trigger:hover {
+        color: #1890ff;
+    }
+
+    #root .logo {
+        height: 40px;
+        margin: 16px;
+        font-size: 24px;
+    }
+    .logo img {
+        vertical-align: baseline;
+    }
+    .logo div{
+        font-size: 12px;
+        color: #9e9e9e;
+    }
+    .logo span {
+        line-height: 20px;
+        padding-left: 7px;
+        display: inline-block;
+    }
+    .ant-layout-sider-collapsed .logo>a>span {
+        display: none;
     }
 </style>
 <script>
-    import OverView from '../components/OverView'
-    import DataView from '../components/DataView'
-
+    import Menus from './../components/Menus';
+    import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN';
     export default {
-        name: "home",
         data(){
             return {
-                tabListNoTitle: [{
-                    key: 'projects',
-                    tab: '项目概览',
-                }, {
-                    key: 'finance',
-                    tab: '收支概览',
-                }],
-                noTitleKey:'projects',
-                spinning:true
+                collapsed: false,
+                locale: zhCN,
             }
         },
-        components: {
-            OverView,
-            DataView,
-        },
-        created(){
-            setTimeout(this.setSpin,2000)
-        },
-        methods:{
-            onTabChange (key, type) {
-                this[type] = key
-                this.spinning = true
-                setTimeout(this.setSpin,2000)
-            },
-            setSpin(){
-                this.spinning = false
-            }
+        components:{
+            Menus
         }
     }
 </script>

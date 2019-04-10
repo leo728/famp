@@ -5,19 +5,26 @@ import router from './router'
 import store from './store'
 import './plugins/ant-design-vue.js'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 //设置访问信息
-let ProjectName = ' - FAMP小微企业ERP系统'
+let ProjectName = ' - FAMP小微企业ERP系统';
 router.beforeEach((to, from, next) => {
-  if (to.meta.title) {
-    document.title = to.meta.title + ProjectName
-    store.state.PageName = store.commit('setPageName',to.meta.title)
+  if(to.path === '/login'){
+    next()
+  }else {
+    if(!sessionStorage.getItem('token')){
+      next({path:'/login'})
+    }else {
+      if (to.meta.title) {
+        document.title = to.meta.title + ProjectName
+      }
+      next()
+    }
   }
-  next()
-})
+});
 new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');

@@ -41,7 +41,7 @@
             };
         },
         created(){
-            this.menus = router.options.routes
+            this.menus = router.options.routes[0].children
         }
     }
 </script>
