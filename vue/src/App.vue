@@ -39,7 +39,7 @@
               <span>
                   <a-dropdown placement="bottomRight">
                     <a href="" class="ant-dropdown-link">
-                      <a-avatar size="small" icon="user"/> Serati Ma
+                      <a-avatar size="small" src="./../assets/avatar.jpg"/> Serati Ma
                     </a>
                     <a-menu slot="overlay">
                       <a-menu-item>简体中文</a-menu-item>

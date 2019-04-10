@@ -30,8 +30,8 @@
                         <a-col :span="2">总价</a-col>
                         <a-col :span="2">操作</a-col>
                     </a-row>
-                    <template v-for="(item,index) in quotedItem">
-                        <a-row :gutter="4" class="row-striped">
+                    <template >
+                        <a-row :gutter="4" class="row-striped" v-for="(item,index) in quotedItem">
                             <a-col :span="6">{{item.content}}</a-col>
                             <a-col :span="4">{{item.crafts}}</a-col>
                             <a-col :span="2">{{item.spec}}</a-col>
@@ -45,63 +45,50 @@
                             </a-col>
                         </a-row>
                     </template>
-                    <div :style="{marginTop:'10px'}">
-                        <a-popover trigger="click" v-model="popVisible">
-                            <template slot="content">
-                                <div style="width: 1000px">
-                                    <a-row :gutter="4" style="margin-bottom: 5px">
-                                        <a-col :span="6">制作项目内容</a-col>
-                                        <a-col :span="5">制作工艺</a-col>
-                                        <a-col :span="3">规格</a-col>
-                                        <a-col :span="1">数量</a-col>
-                                        <a-col :span="2">面积/总数</a-col>
-                                        <a-col :span="1">单位</a-col>
-                                        <a-col :span="2">单价</a-col>
-                                        <a-col :span="2">总价</a-col>
-                                    </a-row>
-                                    <a-row :gutter="4">
-                                        <a-col :span="6">
-                                            <a-input v-model="item.content" placeholder="输入制作内容、项目"/>
-                                        </a-col>
-                                        <a-col :span="5">
-                                            <a-select
-                                                    v-model="item.crafts"
-                                                    style="width: 100%"
-                                                    showSearch
-                                                    placeholder="制作工艺"
-                                                    :maxTagCount="10"
-                                                    @change="setProduct"
-                                            >
-                                                <a-select-option
-                                                        v-for="item in products"
-                                                        :key="item.pid"
-                                                        :value="item.pid">{{item.title}}</a-select-option>
-                                            </a-select>
-                                        </a-col>
-                                        <a-col :span="3"><a-input placeholder="规格尺寸" v-model="item.spec"/></a-col>
-                                        <a-col :span="1"><a-input placeholder="数量" v-model="item.nums"/></a-col>
-                                        <a-col :span="2"><a-input placeholder="面积" v-model="item.area"/></a-col>
-                                        <a-col :span="1"><a-input placeholder="单位" v-model="item.unit"/></a-col>
-                                        <a-col :span="2"><a-input placeholder="单价" v-model="item.price"/></a-col>
-                                        <a-col :span="2"><a-input placeholder="总价" v-model="item.total"/></a-col>
-                                        <a-col :span="2">
-                                            <a-button type="primary"
-                                                      @click="addItem"
-                                                      :loading="addLoading"
-                                                      block>保存</a-button>
-                                        </a-col>
-                                    </a-row>
-                                </div>
-                            </template>
-                            <a-button type="dashed" icon="plus" block>新建制作项目</a-button>
-                        </a-popover>
+                    <div :style="{marginTop:'20px'}">
+                        <transition name="fade">
+                            <div v-if="popVisible">
+                                <a-row :gutter="4">
+                                    <a-col :span="6">
+                                        <a-input v-model="item.content" placeholder="输入制作内容、项目"/>
+                                    </a-col>
+                                    <a-col :span="4">
+                                        <a-select
+                                                v-model="item.crafts"
+                                                style="width: 100%"
+                                                showSearch
+                                                placeholder="制作工艺"
+                                                :maxTagCount="10"
+                                                @change="setProduct"
+                                        >
+                                            <a-select-option
+                                                    v-for="item in products"
+                                                    :key="item.pid"
+                                                    :value="item.pid">{{item.title}}</a-select-option>
+                                        </a-select>
+                                    </a-col>
+                                    <a-col :span="2"><a-input placeholder="规格尺寸" v-model="item.spec"/></a-col>
+                                    <a-col :span="2"><a-input placeholder="数量" v-model="item.nums"/></a-col>
+                                    <a-col :span="2"><a-input placeholder="面积" v-model="item.area"/></a-col>
+                                    <a-col :span="2"><a-input placeholder="单位" v-model="item.unit"/></a-col>
+                                    <a-col :span="2"><a-input placeholder="单价" v-model="item.price"/></a-col>
+                                    <a-col :span="2"><a-input placeholder="总价" v-model="item.total"/></a-col>
+                                    <a-col :span="2">
+                                        <a-button type="primary"
+                                                  @click="addItem"
+                                                  :loading="addLoading">添加</a-button>
+                                    </a-col>
+                                </a-row>
+                            </div>
+                        </transition>
+                        <a-button type="dashed" icon="plus" @click="callAddItem" block>新建制作项目</a-button>
                     </div>
                 </a-form-item>
                 <a-form-item>
                 <a-row>
                     <a-col :span="2" class="ant-form-item-label"><label>合计金额</label></a-col>
                     <a-col :span="3">
-                        <a-input value="0.00"/>
+                        <a-input value="0.00" v-model="quoted.total"/>
                     </a-col>
                     <a-col :span="2" class="ant-form-item-label"><label>业务员</label></a-col>
                     <a-col :span="3">
@@ -111,6 +98,7 @@
                                 style="width: 100%"
                                 @change="setUid"
                                 :maxTagCount="5"
+                                v-model="quoted.pm"
                         >
                             <a-select-option :value="item.uid" v-for="item in user" :key="item.uid">
                                 {{item.username}}
@@ -155,7 +143,7 @@
                 popVisible:false,
                 confirmLoading:false,
                 addLoading:false,
-                quoted:{subject:'',customer:'',mobile:'',item:[],total:'',pm:'',dateline:''},
+                quoted:{subject:'',customer:'',mobile:'',item:[],total:0.00,pm:'',dateline:''},
                 item:{content:'',crafts:'',spec:'',nums:'',area:'',price:'',unit:'',total:''},
                 quotedItem:utils.getItem('quotedItem'),
                 user:[],
@@ -201,6 +189,14 @@
                 utils.setItem('quotedItem',this.quotedItem)
             },
             setUid(){
+
+            },
+            callAddItem(){
+                if(this.popVisible){
+                    this.popVisible = false
+                }else {
+                    this.popVisible = true
+                }
 
             },
             setProduct(pid){
