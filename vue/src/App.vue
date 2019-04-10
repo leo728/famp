@@ -39,12 +39,13 @@
               <span>
                   <a-dropdown placement="bottomRight">
                     <a href="" class="ant-dropdown-link">
-                      <a-avatar size="small" src="./../assets/avatar.jpg"/> Serati Ma
+                      <img src="./assets/avatar.jpg" :style="{width:'28px',height:'28px',borderRadius:'30px'}">
+                      Serati Ma
                     </a>
                     <a-menu slot="overlay">
-                      <a-menu-item>简体中文</a-menu-item>
-                      <a-menu-item>繁体中文</a-menu-item>
-                      <a-menu-item>English</a-menu-item>
+                      <a-menu-item>个人信息</a-menu-item>
+                      <a-menu-item>重置密码</a-menu-item>
+                      <a-menu-item>安全退出</a-menu-item>
                     </a-menu>
                   </a-dropdown>
                 </span>

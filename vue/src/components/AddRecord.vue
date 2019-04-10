@@ -76,6 +76,7 @@
 </template>
 
 <script>
+    import utils from '../plugins/utils'
     export default {
         data() {
             return {
@@ -84,7 +85,7 @@
                 confirmLoading: false,
                 projects:[],
                 payment:[],
-                user:[]
+                user:utils.getItem('userList')
             }
         },
         created(){
@@ -93,9 +94,6 @@
             });
             this.$axios.get('get_payment.html').then((res)=>{
                 this.payment = res.data.data
-            });
-            this.$axios.get('get_user.html').then((res)=>{
-                this.user = res.data.data
             })
         },
         methods: {

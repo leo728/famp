@@ -78,13 +78,14 @@
                                         slot="avatar"
                                         :size="46"
                                         :class="item.statusValue.color"
+                                        shape="square"
                                 >
                                     {{item.firstName}}
                                 </a-avatar>
                                 <div slot="description">
-                                    <span class="mr-10">客户：{{item.customer}}</span>
-                                    <span class="mr-10">项目经理：{{item.username}}</span>
-                                    <span>时间：{{item.dateline_d}} - {{item.end_time_d}}</span>
+                                    <a-tag>客户：{{item.customer}}</a-tag>
+                                    <a-tag>业务员：{{item.username}}</a-tag>
+                                    <a-tag>时间：{{item.dateline_d}} - {{item.end_time_d}}</a-tag>
                                 </div>
                             </a-list-item-meta>
                             <div :style="{marginRight: '24px',width:'120px'}">
@@ -100,7 +101,11 @@
                     </a-list>
             </a-card>
             <div :style="{textAlign:'center',padding:'20px 0'}">
-                <a-button @click="onLoadMore">加载更多</a-button>
+                <transition name="fade">
+                    <div v-if="moreData">
+                        <a-button @click="onLoadMore">加载更多</a-button>
+                    </div>
+                </transition>
             </div>
         </div>
     </div>
@@ -125,7 +130,8 @@
                 level: utils.getItem('projectLevel'),
                 page:1,
                 projectId:0,
-                searchKey:''
+                searchKey:'',
+                moreData:true
             }
         },
         created(){
@@ -142,6 +148,7 @@
                 this.curStatus = target.value
                 this.page=1
                 this.getProjects()
+                this.moreData = true
             },
             onLoadMore(){
                 this.page++
@@ -151,6 +158,7 @@
 
                         this.lists = this.lists.concat(resData)
                     }else {
+                        this.moreData = false
                         this.$message.warning('没有更多数据了，要加油哦，项目有点少了');
                     }
                 })
@@ -178,6 +186,7 @@
                 }else {
                     this.axios.get('get_projects.html?subject='+this.searchKey).then((res)=>{
                         if(res.data.code === 200){
+                            this.moreData =true
                             this.lists = res.data.data.data
                         }else {
                             this.$message.warning('没有找到任何相关的项目信息');

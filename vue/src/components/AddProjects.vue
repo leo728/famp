@@ -37,10 +37,10 @@
                     <a-form-item label="项目周期" :label-col="{ span: 5 }">
                         <a-range-picker @change="setDate"/>
                     </a-form-item>
-                    <a-form-item label="项目经理" :label-col="{ span: 5 }">
+                    <a-form-item label="业务员" :label-col="{ span: 5 }">
                         <a-select
                                 showSearch
-                                placeholder="选择项目经理"
+                                placeholder="选择业务员"
                                 optionFilterProp="children"
                                 style="width: 200px"
                                 :maxTagCount="8"
@@ -70,23 +70,18 @@
 </template>
 
 <script>
+    import utils from '../plugins/utils';
+
     export default {
         name: "AddProjects",
         data() {
             return {
                 visible: false,
                 form: this.$form.createForm(this),
-                status:[],
-                level:[],
-                user:[]
+                status:utils.getItem('projectStatus'),
+                level:utils.getItem('projectLevel'),
+                user: utils.getItem('userList')
             }
-        },
-        created(){
-            this.status = JSON.parse(window.localStorage.getItem('projectStatus'))
-            this.level = JSON.parse(window.localStorage.getItem('projectLevel'))
-            this.$axios.get('get_user.html').then((res)=>{
-                this.user = res.data.data
-            })
         },
         methods: {
             showModal() {
