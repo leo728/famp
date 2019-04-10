@@ -159,7 +159,7 @@ export default new Router({
             path: '/login',
             name:'Login',
             component: Login,
-            meta: {title: 'FAMP小微企业ERP系统'}
+            meta: {title: '登录/注册 - FAMP小微企业ERP系统'}
         }
     ]
 })
