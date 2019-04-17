@@ -116,7 +116,6 @@
     import AddRecord from '../../components/AddRecord'
     import utils from '../../plugins/utils'
     export default {
-        name: "lists",
         components:{
             AddProject,
             AddRecord
@@ -135,6 +134,7 @@
             }
         },
         created(){
+            utils.getItem('vvv');
             this.getProjects(this.curStatus,this.page)
         },
         methods:{

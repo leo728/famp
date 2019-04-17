@@ -31,7 +31,7 @@ export default new Router({
             meta: {title: '首页概述', hideInMenu: true, icon: 'dashboard'},
             children: [
                 {
-                    path: '/',
+                    path: '',
                     name: 'Home',
                     component: () => import('@/views/Home'),
                     meta: {title: '首页概览', hideInMenu: true, icon: 'dashboard'}
@@ -46,9 +46,9 @@ export default new Router({
             meta: {title: '项目管理', icon: 'project',hideInMenu: false},
             children: [
                 {
-                    path: '/projects/lists',
+                    path: '/projects/index',
                     name: 'ProjectsLists',
-                    component: () => import('@/views/projects/List'),
+                    component: () => import('@/views/projects/Index'),
                     meta: {'title': '项目列表', hideInMenu: false}
                 },
                 {
@@ -74,29 +74,29 @@ export default new Router({
         {
             path: '/finance',
             name: 'Finance',
-            component: Finance,
+            component: Main,
             meta: {'title': '财务管理', icon: 'money-collect',hideInMenu: false},
             children: [
                 {
-                    path: '/finance/lists',
+                    path: 'index',
                     name: 'FinanceLists',
                     component: FinanceLists,
                     meta: {title: '收支记录', hideInMenu: false},
                 },
                 {
-                    path: '/finance/wake_hour',
+                    path: 'wake_hour',
                     name: 'WakeHour',
                     component: WakeHour,
                     meta: {'title': '工时管理', hideInMenu: false},
                 },
                 {
-                    path: '/finance/table',
+                    path: 'table',
                     name: 'Table',
                     component: Table,
                     meta: {'title': '工资表', hideInMenu: false},
                 },
                 {
-                    path: '/finance/fina',
+                    path: 'fina',
                     name: 'Fina',
                     component: Fina,
                     meta: {'title': '资金管理', hideInMenu: false},
@@ -106,17 +106,17 @@ export default new Router({
         {
             path: '/member',
             name: 'Member',
-            component: Member,
+            component: Main,
             meta: {'title': '部门设置', icon: 'cluster',hideInMenu: false},
             children: [
                 {
-                    path: '/member/staff',
+                    path: 'staff',
                     name: 'Staff',
                     component: Staff,
                     meta: {'title': '员工列表', hideInMenu: false},
                 },
                 {
-                    path: '/member/department',
+                    path: 'department',
                     name: 'Department',
                     component: Department,
                     meta: {'title': '部门列表', hideInMenu: false},
@@ -126,23 +126,23 @@ export default new Router({
         {
             path: '/settings',
             name: 'Settings',
-            component: Settings,
+            component: Main,
             meta: {'title': '全局设置', icon: 'setting',hideInMenu: false},
             children: [
                 {
-                    path: '/settings/info',
+                    path: 'info',
                     name: 'Info',
                     component: SettingsInfo,
                     meta: {'title': '企业信息', hideInMenu: false},
                 },
                 {
-                    path: '/settings/profile',
+                    path: 'profile',
                     name: 'profile',
                     component: Profile,
                     meta: {'title': '个人信息', hideInMenu: true},
                 },
                 {
-                    path: '/settings/reset_pass',
+                    path: 'reset_pass',
                     name: 'ResetPass',
                     component: ResetPass,
                     meta: {'title': '修改密码', hideInMenu: false},
