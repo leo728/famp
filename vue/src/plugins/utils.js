@@ -1,13 +1,7 @@
 const utils = {
-    postData:(url, data)=>{
-
-    },
-    getData:(url, data)=>{
-
-    },
     cache:(k,v)=>{
         if(k && v){
-            if(!this.cache(k)){
+            if(!localStorage.getItem(k)){
                 let type = typeof v
                 if(type === 'object'){
                     v = JSON.stringify(v)
@@ -16,23 +10,7 @@ const utils = {
             }
         }
         if(k && !v){
-            return localStorage.getItem(k)
-        }
-    },
-    session:(k,v)=>{
-
-    },
-    getItem:(k)=>{
-        let v = window.localStorage.getItem(k)
-        return JSON.parse(v)
-    },
-    setItem(k, v) {
-        if(!this.getItem(k)){
-            let type = typeof v
-            if(type === 'object'){
-                v = JSON.stringify(v)
-            }
-            window.localStorage.setItem(k, v)
+            return JSON.parse(localStorage.getItem(k))
         }
     }
 };

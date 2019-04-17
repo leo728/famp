@@ -124,9 +124,9 @@
             return {
                 lists:[],
                 total:0,
-                status:utils.getItem('projectStatus'),
+                status:utils.cache('projectStatus'),
                 curStatus:0,
-                level: utils.getItem('projectLevel'),
+                level: utils.cache('projectLevel'),
                 page:1,
                 projectId:0,
                 searchKey:'',
@@ -134,8 +134,11 @@
             }
         },
         created(){
-            utils.getItem('vvv');
             this.getProjects(this.curStatus,this.page)
+            this.$axios.get('get_projects_level_status').then((res)=>{
+               utils.cache('projectStatus',res.data.data.status)
+               utils.cache('projectLevel',res.data.data.level)
+            })
         },
         methods:{
             getProjects(){
