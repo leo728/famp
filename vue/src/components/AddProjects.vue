@@ -29,7 +29,7 @@
                     </a-form-item>
                     <a-form-item label="项目紧急程度" :label-col="{ span: 5 }">
                         <a-radio-group defaultValue="2" buttonStyle="solid">
-                            <a-radio-button :value="item.level" v-for="item in level">
+                            <a-radio-button :value="item.level" v-for="item in level" :key="item.level">
                                 {{item.level_name}}
                             </a-radio-button>
                         </a-radio-group>
@@ -54,7 +54,7 @@
                     </a-form-item>
                     <a-form-item label="项目状态" :label-col="{ span: 5 }">
                         <a-select defaultValue="已接单" style="width: 120px">
-                            <a-select-option :value="item.status" v-for="item in status">
+                            <a-select-option :value="item.status" v-for="item in status" :key="item.status">
                                 {{item.status_name}}
                             </a-select-option>
                         </a-select>
@@ -87,10 +87,10 @@
             showModal() {
                 this.visible = true
             },
-            handleOk(e) {
+            handleOk() {
                 this.visible = false
             },
-            setDate(date) {
+            setDate() {
             },
             pmSet(){
 
