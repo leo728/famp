@@ -85,7 +85,7 @@
                 confirmLoading: false,
                 projects:[],
                 payment:[],
-                user:utils.getItem('userList')
+                user:utils.cache('userList')
             }
         },
         created(){

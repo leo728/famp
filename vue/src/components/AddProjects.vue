@@ -78,9 +78,9 @@
             return {
                 visible: false,
                 form: this.$form.createForm(this),
-                status:utils.getItem('projectStatus'),
-                level:utils.getItem('projectLevel'),
-                user: utils.getItem('userList')
+                status:utils.cache('projectStatus'),
+                level:utils.cache('projectLevel'),
+                user: utils.cache('userList')
             }
         },
         methods: {
