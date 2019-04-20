@@ -88,7 +88,7 @@
         margin-bottom: 15px;
     }
     .logo img {
-        vertical-align: baseline;
+        display: inline-block;
     }
     .logo div{
         font-size: 12px;
