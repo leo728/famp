@@ -6,23 +6,17 @@
                         :trigger="null"
                         collapsible
                         v-model="collapsed"
-                        width="220"
+                        width="70"
                 >
                     <div class="logo">
                         <a href="">
                             <img src="./../assets/logo.svg" height="40">
-                            <span>FAMP<div>小微企业ERP系统</div></span>
                         </a>
                     </div>
                     <Menus/>
                 </a-layout-sider>
                 <a-layout>
                     <a-layout-header style="background: #fff; padding: 0; display: flex">
-                        <a-icon
-                                class="trigger"
-                                :type="collapsed ? 'menu-unfold' : 'menu-fold'"
-                                @click="()=> collapsed = !collapsed"
-                        />
                         <div class="header-right" style="">
               <span>
                 <a-badge class="top-count" :count="99"  :overflowCount="9">
@@ -87,9 +81,11 @@
     }
 
     #root .logo {
-        height: 40px;
-        margin: 16px;
+        height: 60px;
         font-size: 24px;
+        text-align: center;
+        line-height: 60px;
+        margin-bottom: 15px;
     }
     .logo img {
         vertical-align: baseline;

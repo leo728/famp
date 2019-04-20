@@ -18,7 +18,7 @@ export default new Router({
                     path: '',
                     name: 'Home',
                     component: () => import('./views/Home'),
-                    meta: {title: '首页概览', hideInMenu: true, icon: 'dashboard'}
+                    meta: {title: '首页', hideInMenu: true, icon: 'dashboard'}
                 }
             ]
 
@@ -27,10 +27,10 @@ export default new Router({
             path: '/projects',
             name: 'Projects',
             component: Main,
-            meta: {title: '项目管理', icon: 'project',hideInMenu: false},
+            meta: {title: '项目', icon: 'project',hideInMenu: false},
             children: [
                 {
-                    path: '/projects/index',
+                    path: '/',
                     name: 'ProjectsLists',
                     component: () => import('./views/projects/Index'),
                     meta: {'title': '项目列表', hideInMenu: false}
@@ -46,20 +46,26 @@ export default new Router({
                     name: 'AddQuoted',
                     component: () => import('./views/projects/AddQuoted'),
                     meta: {'title': '新建报价', hideInMenu: true},
-                },
-                {
-                    path: '/projects/products',
-                    name: 'Products',
-                    component: () => import('./views/projects/Products'),
-                    meta: {'title': '产品报价', hideInMenu: false},
-                },
+                }
             ]
+        },
+        {
+            path: '/projects/quoted',
+            name: 'Quoted',
+            component: () => import('./views/projects/Quoted'),
+            meta: {'title': '报价',icon:'calculator',hideInMenu: false}
+        },
+        {
+            path: '/projects/products',
+            name: 'Products',
+            component: () => import('./views/projects/Products'),
+            meta: {'title': '产品',icon:'appstore', hideInMenu: false},
         },
         {
             path: '/finance',
             name: 'Finance',
             component: Main,
-            meta: {'title': '财务管理', icon: 'money-collect',hideInMenu: false},
+            meta: {'title': '财务', icon: 'money-collect',hideInMenu: false},
             children: [
                 {
                     path: 'index',
@@ -91,7 +97,7 @@ export default new Router({
             path: '/member',
             name: 'Member',
             component: Main,
-            meta: {'title': '部门设置', icon: 'cluster',hideInMenu: false},
+            meta: {'title': '部门', icon: 'cluster',hideInMenu: false},
             children: [
                 {
                     path: 'staff',
@@ -108,10 +114,25 @@ export default new Router({
             ]
         },
         {
+            path: '/documents',
+            name: '',
+            component: Main,
+            meta: {title: '文档', hideInMenu: false, icon: 'folder-open'},
+            children: [
+                {
+                    path: '/',
+                    name: 'Home',
+                    component: () => import('./views/Home'),
+                    meta: {title: '首页', hideInMenu: true, icon: 'dashboard'}
+                }
+            ]
+
+        },
+        {
             path: '/settings',
             name: 'Settings',
             component: Main,
-            meta: {'title': '全局设置', icon: 'setting',hideInMenu: false},
+            meta: {'title': '设置', icon: 'setting',hideInMenu: true},
             children: [
                 {
                     path: 'info',

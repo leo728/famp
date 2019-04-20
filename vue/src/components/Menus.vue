@@ -7,31 +7,20 @@
                     theme="dark"
                     :inlineCollapsed="collapsed"
             >
-                <a-menu-item style="margin:0">
+                <a-menu-item class="nav-item">
                     <router-link :to="{path:'/'}">
-                        <a-icon type="dashboard" style="font-size: 18px;" />
-                        <span>首页概览</span>
+                        <a-icon type="dashboard" style="font-size: 22px;margin-right: 0" />
+                        <div>首页</div>
                     </router-link>
                 </a-menu-item>
                 <template v-for="vo in menus">
                     <template v-if="!vo.meta.hideInMenu">
-                        <a-menu-item :key="vo.path" v-if="!vo.children" style="margin:0">
+                        <a-menu-item :key="vo.path" class="nav-item">
                             <router-link :to="vo.path">
-                                <a-icon :type="vo.meta.icon" style="font-size: 18px;" />
-                                <span>{{vo.meta.title}}</span>
+                                <a-icon :type="vo.meta.icon" style="font-size: 22px;margin-right: 0" />
+                                <div>{{vo.meta.title}}</div>
                             </router-link>
                         </a-menu-item>
-                        <a-sub-menu :key="vo.path" v-else>
-                            <span slot="title">
-                                <a-icon :type="vo.meta.icon" style="font-size: 18px;" />
-                                <span>{{vo.meta.title}}</span>
-                            </span>
-                            <a-menu-item v-if="!v.meta.hideInMenu" :key="v.path" v-for="v in vo.children">
-                                <router-link :to="v.path">
-                                {{v.meta.title}}
-                                </router-link>
-                            </a-menu-item>
-                        </a-sub-menu>
                     </template>
                 </template>
             </a-menu>
@@ -56,5 +45,11 @@
 </script>
 
 <style scoped>
-
+    .nav-item{
+        margin:0 0 5px 0 !important;
+        padding:7px 0 !important;
+        text-align: center;
+        height: 60px !important;
+        line-height: 20px !important;
+    }
 </style>
