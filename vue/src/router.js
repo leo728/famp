@@ -33,7 +33,15 @@ export default new Router({
                     path: '/',
                     name: 'ProjectsLists',
                     component: () => import('./views/projects/Index'),
-                    meta: {'title': '项目列表', hideInMenu: false}
+                    meta: {'title': '项目列表', hideInMenu: false},
+                    children: [
+                        {
+                            path: '/projects/details/:project_id',
+                            name: 'ProjectDetails',
+                            component: () => import('./views/projects/Details'),
+                            meta: {'title': '项目详情', hideInMenu: false},
+                        }
+                    ]
                 },
                 {
                     path: '/projects/quoted',
